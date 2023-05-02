@@ -145,7 +145,7 @@
             </Border.Background>
 
             <Grid Width="950" Margin="0 250 0 0">
-                
+                   
 
                 <DataGrid x:Name="DGemployee" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
