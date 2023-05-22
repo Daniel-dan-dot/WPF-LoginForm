@@ -17,7 +17,7 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BetInvestment()
         {
-            this.InvestmentContract = new HashSet<InvestmentContract>();
+            this.InvestmentContracts = new HashSet<InvestmentContract>();
         }
     
         public byte Id { get; set; }
@@ -26,6 +26,6 @@ namespace WPF_LoginForm.Model
     
         public virtual TermInvestment TermInvestment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvestmentContract> InvestmentContract { get; set; }
+        public virtual ICollection<InvestmentContract> InvestmentContracts { get; set; }
     }
 }

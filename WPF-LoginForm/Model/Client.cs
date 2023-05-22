@@ -17,7 +17,7 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
-            this.Contract = new HashSet<Contract>();
+            this.Contracts = new HashSet<Contract>();
         }
     
         public int Id { get; set; }
@@ -33,6 +33,6 @@ namespace WPF_LoginForm.Model
         public virtual ClientInfo ClientInfo { get; set; }
         public virtual TypeClient TypeClient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contract> Contract { get; set; }
+        public virtual ICollection<Contract> Contracts { get; set; }
     }
 }

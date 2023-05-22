@@ -17,7 +17,7 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Score()
         {
-            this.Contract = new HashSet<Contract>();
+            this.Contracts = new HashSet<Contract>();
         }
     
         public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace WPF_LoginForm.Model
         public byte IdTypeScore { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contract> Contract { get; set; }
+        public virtual ICollection<Contract> Contracts { get; set; }
         public virtual TypeScore TypeScore { get; set; }
     }
 }

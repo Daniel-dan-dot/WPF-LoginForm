@@ -17,13 +17,13 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SummCredit()
         {
-            this.BetCredit = new HashSet<BetCredit>();
+            this.BetCredits = new HashSet<BetCredit>();
         }
     
         public byte Id { get; set; }
         public int Sum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BetCredit> BetCredit { get; set; }
+        public virtual ICollection<BetCredit> BetCredits { get; set; }
     }
 }

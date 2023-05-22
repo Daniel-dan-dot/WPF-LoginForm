@@ -4,15 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DB_BANK3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище DB_BANK4Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varbinary" MaxLength="64" Nullable="false" />
           <Property Name="IdRole" Type="tinyint" Nullable="false" />
           <Property Name="IdEmployee" Type="int" Nullable="false" />
         </EntityType>
@@ -640,7 +640,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище DB_BANK3ModelContainer">
+        <EntityContainer Name="Хранилище DB_BANK4ModelContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BetCredit" EntityType="Self.BetCredit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BetDeposit" EntityType="Self.BetDeposit" Schema="dbo" store:Type="Tables" />
@@ -797,15 +797,15 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DB_BANK3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DB_BANK4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="Binary" MaxLength="64" FixedLength="false" Nullable="false" />
           <Property Name="IdRole" Type="Byte" Nullable="false" />
           <Property Name="IdEmployee" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Account_Employee_IdEmployee" FromRole="Account" ToRole="Employee" />
@@ -821,7 +821,7 @@
           <Property Name="IdTermCredit" Type="Byte" Nullable="false" />
           <NavigationProperty Name="SummCredit" Relationship="Self.FK_BetCredit_SummCredit_IdSummCredit" FromRole="BetCredit" ToRole="SummCredit" />
           <NavigationProperty Name="TermCredit" Relationship="Self.FK_BetCredit_TermCredit_IdTermCredit" FromRole="BetCredit" ToRole="TermCredit" />
-          <NavigationProperty Name="CreditContract" Relationship="Self.FK_CreditContract_BetCredit_IdBetCredit" FromRole="BetCredit" ToRole="CreditContract" />
+          <NavigationProperty Name="CreditContracts" Relationship="Self.FK_CreditContract_BetCredit_IdBetCredit" FromRole="BetCredit" ToRole="CreditContract" />
         </EntityType>
         <EntityType Name="BetDeposit">
           <Key>
@@ -831,7 +831,7 @@
           <Property Name="Bet" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
           <Property Name="IdTermDeposit" Type="Byte" Nullable="false" />
           <NavigationProperty Name="TermDeposit" Relationship="Self.FK_BetDeposit_TermDeposit_IdTermDeposit" FromRole="BetDeposit" ToRole="TermDeposit" />
-          <NavigationProperty Name="DepositContract" Relationship="Self.FK_DepositContract_BetDeposit_IdBetDeposit" FromRole="BetDeposit" ToRole="DepositContract" />
+          <NavigationProperty Name="DepositContracts" Relationship="Self.FK_DepositContract_BetDeposit_IdBetDeposit" FromRole="BetDeposit" ToRole="DepositContract" />
         </EntityType>
         <EntityType Name="BetInvestment">
           <Key>
@@ -841,7 +841,7 @@
           <Property Name="Bet" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
           <Property Name="IdTermInvestment" Type="Byte" Nullable="false" />
           <NavigationProperty Name="TermInvestment" Relationship="Self.FK_BetInvestment_TermInvestment_IdTermInvestment" FromRole="BetInvestment" ToRole="TermInvestment" />
-          <NavigationProperty Name="InvestmentContract" Relationship="Self.FK_InvestmentContract_BetInvestment_IdBetInvestment" FromRole="BetInvestment" ToRole="InvestmentContract" />
+          <NavigationProperty Name="InvestmentContracts" Relationship="Self.FK_InvestmentContract_BetInvestment_IdBetInvestment" FromRole="BetInvestment" ToRole="InvestmentContract" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -858,7 +858,7 @@
           <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ClientInfo" Relationship="Self.FK_Client_ClientInfo_IdClientInfo" FromRole="Client" ToRole="ClientInfo" />
           <NavigationProperty Name="TypeClient" Relationship="Self.FK_Client_TypeClient_IdTypeClient" FromRole="Client" ToRole="TypeClient" />
-          <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Client_IdClient" FromRole="Client" ToRole="Contract" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contract_Client_IdClient" FromRole="Client" ToRole="Contract" />
         </EntityType>
         <EntityType Name="ClientInfo">
           <Key>
@@ -871,7 +871,7 @@
           <Property Name="DateOfIssue" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="INN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SNILS" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Client_ClientInfo_IdClientInfo" FromRole="ClientInfo" ToRole="Client" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Client_ClientInfo_IdClientInfo" FromRole="ClientInfo" ToRole="Client" />
         </EntityType>
         <EntityType Name="Comission">
           <Key>
@@ -879,7 +879,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ComissionByInvestment" Relationship="Self.FK_ComissionByInvestment_Comission_IdComission" FromRole="Comission" ToRole="ComissionByInvestment" />
+          <NavigationProperty Name="ComissionByInvestments" Relationship="Self.FK_ComissionByInvestment_Comission_IdComission" FromRole="Comission" ToRole="ComissionByInvestment" />
         </EntityType>
         <EntityType Name="ComissionByInvestment">
           <Key>
@@ -906,10 +906,10 @@
           <NavigationProperty Name="Client" Relationship="Self.FK_Contract_Client_IdClient" FromRole="Contract" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Contract_Employee_IdEmployee" FromRole="Contract" ToRole="Employee" />
           <NavigationProperty Name="Score" Relationship="Self.FK_Contract_Score_IdScore" FromRole="Contract" ToRole="Score" />
-          <NavigationProperty Name="CreditContract" Relationship="Self.FK_CreditContract_Contract_IdContract" FromRole="Contract" ToRole="CreditContract" />
-          <NavigationProperty Name="DepositContract" Relationship="Self.FK_DepositContract_Contract_IdContract" FromRole="Contract" ToRole="DepositContract" />
-          <NavigationProperty Name="InsuranceContract" Relationship="Self.FK_InsuranceContract_Contract_IdContract" FromRole="Contract" ToRole="InsuranceContract" />
-          <NavigationProperty Name="InvestmentContract" Relationship="Self.FK_InvestmentContract_Contract_IdContract" FromRole="Contract" ToRole="InvestmentContract" />
+          <NavigationProperty Name="CreditContracts" Relationship="Self.FK_CreditContract_Contract_IdContract" FromRole="Contract" ToRole="CreditContract" />
+          <NavigationProperty Name="DepositContracts" Relationship="Self.FK_DepositContract_Contract_IdContract" FromRole="Contract" ToRole="DepositContract" />
+          <NavigationProperty Name="InsuranceContracts" Relationship="Self.FK_InsuranceContract_Contract_IdContract" FromRole="Contract" ToRole="InsuranceContract" />
+          <NavigationProperty Name="InvestmentContracts" Relationship="Self.FK_InvestmentContract_Contract_IdContract" FromRole="Contract" ToRole="InvestmentContract" />
         </EntityType>
         <EntityType Name="Credit">
           <Key>
@@ -919,7 +919,7 @@
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Conditions" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MinimalSumm" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CreditContract" Relationship="Self.FK_CreditContract_Credit_IdCredit" FromRole="Credit" ToRole="CreditContract" />
+          <NavigationProperty Name="CreditContracts" Relationship="Self.FK_CreditContract_Credit_IdCredit" FromRole="Credit" ToRole="CreditContract" />
         </EntityType>
         <EntityType Name="CreditContract">
           <Key>
@@ -942,7 +942,7 @@
           <Property Name="MinimalSumm" Type="Int32" Nullable="false" />
           <Property Name="PossibilityOfReplenishment" Type="Boolean" Nullable="false" />
           <Property Name="PossibilityOfWithdrawal" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="DepositContract" Relationship="Self.FK_DepositContract_Deposit_IdDeposit" FromRole="Deposit" ToRole="DepositContract" />
+          <NavigationProperty Name="DepositContracts" Relationship="Self.FK_DepositContract_Deposit_IdDeposit" FromRole="Deposit" ToRole="DepositContract" />
         </EntityType>
         <EntityType Name="DepositContract">
           <Key>
@@ -969,8 +969,8 @@
           <Property Name="IdPost" Type="Byte" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK_Account_Employee_IdEmployee" FromRole="Employee" ToRole="Account" />
-          <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Employee_IdEmployee" FromRole="Employee" ToRole="Contract" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Employee_IdEmployee" FromRole="Employee" ToRole="Account" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contract_Employee_IdEmployee" FromRole="Employee" ToRole="Contract" />
           <NavigationProperty Name="Post" Relationship="Self.FK_Employee_Post_IdPost" FromRole="Employee" ToRole="Post" />
         </EntityType>
         <EntityType Name="Insurance">
@@ -983,7 +983,7 @@
           <Property Name="InsuranceCase" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdTermInsurance" Type="Byte" Nullable="false" />
           <NavigationProperty Name="TermInsurance" Relationship="Self.FK_Insurance_TermInsurance_IdTermInsurance" FromRole="Insurance" ToRole="TermInsurance" />
-          <NavigationProperty Name="InsuranceContract" Relationship="Self.FK_InsuranceContract_Insurance_IdInsurance" FromRole="Insurance" ToRole="InsuranceContract" />
+          <NavigationProperty Name="InsuranceContracts" Relationship="Self.FK_InsuranceContract_Insurance_IdInsurance" FromRole="Insurance" ToRole="InsuranceContract" />
         </EntityType>
         <EntityType Name="InsuranceContract">
           <Key>
@@ -1008,10 +1008,10 @@
           <Property Name="MinimalContribution" Type="Int32" Nullable="false" />
           <Property Name="NameOfIndustries" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NameOfCompanies" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ComissionByInvestment" Relationship="Self.FK_ComissionByInvestment_Investment_IdInvestment" FromRole="Investment" ToRole="ComissionByInvestment" />
+          <NavigationProperty Name="ComissionByInvestments" Relationship="Self.FK_ComissionByInvestment_Investment_IdInvestment" FromRole="Investment" ToRole="ComissionByInvestment" />
           <NavigationProperty Name="InvestmentDirection" Relationship="Self.FK_Investment_InvestmentDirection_IdInvestmentDirection" FromRole="Investment" ToRole="InvestmentDirection" />
           <NavigationProperty Name="InvestmentRiskLevel" Relationship="Self.FK_Investment_InvestmentRiskLevel_IdRiskLevel" FromRole="Investment" ToRole="InvestmentRiskLevel" />
-          <NavigationProperty Name="InvestmentContract" Relationship="Self.FK_InvestmentContract_Investment_IdInvestment" FromRole="Investment" ToRole="InvestmentContract" />
+          <NavigationProperty Name="InvestmentContracts" Relationship="Self.FK_InvestmentContract_Investment_IdInvestment" FromRole="Investment" ToRole="InvestmentContract" />
         </EntityType>
         <EntityType Name="InvestmentContract">
           <Key>
@@ -1031,7 +1031,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Investment" Relationship="Self.FK_Investment_InvestmentDirection_IdInvestmentDirection" FromRole="InvestmentDirection" ToRole="Investment" />
+          <NavigationProperty Name="Investments" Relationship="Self.FK_Investment_InvestmentDirection_IdInvestmentDirection" FromRole="InvestmentDirection" ToRole="Investment" />
         </EntityType>
         <EntityType Name="InvestmentRiskLevel">
           <Key>
@@ -1039,7 +1039,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Investment" Relationship="Self.FK_Investment_InvestmentRiskLevel_IdRiskLevel" FromRole="InvestmentRiskLevel" ToRole="Investment" />
+          <NavigationProperty Name="Investments" Relationship="Self.FK_Investment_InvestmentRiskLevel_IdRiskLevel" FromRole="InvestmentRiskLevel" ToRole="Investment" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -1047,7 +1047,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Post_IdPost" FromRole="Post" ToRole="Employee" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_Post_IdPost" FromRole="Post" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -1055,7 +1055,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK_Account_Role_IdRole" FromRole="Role" ToRole="Account" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Role_IdRole" FromRole="Role" ToRole="Account" />
         </EntityType>
         <EntityType Name="Score">
           <Key>
@@ -1066,7 +1066,7 @@
           <Property Name="BIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TRRC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdTypeScore" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Score_IdScore" FromRole="Score" ToRole="Contract" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contract_Score_IdScore" FromRole="Score" ToRole="Contract" />
           <NavigationProperty Name="TypeScore" Relationship="Self.FK_Score_TypeScore_IdTypeScore" FromRole="Score" ToRole="TypeScore" />
         </EntityType>
         <EntityType Name="SummCredit">
@@ -1075,7 +1075,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sum" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BetCredit" Relationship="Self.FK_BetCredit_SummCredit_IdSummCredit" FromRole="SummCredit" ToRole="BetCredit" />
+          <NavigationProperty Name="BetCredits" Relationship="Self.FK_BetCredit_SummCredit_IdSummCredit" FromRole="SummCredit" ToRole="BetCredit" />
         </EntityType>
         <EntityType Name="SummInsurance">
           <Key>
@@ -1083,7 +1083,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sum" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="InsuranceContract" Relationship="Self.FK_InsuranceContract_SummInsurance_IdSummInsurance" FromRole="SummInsurance" ToRole="InsuranceContract" />
+          <NavigationProperty Name="InsuranceContracts" Relationship="Self.FK_InsuranceContract_SummInsurance_IdSummInsurance" FromRole="SummInsurance" ToRole="InsuranceContract" />
         </EntityType>
         <EntityType Name="TermCredit">
           <Key>
@@ -1091,7 +1091,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BetCredit" Relationship="Self.FK_BetCredit_TermCredit_IdTermCredit" FromRole="TermCredit" ToRole="BetCredit" />
+          <NavigationProperty Name="BetCredits" Relationship="Self.FK_BetCredit_TermCredit_IdTermCredit" FromRole="TermCredit" ToRole="BetCredit" />
         </EntityType>
         <EntityType Name="TermDeposit">
           <Key>
@@ -1099,7 +1099,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BetDeposit" Relationship="Self.FK_BetDeposit_TermDeposit_IdTermDeposit" FromRole="TermDeposit" ToRole="BetDeposit" />
+          <NavigationProperty Name="BetDeposits" Relationship="Self.FK_BetDeposit_TermDeposit_IdTermDeposit" FromRole="TermDeposit" ToRole="BetDeposit" />
         </EntityType>
         <EntityType Name="TermInsurance">
           <Key>
@@ -1107,7 +1107,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Insurance" Relationship="Self.FK_Insurance_TermInsurance_IdTermInsurance" FromRole="TermInsurance" ToRole="Insurance" />
+          <NavigationProperty Name="Insurances" Relationship="Self.FK_Insurance_TermInsurance_IdTermInsurance" FromRole="TermInsurance" ToRole="Insurance" />
         </EntityType>
         <EntityType Name="TermInvestment">
           <Key>
@@ -1115,7 +1115,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BetInvestment" Relationship="Self.FK_BetInvestment_TermInvestment_IdTermInvestment" FromRole="TermInvestment" ToRole="BetInvestment" />
+          <NavigationProperty Name="BetInvestments" Relationship="Self.FK_BetInvestment_TermInvestment_IdTermInvestment" FromRole="TermInvestment" ToRole="BetInvestment" />
         </EntityType>
         <EntityType Name="TypeClient">
           <Key>
@@ -1123,7 +1123,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Client_TypeClient_IdTypeClient" FromRole="TypeClient" ToRole="Client" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Client_TypeClient_IdTypeClient" FromRole="TypeClient" ToRole="Client" />
         </EntityType>
         <EntityType Name="TypeScore">
           <Key>
@@ -1131,7 +1131,7 @@
           </Key>
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="17" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Score" Relationship="Self.FK_Score_TypeScore_IdTypeScore" FromRole="TypeScore" ToRole="Score" />
+          <NavigationProperty Name="Scores" Relationship="Self.FK_Score_TypeScore_IdTypeScore" FromRole="TypeScore" ToRole="Score" />
         </EntityType>
         <Association Name="FK_Account_Employee_IdEmployee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
@@ -1493,157 +1493,157 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_BANK3Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Account" EntityType="Self.Account" />
-          <EntitySet Name="BetCredit" EntityType="Self.BetCredit" />
-          <EntitySet Name="BetDeposit" EntityType="Self.BetDeposit" />
-          <EntitySet Name="BetInvestment" EntityType="Self.BetInvestment" />
-          <EntitySet Name="Client" EntityType="Self.Client" />
-          <EntitySet Name="ClientInfo" EntityType="Self.ClientInfo" />
-          <EntitySet Name="Comission" EntityType="Self.Comission" />
-          <EntitySet Name="ComissionByInvestment" EntityType="Self.ComissionByInvestment" />
-          <EntitySet Name="Contract" EntityType="Self.Contract" />
-          <EntitySet Name="Credit" EntityType="Self.Credit" />
-          <EntitySet Name="CreditContract" EntityType="Self.CreditContract" />
-          <EntitySet Name="Deposit" EntityType="Self.Deposit" />
-          <EntitySet Name="DepositContract" EntityType="Self.DepositContract" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" />
-          <EntitySet Name="Insurance" EntityType="Self.Insurance" />
-          <EntitySet Name="InsuranceContract" EntityType="Self.InsuranceContract" />
-          <EntitySet Name="Investment" EntityType="Self.Investment" />
-          <EntitySet Name="InvestmentContract" EntityType="Self.InvestmentContract" />
-          <EntitySet Name="InvestmentDirection" EntityType="Self.InvestmentDirection" />
-          <EntitySet Name="InvestmentRiskLevel" EntityType="Self.InvestmentRiskLevel" />
-          <EntitySet Name="Post" EntityType="Self.Post" />
-          <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="Score" EntityType="Self.Score" />
-          <EntitySet Name="SummCredit" EntityType="Self.SummCredit" />
-          <EntitySet Name="SummInsurance" EntityType="Self.SummInsurance" />
-          <EntitySet Name="TermCredit" EntityType="Self.TermCredit" />
-          <EntitySet Name="TermDeposit" EntityType="Self.TermDeposit" />
-          <EntitySet Name="TermInsurance" EntityType="Self.TermInsurance" />
-          <EntitySet Name="TermInvestment" EntityType="Self.TermInvestment" />
-          <EntitySet Name="TypeClient" EntityType="Self.TypeClient" />
-          <EntitySet Name="TypeScore" EntityType="Self.TypeScore" />
+        <EntityContainer Name="DB_BANK4Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="BetCredits" EntityType="Self.BetCredit" />
+          <EntitySet Name="BetDeposits" EntityType="Self.BetDeposit" />
+          <EntitySet Name="BetInvestments" EntityType="Self.BetInvestment" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="ClientInfoes" EntityType="Self.ClientInfo" />
+          <EntitySet Name="Comissions" EntityType="Self.Comission" />
+          <EntitySet Name="ComissionByInvestments" EntityType="Self.ComissionByInvestment" />
+          <EntitySet Name="Contracts" EntityType="Self.Contract" />
+          <EntitySet Name="Credits" EntityType="Self.Credit" />
+          <EntitySet Name="CreditContracts" EntityType="Self.CreditContract" />
+          <EntitySet Name="Deposits" EntityType="Self.Deposit" />
+          <EntitySet Name="DepositContracts" EntityType="Self.DepositContract" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Insurances" EntityType="Self.Insurance" />
+          <EntitySet Name="InsuranceContracts" EntityType="Self.InsuranceContract" />
+          <EntitySet Name="Investments" EntityType="Self.Investment" />
+          <EntitySet Name="InvestmentContracts" EntityType="Self.InvestmentContract" />
+          <EntitySet Name="InvestmentDirections" EntityType="Self.InvestmentDirection" />
+          <EntitySet Name="InvestmentRiskLevels" EntityType="Self.InvestmentRiskLevel" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Scores" EntityType="Self.Score" />
+          <EntitySet Name="SummCredits" EntityType="Self.SummCredit" />
+          <EntitySet Name="SummInsurances" EntityType="Self.SummInsurance" />
+          <EntitySet Name="TermCredits" EntityType="Self.TermCredit" />
+          <EntitySet Name="TermDeposits" EntityType="Self.TermDeposit" />
+          <EntitySet Name="TermInsurances" EntityType="Self.TermInsurance" />
+          <EntitySet Name="TermInvestments" EntityType="Self.TermInvestment" />
+          <EntitySet Name="TypeClients" EntityType="Self.TypeClient" />
+          <EntitySet Name="TypeScores" EntityType="Self.TypeScore" />
           <AssociationSet Name="FK_Account_Employee_IdEmployee" Association="Self.FK_Account_Employee_IdEmployee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Account" EntitySet="Account" />
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
           <AssociationSet Name="FK_Account_Role_IdRole" Association="Self.FK_Account_Role_IdRole">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="Account" EntitySet="Account" />
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
           <AssociationSet Name="FK_BetCredit_SummCredit_IdSummCredit" Association="Self.FK_BetCredit_SummCredit_IdSummCredit">
-            <End Role="SummCredit" EntitySet="SummCredit" />
-            <End Role="BetCredit" EntitySet="BetCredit" />
+            <End Role="SummCredit" EntitySet="SummCredits" />
+            <End Role="BetCredit" EntitySet="BetCredits" />
           </AssociationSet>
           <AssociationSet Name="FK_BetCredit_TermCredit_IdTermCredit" Association="Self.FK_BetCredit_TermCredit_IdTermCredit">
-            <End Role="TermCredit" EntitySet="TermCredit" />
-            <End Role="BetCredit" EntitySet="BetCredit" />
+            <End Role="TermCredit" EntitySet="TermCredits" />
+            <End Role="BetCredit" EntitySet="BetCredits" />
           </AssociationSet>
           <AssociationSet Name="FK_CreditContract_BetCredit_IdBetCredit" Association="Self.FK_CreditContract_BetCredit_IdBetCredit">
-            <End Role="BetCredit" EntitySet="BetCredit" />
-            <End Role="CreditContract" EntitySet="CreditContract" />
+            <End Role="BetCredit" EntitySet="BetCredits" />
+            <End Role="CreditContract" EntitySet="CreditContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_BetDeposit_TermDeposit_IdTermDeposit" Association="Self.FK_BetDeposit_TermDeposit_IdTermDeposit">
-            <End Role="TermDeposit" EntitySet="TermDeposit" />
-            <End Role="BetDeposit" EntitySet="BetDeposit" />
+            <End Role="TermDeposit" EntitySet="TermDeposits" />
+            <End Role="BetDeposit" EntitySet="BetDeposits" />
           </AssociationSet>
           <AssociationSet Name="FK_DepositContract_BetDeposit_IdBetDeposit" Association="Self.FK_DepositContract_BetDeposit_IdBetDeposit">
-            <End Role="BetDeposit" EntitySet="BetDeposit" />
-            <End Role="DepositContract" EntitySet="DepositContract" />
+            <End Role="BetDeposit" EntitySet="BetDeposits" />
+            <End Role="DepositContract" EntitySet="DepositContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_BetInvestment_TermInvestment_IdTermInvestment" Association="Self.FK_BetInvestment_TermInvestment_IdTermInvestment">
-            <End Role="TermInvestment" EntitySet="TermInvestment" />
-            <End Role="BetInvestment" EntitySet="BetInvestment" />
+            <End Role="TermInvestment" EntitySet="TermInvestments" />
+            <End Role="BetInvestment" EntitySet="BetInvestments" />
           </AssociationSet>
           <AssociationSet Name="FK_InvestmentContract_BetInvestment_IdBetInvestment" Association="Self.FK_InvestmentContract_BetInvestment_IdBetInvestment">
-            <End Role="BetInvestment" EntitySet="BetInvestment" />
-            <End Role="InvestmentContract" EntitySet="InvestmentContract" />
+            <End Role="BetInvestment" EntitySet="BetInvestments" />
+            <End Role="InvestmentContract" EntitySet="InvestmentContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_ClientInfo_IdClientInfo" Association="Self.FK_Client_ClientInfo_IdClientInfo">
-            <End Role="ClientInfo" EntitySet="ClientInfo" />
-            <End Role="Client" EntitySet="Client" />
+            <End Role="ClientInfo" EntitySet="ClientInfoes" />
+            <End Role="Client" EntitySet="Clients" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_TypeClient_IdTypeClient" Association="Self.FK_Client_TypeClient_IdTypeClient">
-            <End Role="TypeClient" EntitySet="TypeClient" />
-            <End Role="Client" EntitySet="Client" />
+            <End Role="TypeClient" EntitySet="TypeClients" />
+            <End Role="Client" EntitySet="Clients" />
           </AssociationSet>
           <AssociationSet Name="FK_Contract_Client_IdClient" Association="Self.FK_Contract_Client_IdClient">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Contract" EntitySet="Contract" />
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Contract" EntitySet="Contracts" />
           </AssociationSet>
           <AssociationSet Name="FK_ComissionByInvestment_Comission_IdComission" Association="Self.FK_ComissionByInvestment_Comission_IdComission">
-            <End Role="Comission" EntitySet="Comission" />
-            <End Role="ComissionByInvestment" EntitySet="ComissionByInvestment" />
+            <End Role="Comission" EntitySet="Comissions" />
+            <End Role="ComissionByInvestment" EntitySet="ComissionByInvestments" />
           </AssociationSet>
           <AssociationSet Name="FK_ComissionByInvestment_Investment_IdInvestment" Association="Self.FK_ComissionByInvestment_Investment_IdInvestment">
-            <End Role="Investment" EntitySet="Investment" />
-            <End Role="ComissionByInvestment" EntitySet="ComissionByInvestment" />
+            <End Role="Investment" EntitySet="Investments" />
+            <End Role="ComissionByInvestment" EntitySet="ComissionByInvestments" />
           </AssociationSet>
           <AssociationSet Name="FK_Contract_Employee_IdEmployee" Association="Self.FK_Contract_Employee_IdEmployee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Contract" EntitySet="Contract" />
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Contract" EntitySet="Contracts" />
           </AssociationSet>
           <AssociationSet Name="FK_Contract_Score_IdScore" Association="Self.FK_Contract_Score_IdScore">
-            <End Role="Score" EntitySet="Score" />
-            <End Role="Contract" EntitySet="Contract" />
+            <End Role="Score" EntitySet="Scores" />
+            <End Role="Contract" EntitySet="Contracts" />
           </AssociationSet>
           <AssociationSet Name="FK_CreditContract_Contract_IdContract" Association="Self.FK_CreditContract_Contract_IdContract">
-            <End Role="Contract" EntitySet="Contract" />
-            <End Role="CreditContract" EntitySet="CreditContract" />
+            <End Role="Contract" EntitySet="Contracts" />
+            <End Role="CreditContract" EntitySet="CreditContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_DepositContract_Contract_IdContract" Association="Self.FK_DepositContract_Contract_IdContract">
-            <End Role="Contract" EntitySet="Contract" />
-            <End Role="DepositContract" EntitySet="DepositContract" />
+            <End Role="Contract" EntitySet="Contracts" />
+            <End Role="DepositContract" EntitySet="DepositContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_InsuranceContract_Contract_IdContract" Association="Self.FK_InsuranceContract_Contract_IdContract">
-            <End Role="Contract" EntitySet="Contract" />
-            <End Role="InsuranceContract" EntitySet="InsuranceContract" />
+            <End Role="Contract" EntitySet="Contracts" />
+            <End Role="InsuranceContract" EntitySet="InsuranceContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_InvestmentContract_Contract_IdContract" Association="Self.FK_InvestmentContract_Contract_IdContract">
-            <End Role="Contract" EntitySet="Contract" />
-            <End Role="InvestmentContract" EntitySet="InvestmentContract" />
+            <End Role="Contract" EntitySet="Contracts" />
+            <End Role="InvestmentContract" EntitySet="InvestmentContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_CreditContract_Credit_IdCredit" Association="Self.FK_CreditContract_Credit_IdCredit">
-            <End Role="Credit" EntitySet="Credit" />
-            <End Role="CreditContract" EntitySet="CreditContract" />
+            <End Role="Credit" EntitySet="Credits" />
+            <End Role="CreditContract" EntitySet="CreditContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_DepositContract_Deposit_IdDeposit" Association="Self.FK_DepositContract_Deposit_IdDeposit">
-            <End Role="Deposit" EntitySet="Deposit" />
-            <End Role="DepositContract" EntitySet="DepositContract" />
+            <End Role="Deposit" EntitySet="Deposits" />
+            <End Role="DepositContract" EntitySet="DepositContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Post_IdPost" Association="Self.FK_Employee_Post_IdPost">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
           <AssociationSet Name="FK_Insurance_TermInsurance_IdTermInsurance" Association="Self.FK_Insurance_TermInsurance_IdTermInsurance">
-            <End Role="TermInsurance" EntitySet="TermInsurance" />
-            <End Role="Insurance" EntitySet="Insurance" />
+            <End Role="TermInsurance" EntitySet="TermInsurances" />
+            <End Role="Insurance" EntitySet="Insurances" />
           </AssociationSet>
           <AssociationSet Name="FK_InsuranceContract_Insurance_IdInsurance" Association="Self.FK_InsuranceContract_Insurance_IdInsurance">
-            <End Role="Insurance" EntitySet="Insurance" />
-            <End Role="InsuranceContract" EntitySet="InsuranceContract" />
+            <End Role="Insurance" EntitySet="Insurances" />
+            <End Role="InsuranceContract" EntitySet="InsuranceContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_InsuranceContract_SummInsurance_IdSummInsurance" Association="Self.FK_InsuranceContract_SummInsurance_IdSummInsurance">
-            <End Role="SummInsurance" EntitySet="SummInsurance" />
-            <End Role="InsuranceContract" EntitySet="InsuranceContract" />
+            <End Role="SummInsurance" EntitySet="SummInsurances" />
+            <End Role="InsuranceContract" EntitySet="InsuranceContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_Investment_InvestmentDirection_IdInvestmentDirection" Association="Self.FK_Investment_InvestmentDirection_IdInvestmentDirection">
-            <End Role="InvestmentDirection" EntitySet="InvestmentDirection" />
-            <End Role="Investment" EntitySet="Investment" />
+            <End Role="InvestmentDirection" EntitySet="InvestmentDirections" />
+            <End Role="Investment" EntitySet="Investments" />
           </AssociationSet>
           <AssociationSet Name="FK_Investment_InvestmentRiskLevel_IdRiskLevel" Association="Self.FK_Investment_InvestmentRiskLevel_IdRiskLevel">
-            <End Role="InvestmentRiskLevel" EntitySet="InvestmentRiskLevel" />
-            <End Role="Investment" EntitySet="Investment" />
+            <End Role="InvestmentRiskLevel" EntitySet="InvestmentRiskLevels" />
+            <End Role="Investment" EntitySet="Investments" />
           </AssociationSet>
           <AssociationSet Name="FK_InvestmentContract_Investment_IdInvestment" Association="Self.FK_InvestmentContract_Investment_IdInvestment">
-            <End Role="Investment" EntitySet="Investment" />
-            <End Role="InvestmentContract" EntitySet="InvestmentContract" />
+            <End Role="Investment" EntitySet="Investments" />
+            <End Role="InvestmentContract" EntitySet="InvestmentContracts" />
           </AssociationSet>
           <AssociationSet Name="FK_Score_TypeScore_IdTypeScore" Association="Self.FK_Score_TypeScore_IdTypeScore">
-            <End Role="TypeScore" EntitySet="TypeScore" />
-            <End Role="Score" EntitySet="Score" />
+            <End Role="TypeScore" EntitySet="TypeScores" />
+            <End Role="Score" EntitySet="Scores" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1651,9 +1651,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DB_BANK3ModelContainer" CdmEntityContainer="DB_BANK3Entities">
-          <EntitySetMapping Name="Account">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Account">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DB_BANK4ModelContainer" CdmEntityContainer="DB_BANK4Entities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
@@ -1664,8 +1664,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BetCredit">
-            <EntityTypeMapping TypeName="DB_BANK3Model.BetCredit">
+          <EntitySetMapping Name="BetCredits">
+            <EntityTypeMapping TypeName="DB_BANK4Model.BetCredit">
               <MappingFragment StoreEntitySet="BetCredit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdSummCredit" ColumnName="IdSummCredit" />
@@ -1674,8 +1674,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BetDeposit">
-            <EntityTypeMapping TypeName="DB_BANK3Model.BetDeposit">
+          <EntitySetMapping Name="BetDeposits">
+            <EntityTypeMapping TypeName="DB_BANK4Model.BetDeposit">
               <MappingFragment StoreEntitySet="BetDeposit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Bet" ColumnName="Bet" />
@@ -1683,8 +1683,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BetInvestment">
-            <EntityTypeMapping TypeName="DB_BANK3Model.BetInvestment">
+          <EntitySetMapping Name="BetInvestments">
+            <EntityTypeMapping TypeName="DB_BANK4Model.BetInvestment">
               <MappingFragment StoreEntitySet="BetInvestment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Bet" ColumnName="Bet" />
@@ -1692,8 +1692,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Client">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1707,8 +1707,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ClientInfo">
-            <EntityTypeMapping TypeName="DB_BANK3Model.ClientInfo">
+          <EntitySetMapping Name="ClientInfoes">
+            <EntityTypeMapping TypeName="DB_BANK4Model.ClientInfo">
               <MappingFragment StoreEntitySet="ClientInfo">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SerialPassport" ColumnName="SerialPassport" />
@@ -1720,16 +1720,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Comission">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Comission">
+          <EntitySetMapping Name="Comissions">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Comission">
               <MappingFragment StoreEntitySet="Comission">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ComissionByInvestment">
-            <EntityTypeMapping TypeName="DB_BANK3Model.ComissionByInvestment">
+          <EntitySetMapping Name="ComissionByInvestments">
+            <EntityTypeMapping TypeName="DB_BANK4Model.ComissionByInvestment">
               <MappingFragment StoreEntitySet="ComissionByInvestment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdComission" ColumnName="IdComission" />
@@ -1738,8 +1738,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Contract">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Contract">
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Contract">
               <MappingFragment StoreEntitySet="Contract">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
@@ -1751,8 +1751,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Credit">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Credit">
+          <EntitySetMapping Name="Credits">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Credit">
               <MappingFragment StoreEntitySet="Credit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1761,8 +1761,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CreditContract">
-            <EntityTypeMapping TypeName="DB_BANK3Model.CreditContract">
+          <EntitySetMapping Name="CreditContracts">
+            <EntityTypeMapping TypeName="DB_BANK4Model.CreditContract">
               <MappingFragment StoreEntitySet="CreditContract">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdContract" ColumnName="IdContract" />
@@ -1771,8 +1771,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Deposit">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Deposit">
+          <EntitySetMapping Name="Deposits">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Deposit">
               <MappingFragment StoreEntitySet="Deposit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1782,8 +1782,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DepositContract">
-            <EntityTypeMapping TypeName="DB_BANK3Model.DepositContract">
+          <EntitySetMapping Name="DepositContracts">
+            <EntityTypeMapping TypeName="DB_BANK4Model.DepositContract">
               <MappingFragment StoreEntitySet="DepositContract">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdContract" ColumnName="IdContract" />
@@ -1793,8 +1793,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Employee">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1807,8 +1807,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Insurance">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Insurance">
+          <EntitySetMapping Name="Insurances">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Insurance">
               <MappingFragment StoreEntitySet="Insurance">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1818,8 +1818,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InsuranceContract">
-            <EntityTypeMapping TypeName="DB_BANK3Model.InsuranceContract">
+          <EntitySetMapping Name="InsuranceContracts">
+            <EntityTypeMapping TypeName="DB_BANK4Model.InsuranceContract">
               <MappingFragment StoreEntitySet="InsuranceContract">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdContract" ColumnName="IdContract" />
@@ -1828,8 +1828,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Investment">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Investment">
+          <EntitySetMapping Name="Investments">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Investment">
               <MappingFragment StoreEntitySet="Investment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1841,8 +1841,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InvestmentContract">
-            <EntityTypeMapping TypeName="DB_BANK3Model.InvestmentContract">
+          <EntitySetMapping Name="InvestmentContracts">
+            <EntityTypeMapping TypeName="DB_BANK4Model.InvestmentContract">
               <MappingFragment StoreEntitySet="InvestmentContract">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdContract" ColumnName="IdContract" />
@@ -1851,40 +1851,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InvestmentDirection">
-            <EntityTypeMapping TypeName="DB_BANK3Model.InvestmentDirection">
+          <EntitySetMapping Name="InvestmentDirections">
+            <EntityTypeMapping TypeName="DB_BANK4Model.InvestmentDirection">
               <MappingFragment StoreEntitySet="InvestmentDirection">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InvestmentRiskLevel">
-            <EntityTypeMapping TypeName="DB_BANK3Model.InvestmentRiskLevel">
+          <EntitySetMapping Name="InvestmentRiskLevels">
+            <EntityTypeMapping TypeName="DB_BANK4Model.InvestmentRiskLevel">
               <MappingFragment StoreEntitySet="InvestmentRiskLevel">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Post">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Post">
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Post">
               <MappingFragment StoreEntitySet="Post">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Role">
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Score">
-            <EntityTypeMapping TypeName="DB_BANK3Model.Score">
+          <EntitySetMapping Name="Scores">
+            <EntityTypeMapping TypeName="DB_BANK4Model.Score">
               <MappingFragment StoreEntitySet="Score">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NumberScore" ColumnName="NumberScore" />
@@ -1894,64 +1894,64 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SummCredit">
-            <EntityTypeMapping TypeName="DB_BANK3Model.SummCredit">
+          <EntitySetMapping Name="SummCredits">
+            <EntityTypeMapping TypeName="DB_BANK4Model.SummCredit">
               <MappingFragment StoreEntitySet="SummCredit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Sum" ColumnName="Sum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SummInsurance">
-            <EntityTypeMapping TypeName="DB_BANK3Model.SummInsurance">
+          <EntitySetMapping Name="SummInsurances">
+            <EntityTypeMapping TypeName="DB_BANK4Model.SummInsurance">
               <MappingFragment StoreEntitySet="SummInsurance">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Sum" ColumnName="Sum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TermCredit">
-            <EntityTypeMapping TypeName="DB_BANK3Model.TermCredit">
+          <EntitySetMapping Name="TermCredits">
+            <EntityTypeMapping TypeName="DB_BANK4Model.TermCredit">
               <MappingFragment StoreEntitySet="TermCredit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TermDeposit">
-            <EntityTypeMapping TypeName="DB_BANK3Model.TermDeposit">
+          <EntitySetMapping Name="TermDeposits">
+            <EntityTypeMapping TypeName="DB_BANK4Model.TermDeposit">
               <MappingFragment StoreEntitySet="TermDeposit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TermInsurance">
-            <EntityTypeMapping TypeName="DB_BANK3Model.TermInsurance">
+          <EntitySetMapping Name="TermInsurances">
+            <EntityTypeMapping TypeName="DB_BANK4Model.TermInsurance">
               <MappingFragment StoreEntitySet="TermInsurance">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TermInvestment">
-            <EntityTypeMapping TypeName="DB_BANK3Model.TermInvestment">
+          <EntitySetMapping Name="TermInvestments">
+            <EntityTypeMapping TypeName="DB_BANK4Model.TermInvestment">
               <MappingFragment StoreEntitySet="TermInvestment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TypeClient">
-            <EntityTypeMapping TypeName="DB_BANK3Model.TypeClient">
+          <EntitySetMapping Name="TypeClients">
+            <EntityTypeMapping TypeName="DB_BANK4Model.TypeClient">
               <MappingFragment StoreEntitySet="TypeClient">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TypeScore">
-            <EntityTypeMapping TypeName="DB_BANK3Model.TypeScore">
+          <EntitySetMapping Name="TypeScores">
+            <EntityTypeMapping TypeName="DB_BANK4Model.TypeScore">
               <MappingFragment StoreEntitySet="TypeScore">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1972,7 +1972,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,29 +22,21 @@ namespace WPF_LoginForm.View
     /// </summary>
     public partial class LoginView : Window
     {
-        
+/*        List<Account> accountDB = new List<Account>();*/
+
+
         public LoginView()
         {
             InitializeComponent();
+
+
+
         }
 
         private void Window_MouseDown(object sender, RoutedEventArgs e)
         {
-            //var CurrentUser = AppData.db.Account.FirstOrDefault(u => u.Login == txtLogin.Text && u.Password == txtPassword.Text);
-            /*if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
-*/
-            /*if (CurrentUser != null)
-            {
-                // NavigationService.Navigate(new MainWindow());
-                DragMove();
-                //MainWindow.DragEnterEvent();
-                MessageBox.Show($"{txtLogin}/{txtPassword}");
 
-            }
-            else
-                MessageBox.Show("Данного пользователя не существует!");
-*/
+            DragMove();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -58,7 +51,36 @@ namespace WPF_LoginForm.View
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            //string Login = txtLogin.Text;
+            //string Password = txtPassword.Text;
+
+
+            //if (accountDB = DB_BANK4Entities.GetContext().Account.Any(u => u.Login == Login))
+            //{
+
+            //    var accountList = accountDB.AccountRoles.Where(s => s.Account.Login == Login).
+            //        Select(u => new { u.Account.Email, u.Role.Name, u.Account.Employee.FirstName, u.Account.Employee.LastName, u.Account.Employee.Patronymic, u.Account.Employee.DateOfBirth }).ToList();
+
+            //    var dateOfBirth = accountList[0].DateOfBirth.ToString("D");
+            //    string forHash = $"{accountList[0].Email}{Login}{Password}{accountList[0].FirstName}{accountList[0].LastName}{accountList[0].Patronymic}{dateOfBirth}";
+
+            //    byte[] passwordByte = SHA512.Create().ComputeHash(Encoding.BigEndianUnicode.GetBytes(forHash));
+
+
+            //    if (accountDB.Accounts.Any(u => u.Login == Login && u.Password == passwordByte))
+            //    {
+
+            //        MessageBox.Show("Вход подтвержден");
+            //        TheAcess = true;
+            //        TheAccountRole = accountList[0].Name;
+
+            //        this.Close();
+            //    }
+            //    else
+            //        MessageBox.Show("Не верный пароль.");
+            //}
+            //else
+            //    MessageBox.Show("Не верный логин.");
         }
     }
 }

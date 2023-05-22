@@ -14,22 +14,17 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_LoginForm.Model;
 
-namespace WPF_LoginForm.ViewModel
+namespace WPF_LoginForm.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DGelement.xaml
+    /// Логика взаимодействия для ContractPage.xaml
     /// </summary>
-    public partial class DGelement : UserControl
+    public partial class ContractPage : Page
     {
-        public DGelement()
+        public ContractPage()
         {
             InitializeComponent();
-            DGclients.ItemsSource = DB_BANK3Entities.GetContext().Employee.ToList();
-
-        }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
+            DGcontract.ItemsSource = DB_BANK4Entities.GetContext().Contract.ToList();
 
         }
     }

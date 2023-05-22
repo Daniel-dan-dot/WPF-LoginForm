@@ -17,13 +17,13 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeScore()
         {
-            this.Score = new HashSet<Score>();
+            this.Scores = new HashSet<Score>();
         }
     
         public byte Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Score> Score { get; set; }
+        public virtual ICollection<Score> Scores { get; set; }
     }
 }

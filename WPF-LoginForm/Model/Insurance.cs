@@ -17,7 +17,7 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Insurance()
         {
-            this.InsuranceContract = new HashSet<InsuranceContract>();
+            this.InsuranceContracts = new HashSet<InsuranceContract>();
         }
     
         public byte Id { get; set; }
@@ -28,6 +28,6 @@ namespace WPF_LoginForm.Model
     
         public virtual TermInsurance TermInsurance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InsuranceContract> InsuranceContract { get; set; }
+        public virtual ICollection<InsuranceContract> InsuranceContracts { get; set; }
     }
 }

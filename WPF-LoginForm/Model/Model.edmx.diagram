@@ -4,68 +4,68 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3fc7716e93fc42ffa17ff24945c20fce" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="DB_BANK3Model.Account" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.BetCredit" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.BetDeposit" Width="1.5" PointX="8.25" PointY="24.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.BetInvestment" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Client" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.ClientInfo" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Comission" Width="1.5" PointX="5.25" PointY="35.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.ComissionByInvestment" Width="1.5" PointX="7.5" PointY="31.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Contract" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Credit" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.CreditContract" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Deposit" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.DepositContract" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Employee" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Insurance" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.InsuranceContract" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Investment" Width="1.5" PointX="5.25" PointY="30.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.InvestmentContract" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.InvestmentDirection" Width="1.5" PointX="3" PointY="30.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.InvestmentRiskLevel" Width="1.5" PointX="3" PointY="32.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Post" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Role" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.Score" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.SummCredit" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.SummInsurance" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.TermCredit" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.TermDeposit" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.TermInsurance" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.TermInvestment" Width="1.5" PointX="3" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.TypeClient" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BANK3Model.TypeScore" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Account_Employee_IdEmployee" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Account_Role_IdRole" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_BetCredit_SummCredit_IdSummCredit" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_BetCredit_TermCredit_IdTermCredit" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_CreditContract_BetCredit_IdBetCredit" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_BetDeposit_TermDeposit_IdTermDeposit" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_DepositContract_BetDeposit_IdBetDeposit" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_BetInvestment_TermInvestment_IdTermInvestment" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_InvestmentContract_BetInvestment_IdBetInvestment" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Client_ClientInfo_IdClientInfo" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Client_TypeClient_IdTypeClient" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Contract_Client_IdClient" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_ComissionByInvestment_Comission_IdComission" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_ComissionByInvestment_Investment_IdInvestment" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Contract_Employee_IdEmployee" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Contract_Score_IdScore" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_CreditContract_Contract_IdContract" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_DepositContract_Contract_IdContract" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_InsuranceContract_Contract_IdContract" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_InvestmentContract_Contract_IdContract" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_CreditContract_Credit_IdCredit" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_DepositContract_Deposit_IdDeposit" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Employee_Post_IdPost" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Insurance_TermInsurance_IdTermInsurance" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_InsuranceContract_Insurance_IdInsurance" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_InsuranceContract_SummInsurance_IdSummInsurance" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Investment_InvestmentDirection_IdInvestmentDirection" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Investment_InvestmentRiskLevel_IdRiskLevel" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_InvestmentContract_Investment_IdInvestment" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BANK3Model.FK_Score_TypeScore_IdTypeScore" ManuallyRouted="false" />
+      <Diagram DiagramId="52673409256b4dcebe9a654721ee9995" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_BANK4Model.Account" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.BetCredit" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.BetDeposit" Width="1.5" PointX="8.25" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.BetInvestment" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Client" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.ClientInfo" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Comission" Width="1.5" PointX="5.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.ComissionByInvestment" Width="1.5" PointX="7.5" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Contract" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Credit" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.CreditContract" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Deposit" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.DepositContract" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Employee" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Insurance" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.InsuranceContract" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Investment" Width="1.5" PointX="5.25" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.InvestmentContract" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.InvestmentDirection" Width="1.5" PointX="3" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.InvestmentRiskLevel" Width="1.5" PointX="3" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Post" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Role" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.Score" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.SummCredit" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.SummInsurance" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.TermCredit" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.TermDeposit" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.TermInsurance" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.TermInvestment" Width="1.5" PointX="3" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.TypeClient" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANK4Model.TypeScore" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Account_Employee_IdEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Account_Role_IdRole" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_BetCredit_SummCredit_IdSummCredit" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_BetCredit_TermCredit_IdTermCredit" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_CreditContract_BetCredit_IdBetCredit" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_BetDeposit_TermDeposit_IdTermDeposit" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_DepositContract_BetDeposit_IdBetDeposit" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_BetInvestment_TermInvestment_IdTermInvestment" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_InvestmentContract_BetInvestment_IdBetInvestment" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Client_ClientInfo_IdClientInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Client_TypeClient_IdTypeClient" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Contract_Client_IdClient" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_ComissionByInvestment_Comission_IdComission" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_ComissionByInvestment_Investment_IdInvestment" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Contract_Employee_IdEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Contract_Score_IdScore" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_CreditContract_Contract_IdContract" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_DepositContract_Contract_IdContract" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_InsuranceContract_Contract_IdContract" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_InvestmentContract_Contract_IdContract" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_CreditContract_Credit_IdCredit" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_DepositContract_Deposit_IdDeposit" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Employee_Post_IdPost" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Insurance_TermInsurance_IdTermInsurance" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_InsuranceContract_Insurance_IdInsurance" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_InsuranceContract_SummInsurance_IdSummInsurance" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Investment_InvestmentDirection_IdInvestmentDirection" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Investment_InvestmentRiskLevel_IdRiskLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_InvestmentContract_Investment_IdInvestment" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANK4Model.FK_Score_TypeScore_IdTypeScore" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -6,6 +6,11 @@ using System.Windows.Input;
 using WPF_LoginForm.Model;
 using WPF_LoginForm.View;
 using HandyControl;
+using HandyControl.Tools;
+using WPF_LoginForm.ViewModel;
+using WPF_LoginForm.Pages;
+using System.Windows.Navigation;
+using System.Net;
 
 namespace WPF_LoginForm
 {
@@ -17,7 +22,9 @@ namespace WPF_LoginForm
         public MainWindow()
         {
             InitializeComponent();
-            DGemployee.ItemsSource = DB_BANK3Entities.GetContext().Employee.ToList();
+
+            //DGemployee.ItemsSource = DB_BANK4Entities.GetContext().Employee.ToList();
+            ConfigHelper.Instance.SetLang("ru");
 
             //string db = "SERVER=DESKTOP-IBJCCC1;DATABASE=DB_BANK3;UID=root;PASSWORD=;";
 
@@ -33,6 +40,28 @@ namespace WPF_LoginForm
             */
         }
 
+        private void Authorization()
+        {
+            this.Visibility = Visibility.Collapsed;
+            var dialog = new LoginView();
+            this.Visibility = Visibility.Visible;
+            /*if (dialog.ShowDialog() == false)
+            {
+                Close();
+            }
+            else
+            {
+                if (dialog.txtLogin.Text == "admin")
+                {
+                    EmployeeMenu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    EmployeeMenu.Visibility = Visibility.Collapsed;
+                }
+                this.Visibility = Visibility.Visible;
+            }*/
+        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -43,8 +72,58 @@ namespace WPF_LoginForm
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            Growl.Success("Работает хуйня");
-            System.Windows.MessageBox.Show("lol");
+            //Growl.Success("Запись добавлена");
+            //Growl.SuccessGlobal("Запись добавлена");
+            MainFrame.Content = new HomePage();
+
+            NavigationService.GetNavigationService(new HomePage());
+
+        }
+
+        private void Empl_Click(object sender, RoutedEventArgs e)
+        {
+            /*            NavigationService.Navigate(new EmployeesPage());*/
+            MainFrame.Content = new EmployeePage();
+
+            NavigationService.GetNavigationService(new EmployeePage());
+            
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ClientsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new ClientPage();
+            NavigationService.GetNavigationService(new ClientPage());
+
+        }
+
+        private void ContractMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new ContractPage();
+            NavigationService.GetNavigationService(new ContractPage());
+
+        }
+
+        private void ServiceMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new ServicePage();
+            NavigationService.GetNavigationService(new ServicePage());
+
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void AccountMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new AccountPage();
+            NavigationService.GetNavigationService(new AccountPage());
         }
     }
 }

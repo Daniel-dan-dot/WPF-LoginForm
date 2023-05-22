@@ -17,10 +17,10 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Contract()
         {
-            this.CreditContract = new HashSet<CreditContract>();
-            this.DepositContract = new HashSet<DepositContract>();
-            this.InsuranceContract = new HashSet<InsuranceContract>();
-            this.InvestmentContract = new HashSet<InvestmentContract>();
+            this.CreditContracts = new HashSet<CreditContract>();
+            this.DepositContracts = new HashSet<DepositContract>();
+            this.InsuranceContracts = new HashSet<InsuranceContract>();
+            this.InvestmentContracts = new HashSet<InvestmentContract>();
         }
     
         public int Id { get; set; }
@@ -35,12 +35,12 @@ namespace WPF_LoginForm.Model
         public virtual Employee Employee { get; set; }
         public virtual Score Score { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CreditContract> CreditContract { get; set; }
+        public virtual ICollection<CreditContract> CreditContracts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DepositContract> DepositContract { get; set; }
+        public virtual ICollection<DepositContract> DepositContracts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InsuranceContract> InsuranceContract { get; set; }
+        public virtual ICollection<InsuranceContract> InsuranceContracts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvestmentContract> InvestmentContract { get; set; }
+        public virtual ICollection<InvestmentContract> InvestmentContracts { get; set; }
     }
 }

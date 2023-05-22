@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_LoginForm.View"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         Title="LoginView" Height="550" Width="400"
         WindowStyle="None"
@@ -21,7 +22,7 @@
 
         <Border CornerRadius="10"                    
             BorderThickness="2"
-            Opacity="0.95">
+            Opacity="0.99">
 
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -32,9 +33,9 @@
             </Border.BorderBrush>
 
             <Border.Background>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#09203f" Offset="0.3"/>
-                    <GradientStop Color="#1B1448" Offset="1"/>
+                <LinearGradientBrush StartPoint="0.6,1.6" EndPoint="1,0">
+                    <GradientStop Color="#150923" Offset="0.7"/>
+                    <GradientStop Color="#000000" Offset="0.1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -62,14 +63,10 @@
                                Margin="10,0,0,0"/>
 
                     <Button x:Name="btnMinimize"                           
-                            BorderThickness="0"
-                            Content="-"
-                            Foreground="White"
-                            FontSize="16"
-                            FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="1"
                             Click="btnMinimize_Click">
+                        <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 7 0 0" Height="8" Width="8" Icon="Minus" Foreground="#ffffff"/>
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -96,14 +93,11 @@
                     </Button>
 
                     <Button x:Name="btnClose"                          
-                            BorderThickness="0"
-                            Content="X"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="2"
                             Click="btnClose_Click">
+
+                        <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 0 0" Height="8" Width="8" Icon="Close" Foreground="#ffffff"/>
 
                         <Button.Style>
                             <Style TargetType="Button">
@@ -136,7 +130,7 @@
 
 
 
-                    <Image Source="/Images/Fil1.png"
+                    <Image Source="/Images/log.png"
                            Width="220" Height="150" Cursor=""/>
 
 
@@ -218,10 +212,10 @@
 
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
-                                <Setter Property="Background" Value="#6991c7"/>
+                                <Setter Property="Background" Value="#614385"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#a3bded"/>
+                                        <Setter Property="Background" Value="#7950AA"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>

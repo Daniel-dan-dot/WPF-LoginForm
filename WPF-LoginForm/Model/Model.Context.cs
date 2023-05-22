@@ -13,56 +13,53 @@ namespace WPF_LoginForm.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_BANK3Entities : DbContext
+    public partial class DB_BANK4Entities : DbContext
     {
-        private static DB_BANK3Entities _context;
-        public DB_BANK3Entities()
-            : base("name=DB_BANK3Entities")
+        public DB_BANK4Entities()
+            : base("name=DB_BANK4Entities")
         {
         }
-
-        public static DB_BANK3Entities GetContext()
-        {
-            if (_context == null)
-                _context = new DB_BANK3Entities();
-
-            return _context;
-        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-        public virtual DbSet<Account> Account { get; set; }
-        public virtual DbSet<BetCredit> BetCredit { get; set; }
-        public virtual DbSet<BetDeposit> BetDeposit { get; set; }
-        public virtual DbSet<BetInvestment> BetInvestment { get; set; }
-        public virtual DbSet<Client> Client { get; set; }
-        public virtual DbSet<ClientInfo> ClientInfo { get; set; }
-        public virtual DbSet<Comission> Comission { get; set; }
-        public virtual DbSet<ComissionByInvestment> ComissionByInvestment { get; set; }
-        public virtual DbSet<Contract> Contract { get; set; }
-        public virtual DbSet<Credit> Credit { get; set; }
-        public virtual DbSet<CreditContract> CreditContract { get; set; }
-        public virtual DbSet<Deposit> Deposit { get; set; }
-        public virtual DbSet<DepositContract> DepositContract { get; set; }
-        public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<Insurance> Insurance { get; set; }
-        public virtual DbSet<InsuranceContract> InsuranceContract { get; set; }
-        public virtual DbSet<Investment> Investment { get; set; }
-        public virtual DbSet<InvestmentContract> InvestmentContract { get; set; }
-        public virtual DbSet<InvestmentDirection> InvestmentDirection { get; set; }
-        public virtual DbSet<InvestmentRiskLevel> InvestmentRiskLevel { get; set; }
-        public virtual DbSet<Post> Post { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Score> Score { get; set; }
-        public virtual DbSet<SummCredit> SummCredit { get; set; }
-        public virtual DbSet<SummInsurance> SummInsurance { get; set; }
-        public virtual DbSet<TermCredit> TermCredit { get; set; }
-        public virtual DbSet<TermDeposit> TermDeposit { get; set; }
-        public virtual DbSet<TermInsurance> TermInsurance { get; set; }
-        public virtual DbSet<TermInvestment> TermInvestment { get; set; }
-        public virtual DbSet<TypeClient> TypeClient { get; set; }
-        public virtual DbSet<TypeScore> TypeScore { get; set; }
+
+        internal static object GetContext()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<BetCredit> BetCredits { get; set; }
+        public virtual DbSet<BetDeposit> BetDeposits { get; set; }
+        public virtual DbSet<BetInvestment> BetInvestments { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<ClientInfo> ClientInfoes { get; set; }
+        public virtual DbSet<Comission> Comissions { get; set; }
+        public virtual DbSet<ComissionByInvestment> ComissionByInvestments { get; set; }
+        public virtual DbSet<Contract> Contracts { get; set; }
+        public virtual DbSet<Credit> Credits { get; set; }
+        public virtual DbSet<CreditContract> CreditContracts { get; set; }
+        public virtual DbSet<Deposit> Deposits { get; set; }
+        public virtual DbSet<DepositContract> DepositContracts { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Insurance> Insurances { get; set; }
+        public virtual DbSet<InsuranceContract> InsuranceContracts { get; set; }
+        public virtual DbSet<Investment> Investments { get; set; }
+        public virtual DbSet<InvestmentContract> InvestmentContracts { get; set; }
+        public virtual DbSet<InvestmentDirection> InvestmentDirections { get; set; }
+        public virtual DbSet<InvestmentRiskLevel> InvestmentRiskLevels { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Score> Scores { get; set; }
+        public virtual DbSet<SummCredit> SummCredits { get; set; }
+        public virtual DbSet<SummInsurance> SummInsurances { get; set; }
+        public virtual DbSet<TermCredit> TermCredits { get; set; }
+        public virtual DbSet<TermDeposit> TermDeposits { get; set; }
+        public virtual DbSet<TermInsurance> TermInsurances { get; set; }
+        public virtual DbSet<TermInvestment> TermInvestments { get; set; }
+        public virtual DbSet<TypeClient> TypeClients { get; set; }
+        public virtual DbSet<TypeScore> TypeScores { get; set; }
     }
 }

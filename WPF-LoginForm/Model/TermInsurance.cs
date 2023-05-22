@@ -17,13 +17,13 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TermInsurance()
         {
-            this.Insurance = new HashSet<Insurance>();
+            this.Insurances = new HashSet<Insurance>();
         }
     
         public byte Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Insurance> Insurance { get; set; }
+        public virtual ICollection<Insurance> Insurances { get; set; }
     }
 }

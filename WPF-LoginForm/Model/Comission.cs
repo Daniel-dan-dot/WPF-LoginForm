@@ -17,13 +17,13 @@ namespace WPF_LoginForm.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Comission()
         {
-            this.ComissionByInvestment = new HashSet<ComissionByInvestment>();
+            this.ComissionByInvestments = new HashSet<ComissionByInvestment>();
         }
     
         public byte Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ComissionByInvestment> ComissionByInvestment { get; set; }
+        public virtual ICollection<ComissionByInvestment> ComissionByInvestments { get; set; }
     }
 }

@@ -13,5 +13,9 @@ namespace WPF_LoginForm
     /// </summary>
     public partial class App : Application
     {
+        private void ResourceDictionary_SelectedDateTimeChanged(object sender, HandyControl.Data.FunctionEventArgs<DateTime?> e)
+        {
+
+        }
     }
 }

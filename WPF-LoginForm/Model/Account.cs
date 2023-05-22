@@ -17,7 +17,7 @@ namespace WPF_LoginForm.Model
         public byte Id { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
         public byte IdRole { get; set; }
         public int IdEmployee { get; set; }
     

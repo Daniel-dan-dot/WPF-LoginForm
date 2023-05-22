@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_LoginForm.ViewModel
+namespace WPF_LoginForm.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ClientsWindow.xaml
+    /// Логика взаимодействия для HomePage.xaml
     /// </summary>
-    public partial class ClientsWindow : UserControl
+    public partial class HomePage : Page
     {
-        public ClientsWindow()
+        public HomePage()
         {
             InitializeComponent();
+            ConfigHelper.Instance.SetLang("ru");
+
         }
-
-
     }
 }
