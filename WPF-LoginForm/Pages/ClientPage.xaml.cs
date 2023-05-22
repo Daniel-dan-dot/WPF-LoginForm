@@ -29,7 +29,7 @@ namespace WPF_LoginForm.Pages
         public ClientPage()
         {
             InitializeComponent();
-            dataGridList = DB_BANK4Entities.GetContext().Client.ToList();
+            dataGridList = DB_BANK4Entities1.GetContext().Clients.ToList();
             clientList = dataGridList.Select(s => new ClientShort()
             {
                 id = s.Id,

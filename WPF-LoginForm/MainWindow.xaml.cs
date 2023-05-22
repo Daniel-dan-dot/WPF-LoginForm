@@ -23,7 +23,7 @@ namespace WPF_LoginForm
         {
             InitializeComponent();
 
-            //DGemployee.ItemsSource = DB_BANK4Entities.GetContext().Employee.ToList();
+            //DGemployee.ItemsSource = DB_BANK4Entities1.GetContext().Employee.ToList();
             ConfigHelper.Instance.SetLang("ru");
 
             //string db = "SERVER=DESKTOP-IBJCCC1;DATABASE=DB_BANK3;UID=root;PASSWORD=;";

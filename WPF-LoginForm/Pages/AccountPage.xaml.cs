@@ -29,7 +29,7 @@ namespace WPF_LoginForm.Pages
         public AccountPage()
         {
             InitializeComponent();
-            AccountList = DB_BANK4Entities.GetContext().Account.ToList();
+            AccountList = DB_BANK4Entities1.GetContext().Accounts.ToList();
             
 
             DGaccount.ItemsSource = AccountList.Take(7).ToList();

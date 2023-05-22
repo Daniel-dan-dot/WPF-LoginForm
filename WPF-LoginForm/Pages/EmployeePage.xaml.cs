@@ -31,7 +31,7 @@ namespace WPF_LoginForm.Pages
         public EmployeePage()
         {
             InitializeComponent();
-            dataGridList = DB_BANK4Entities.GetContext().Employee.ToList();
+            dataGridList = DB_BANK4Entities1.GetContext().Employees.ToList();
             EmplList = dataGridList.Select(s => new EmployeeShort()
             {
                 id = s.Id,

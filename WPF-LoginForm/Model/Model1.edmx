@@ -1493,7 +1493,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_BANK4Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_BANK4Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="BetCredits" EntityType="Self.BetCredit" />
           <EntitySet Name="BetDeposits" EntityType="Self.BetDeposit" />
@@ -1651,7 +1651,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DB_BANK4ModelContainer" CdmEntityContainer="DB_BANK4Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DB_BANK4ModelContainer" CdmEntityContainer="DB_BANK4Entities1">
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="DB_BANK4Model.Account">
               <MappingFragment StoreEntitySet="Account">

@@ -27,7 +27,7 @@ namespace WPF_LoginForm.View
             InitializeComponent();
             //cbPost.DisplayMemberPath;
             //cbPost.SelectedValuePath;
-            cbEmployee.ItemsSource = DB_BANK4Entities.GetContext().Post.ToList();
+            cbEmployee.ItemsSource = DB_BANK4Entities1.GetContext().Posts.ToList();
             cbEmployee.SelectedValuePath = "Id";
             cbEmployee.DisplayMemberPath = "Name";
 

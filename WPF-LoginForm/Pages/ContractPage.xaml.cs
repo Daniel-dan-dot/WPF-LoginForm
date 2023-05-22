@@ -24,7 +24,7 @@ namespace WPF_LoginForm.Pages
         public ContractPage()
         {
             InitializeComponent();
-            DGcontract.ItemsSource = DB_BANK4Entities.GetContext().Contract.ToList();
+            DGcontract.ItemsSource = DB_BANK4Entities1.GetContext().Contracts.ToList();
 
         }
     }

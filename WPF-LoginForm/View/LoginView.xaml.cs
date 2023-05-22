@@ -55,7 +55,7 @@ namespace WPF_LoginForm.View
             //string Password = txtPassword.Text;
 
 
-            //if (accountDB = DB_BANK4Entities.GetContext().Account.Any(u => u.Login == Login))
+            //if (accountDB = DB_BANK4Entities1.GetContext().Account.Any(u => u.Login == Login))
             //{
 
             //    var accountList = accountDB.AccountRoles.Where(s => s.Account.Login == Login).

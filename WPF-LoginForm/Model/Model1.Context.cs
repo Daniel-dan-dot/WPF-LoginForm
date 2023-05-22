@@ -13,10 +13,12 @@ namespace WPF_LoginForm.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_BANK4Entities : DbContext
+    public partial class DB_BANK4Entities1 : DbContext
     {
-        public DB_BANK4Entities()
-            : base("name=DB_BANK4Entities")
+        private static DB_BANK4Entities1 _context;
+
+        public DB_BANK4Entities1()
+            : base("name=DB_BANK4Entities1")
         {
         }
     
@@ -25,9 +27,12 @@ namespace WPF_LoginForm.Model
             throw new UnintentionalCodeFirstException();
         }
 
-        internal static object GetContext()
+        public static DB_BANK4Entities1 GetContext()
         {
-            throw new NotImplementedException();
+            if (_context == null)
+                _context = new DB_BANK4Entities1();
+
+            return _context;
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
