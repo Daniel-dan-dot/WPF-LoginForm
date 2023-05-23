@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPF_LoginForm.Model;
 
 namespace WPF_LoginForm.View
 {
@@ -23,6 +24,9 @@ namespace WPF_LoginForm.View
         public AddClientWindow()
         {
             InitializeComponent();
+            cbTypeClient.ItemsSource = DB_BANK4Entities1.GetContext().TypeClients.ToList();
+            cbTypeClient.SelectedValuePath = "Id";
+            cbTypeClient.DisplayMemberPath = "Name";
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -33,8 +37,13 @@ namespace WPF_LoginForm.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Growl.SuccessGlobal("Запись добавлена");
+            Growl.Success("Запись добавлена");
 
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

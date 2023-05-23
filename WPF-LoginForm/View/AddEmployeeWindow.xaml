@@ -176,12 +176,12 @@
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"
-                Height="40"
+                Height="45"
                 BorderThickness="0"
                 Width="220"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0 50 30 0"
+                Margin="0 45 30 0"
                 VerticalContentAlignment="Center"/>
             
             <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="UserAlt"/>
@@ -190,11 +190,11 @@
                 Background="Transparent"
                 Foreground="Black"
                 BorderThickness="0"
-                Height="40"
+                Height="45"
                 Width="220"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0 100 30 0"
+                Margin="0 95 30 0"
                 VerticalContentAlignment="Center"/>
 
             <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 110 0 0" Height="25" Width="25" Icon="UserAlt"/>
@@ -203,12 +203,12 @@
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"
-                Height="40"
+                Height="45"
                 Width="220"
                 BorderThickness="0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0 150 30 0"
+                Margin="0 145 30 0"
                 VerticalContentAlignment="Center"/>
 
             <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="UserAlt"/>
@@ -219,28 +219,29 @@
                 Foreground="Black"
                 BorderThickness="0"
                 Width="220"
-                Height="40"
+                Height="45"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0 -5 30 0"
+                Margin="0 0 30 0"
                 VerticalContentAlignment="Center"/>
 
             <fa:IconImage VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 0 5" Height="25" Width="25" Icon="MapLocation"/>
 
             <TextBox x:Name="txtPhone"
+                Style="{StaticResource TelephoneTextBox}"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"
                 BorderThickness="0"
                 Width="220"
-                Height="40"
+                Height="45"
                 HorizontalAlignment="Right"
                 Margin="0 95 30 0"
                 VerticalContentAlignment="Center"/>
 
             <fa:IconImage HorizontalAlignment="Right" Margin="0 100 0 0" Height="25" Width="25" Icon="Phone"/>
-            <hc:DatePicker Margin="200 0 0 105" FontSize="20" Height="35" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="AppStarting"/>
-            <ComboBox x:Name="cbEmployee" FontSize="20" Height="35" Width="250" Margin="200 200 0 0" Background="Transparent" BorderThickness="0" Foreground="Black"/>
+            <hc:DatePicker Margin="200 0 0 100" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="Hand"/>
+            <ComboBox x:Name="cbEmployee" FontSize="20" Height="45" Width="250" Margin="200 200 0 0" Background="Transparent" BorderThickness="0" Foreground="Black"/>
         </Grid>
 
     </Grid>

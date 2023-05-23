@@ -11,6 +11,7 @@ using WPF_LoginForm.ViewModel;
 using WPF_LoginForm.Pages;
 using System.Windows.Navigation;
 using System.Net;
+using HandyControl.Tools.Extension;
 
 namespace WPF_LoginForm
 {
@@ -124,6 +125,11 @@ namespace WPF_LoginForm
         {
             MainFrame.Content = new AccountPage();
             NavigationService.GetNavigationService(new AccountPage());
+        }
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

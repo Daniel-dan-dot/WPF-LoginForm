@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -27,7 +28,6 @@ namespace WPF_LoginForm.Pages
         List<Employee> dataGridList = new List<Employee>();
         List<EmployeeShort> EmplList = new List<EmployeeShort>();
 
-        
         public EmployeePage()
         {
             InitializeComponent();
@@ -45,9 +45,6 @@ namespace WPF_LoginForm.Pages
             DGemployee.ItemsSource = EmplList.Take(7).ToList();
             pagGrid.MaxPageCount = (int)Math.Ceiling(EmplList.Count / 7.0);
 
-            /*            DGemployee.ItemsSource = dataGridList.Take(8).ToList();
-                        pagGrid.MaxPageCount = (int)Math.Ceiling(dataGridList.Count / 8.0);
-            */
             txtCount.Text = "Найдено записей: ";
             txtCount.Text += EmplList.Count().ToString();
             
@@ -68,7 +65,10 @@ namespace WPF_LoginForm.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Growl.Error("Запись удалена");
-
         }
+
+
     }
+
+    
 }

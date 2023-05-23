@@ -10,111 +10,43 @@
       d:DesignHeight="700" d:DesignWidth="1100"
       Title="ContractPage"
       Background="Transparent">
-    
+
     <Grid Background="Transparent">
-        <TextBox Width="250"
-                       Height="40"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Right"
-                       Margin="0 50 50 0"
-                       Grid.Column="1"
-                       Style="{StaticResource ModernTextBox}"/>
+        <StackPanel Height="100" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50 0 0 0">
+            <TextBlock Text="ДОГОВОРЫ"
+                                   Foreground="White"
+                                   FontSize="30"
+                                   Margin="20 10 10 0"/>
 
-        <TabControl Foreground="Black" Width="1000" Height="500" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+        </StackPanel>
+        <TabControl Foreground="Black" Width="1000" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Margin="50,55,50,10">
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Все" Height="38" Width="200" Margin="5 0">
-                    <Grid Background="Transparent">
-                    <DataGrid x:Name="DGcontract"  Height="400" Width="1000" FontSize="14" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-                        <DataGrid.RowHeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                            </DataTemplate>
-                        </DataGrid.RowHeaderTemplate>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Номер договора" Binding="{Binding NumberContract}" Width="120" />
-                            <DataGridTextColumn Header="ФИО клиента" Binding="{Binding Client.LastName}" Width="200"/>
-                            <DataGridTextColumn Header="Номер счета" Binding="{Binding Score.NumberScore}" Width="200"/>
-                            <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="200"/>
-                            <DataGridTextColumn Header="Город" Binding="{Binding City}" Width="100"/>
-                            <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Button Style="{StaticResource gridButtonEdit}" Cursor="Hand">
-                                                <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
-                                                <Button.Template>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Width="30" Height="30"
-                                        CornerRadius="5"
-                                        Background="{TemplateBinding Background}">
-                                                            <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Button.Template>
-                                            </Button>
-                                            <Button Margin="5 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
-                                                <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
-                                                <Button.Template>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Width="30" Height="30"
-                                        CornerRadius="5"
-                                        Background="{TemplateBinding Background}">
-                                                            <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Button.Template>
-                                            </Button>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-                </TabItem>
-            <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Вклады" Height="38" Width="200" Margin="5 0">
                 <Grid Background="Transparent">
-                    <DataGrid x:Name="DGcontractDeposit"  Height="400" Width="1000" FontSize="14" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+                    <DataGrid x:Name="DGcontract" FontSize="12" Height="350" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
                         <DataGrid.RowHeaderTemplate>
                             <DataTemplate>
                                 <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
                             </DataTemplate>
                         </DataGrid.RowHeaderTemplate>
+
+
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Номер договора" Binding="{Binding NumberContract}" Width="120" />
-                            <DataGridTextColumn Header="ФИО клиента" Binding="{Binding Client.LastName}" Width="200"/>
-                            <DataGridTextColumn Header="Номер счета" Binding="{Binding Score.NumberScore}" Width="200"/>
-                            <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="200"/>
-                            <DataGridTextColumn Header="Город" Binding="{Binding City}" Width="100"/>
-                            <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
+                            <DataGridTextColumn Header="№ договора" Binding="{Binding numberContract}" Width="160" />
+                            <DataGridTextColumn Header="Клиент" Binding="{Binding FIOClient}" Width="180"/>
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Style="{StaticResource gridButtonEdit}" Cursor="Hand">
-                                                <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
+
+                                            <Button x:Name="btnInfoClient" Click="btnInfoClient_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
                                                 <Button.Template>
                                                     <ControlTemplate TargetType="{x:Type Button}">
                                                         <Border Width="30" Height="30"
-                                        CornerRadius="5"
-                                        Background="{TemplateBinding Background}">
-                                                            <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Button.Template>
-                                            </Button>
-                                            <Button Margin="5 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
-                                                <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
-                                                <Button.Template>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Width="30" Height="30"
-                                        CornerRadius="5"
-                                        Background="{TemplateBinding Background}">
-                                                            <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
+                                                                CornerRadius="10"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
                                                         </Border>
                                                     </ControlTemplate>
                                                 </Button.Template>
@@ -124,27 +56,777 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
+                            <DataGridTextColumn Header="Счет" Binding="{Binding score}" Width="160"/>
+                            
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="30" Width="30" Margin="0 0 0 0">
+
+                                            <Button x:Name="btnInfoScore" Click="btnInfoScore_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="5"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Город" Binding="{Binding city}" Width="80"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="130"/>
+
+                            
+                            <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnEditContract" Click="btnEditContract_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
+                                                <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                        
+                                                                CornerRadius="5"
+                                       
+                                                                Background="{TemplateBinding Background}">
+                                                    
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                       
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                            <Button x:Name="btnDeleteContract" Click="btnDeleteContract_Click" ToolTip="Удалить"  Margin="3 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
+                                                <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
+                                          
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                      
+                                                                CornerRadius="5"
+                                      
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                      
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
 
                         </DataGrid.Columns>
+
                     </DataGrid>
+
+                    <TextBlock x:Name="txtCount" Foreground="White" Margin="10 40 0 0" FontSize="20" Text="Найдено записей: " Height="30" Width="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <hc:Pagination x:Name="pagGrid" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGrid_PageUpdated" PageIndex="1"/>
+
+                    <TextBox Width="250"
+                            Height="40"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0 30 50 0"
+                            Grid.Column="1"
+                            Style="{StaticResource ModernTextBox}"/>
+
+
+                    <Button x:Name="AddButton"
+                            BorderThickness="2"
+                            BorderBrush="#4e4376"
+                            Height="35"
+                            Width="150"
+                            Content="Добавить"
+                            Foreground="White"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            FontSize="14"
+                            FontFamily="Montserrat"
+                            Style="{StaticResource AddButton}"
+                            Cursor="Hand"                           
+                            Margin="0 30 150 30"
+                            Click="AddButton_Click">
+
+
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="150" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+
                 </Grid>
             </TabItem>
+
+            <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Вклады" Height="38" Width="200" Margin="5 0">
+                <Grid Background="Transparent">
+                    <DataGrid x:Name="DGcontractDeposit" FontSize="12" Height="340" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+                        <DataGrid.RowHeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                            </DataTemplate>
+                        </DataGrid.RowHeaderTemplate>
+
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№ договора" Binding="{Binding numberContract}" Width="160" />
+                            <DataGridTextColumn Header="Клиент" Binding="{Binding FIOClient}" Width="180"/>
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnInfoClient" Click="btnInfoClient_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="5"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Счет" Binding="{Binding score}" Width="160"/>
+
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="30" Width="30" Margin="0 0 0 0">
+
+                                            <Button x:Name="btnInfoScore" Click="btnInfoScore_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="5"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Город" Binding="{Binding city}" Width="80"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="130"/>
+
+
+                            <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnEditContractDeposit" Click="btnEditContractDeposit_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
+                                                <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                        
+                                                                CornerRadius="5"
+                                       
+                                                                Background="{TemplateBinding Background}">
+
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                       
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                            <Button x:Name="btnDeleteContractDeposit" Click="btnDeleteContractDeposit_Click" ToolTip="Удалить"  Margin="3 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
+                                                <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
+
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                      
+                                                                CornerRadius="5"
+                                      
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                      
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+
+                    </DataGrid>
+
+                    <TextBlock x:Name="txtCountDeposit" Foreground="White" Margin="10 40 0 0" FontSize="20" Text="Найдено записей: " Height="30" Width="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <hc:Pagination x:Name="pagGridDeposit" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGrid_PageUpdated" PageIndex="1"/>
+
+                    <TextBox Width="250"
+                            Height="40"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0 30 50 0"
+                            Grid.Column="1"
+                            Style="{StaticResource ModernTextBox}"/>
+
+
+                    <Button x:Name="AddButtonDeposit"                          
+                            BorderThickness="0"
+                            Height="35"
+                            Width="150"
+                            Content="Добавить"
+                            Foreground="White"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            FontSize="14"
+                            FontFamily="Montserrat"
+                            Style="{StaticResource AddButton}"
+                            Cursor="Hand"                           
+                            Margin="0 30 150 30"
+                            Click="AddButton_Click">
+
+
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="150" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+                </Grid>
+            </TabItem>
+            
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Кредиты" Height="38" Width="200" Margin="5 0">
-                    <Grid Background="Transparent">
-                        <TextBlock Text= "Кредиты" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Grid>
-                </TabItem>
+                <Grid Background="Transparent">
+                    <DataGrid x:Name="DGcontractCredit" FontSize="12" Height="340" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+                        <DataGrid.RowHeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                            </DataTemplate>
+                        </DataGrid.RowHeaderTemplate>
+
+
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№ договора" Binding="{Binding numberContract}" Width="160" />
+                            <DataGridTextColumn Header="Клиент" Binding="{Binding FIOClient}" Width="180"/>
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnInfoClient" Click="btnInfoClient_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="5"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Счет" Binding="{Binding score}" Width="160"/>
+
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="30" Width="30" Margin="0 0 0 0">
+
+                                            <Button x:Name="btnInfoScore" Click="btnInfoScore_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="10"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Город" Binding="{Binding city}" Width="80"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="130"/>
+
+
+                            <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnEditContractCredit" Click="btnEditContractCredit_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
+                                                <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                        
+                                                                CornerRadius="5"
+                                       
+                                                                Background="{TemplateBinding Background}">
+
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                       
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                            <Button x:Name="btnDeleteContractCredit" Click="btnDeleteContractCredit_Click" ToolTip="Удалить"  Margin="3 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
+                                                <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
+
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                      
+                                                                CornerRadius="5"
+                                      
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                      
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+
+                    </DataGrid>
+
+                    <TextBlock x:Name="txtCountCredit" Foreground="White" Margin="10 40 0 0" FontSize="20" Text="Найдено записей: " Height="30" Width="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <hc:Pagination x:Name="pagGridCredit" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGrid_PageUpdated" PageIndex="1"/>
+
+                    <TextBox Width="250"
+                            Height="40"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0 30 50 0"
+                            Grid.Column="1"
+                            Style="{StaticResource ModernTextBox}"/>
+
+
+                    <Button x:Name="AddButtonCredit"                          
+                            BorderThickness="0"
+                            Height="35"
+                            Width="150"
+                            Content="Добавить"
+                            Foreground="White"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            FontSize="14"
+                            FontFamily="Montserrat"
+                            Style="{StaticResource AddButton}"
+                            Cursor="Hand"                           
+                            Margin="0 30 150 30"
+                            Click="AddButtonCredit_Click">
+
+
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="150" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+
+                </Grid>
+            </TabItem>
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Инвестиции" Height="38" Width="200" Margin="5 0">
-                    <Grid Background="Transparent">
-                        <TextBlock Text= "Инвестиции" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Grid>
-                </TabItem>
+                <Grid Background="Transparent">
+                    <DataGrid x:Name="DGcontractInvestment" FontSize="12" Height="340" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+                        <DataGrid.RowHeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                            </DataTemplate>
+                        </DataGrid.RowHeaderTemplate>
+
+
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№ договора" Binding="{Binding numberContract}" Width="160" />
+                            <DataGridTextColumn Header="Клиент" Binding="{Binding FIOClient}" Width="180"/>
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnInfoClient" Click="btnInfoClient_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="5"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Счет" Binding="{Binding score}" Width="160"/>
+
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="30" Width="30" Margin="0 0 0 0">
+
+                                            <Button x:Name="btnInfoScore" Click="btnInfoScore_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="10"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Город" Binding="{Binding city}" Width="80"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="130"/>
+
+
+                            <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnEditContractInvestment" Click="btnEditContractInvestment_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
+                                                <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                        
+                                                                CornerRadius="5"
+                                       
+                                                                Background="{TemplateBinding Background}">
+
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                       
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                            <Button x:Name="btnDeleteContractInvestment" Click="btnDeleteContractInvestment_Click" ToolTip="Удалить"  Margin="3 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
+                                                <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
+
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                      
+                                                                CornerRadius="5"
+                                      
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                      
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <TextBlock x:Name="txtCountInvestment" Foreground="White" Margin="10 40 0 0" FontSize="20" Text="Найдено записей: " Height="30" Width="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <hc:Pagination x:Name="pagGridInvestment" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGrid_PageUpdated" PageIndex="1"/>
+
+                    <TextBox Width="250"
+                            Height="40"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0 30 50 0"
+                            Grid.Column="1"
+                            Style="{StaticResource ModernTextBox}"/>
+
+
+                    <Button x:Name="AddButtonInvestment"                          
+                            BorderThickness="0"
+                            Height="35"
+                            Width="150"
+                            Content="Добавить"
+                            Foreground="White"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            FontSize="14"
+                            FontFamily="Montserrat"
+                            Style="{StaticResource AddButton}"
+                            Cursor="Hand"                           
+                            Margin="0 30 150 30"
+                            Click="AddButton_Click">
+
+
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="150" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+
+                </Grid>
+            </TabItem>
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Страхование"  Height="38" Width="200" Margin="5 0">
-                    <Grid Background="Transparent">
-                        <TextBlock Text= "Страхование" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Grid>
-                </TabItem>
-            </TabControl>
-        </Grid>
-    
+                <Grid Background="Transparent">
+                    <DataGrid x:Name="DGcontractInsurance" FontSize="12" Height="340" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+                        <DataGrid.RowHeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                            </DataTemplate>
+                        </DataGrid.RowHeaderTemplate>
+
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№ договора" Binding="{Binding numberContract}" Width="160" />
+                            <DataGridTextColumn Header="Клиент" Binding="{Binding FIOClient}" Width="180"/>
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnInfoClient" Click="btnInfoClient_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="5"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Счет" Binding="{Binding score}" Width="160"/>
+
+                            <DataGridTemplateColumn IsReadOnly="True" Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Height="30" Width="30" Margin="0 0 0 0">
+
+                                            <Button x:Name="btnInfoScore" Click="btnInfoScore_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                                <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                                                CornerRadius="5"
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Город" Binding="{Binding city}" Width="80"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="130"/>
+
+
+                            <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <Button x:Name="btnEditContractInsurance" Click="btnEditContractInsurance_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
+                                                <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                        
+                                                                CornerRadius="5"
+                                       
+                                                                Background="{TemplateBinding Background}">
+
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                       
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                            <Button x:Name="btnDeleteContractInsurance" Click="btnDeleteContractInsurance_Click" ToolTip="Удалить"  Margin="3 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
+                                                <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
+
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Width="30" Height="30"
+                                      
+                                                                CornerRadius="5"
+                                      
+                                                                Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                      
+                                                                              HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <TextBlock x:Name="txtCountInsurance" Foreground="White" Margin="10 40 0 0" FontSize="20" Text="Найдено записей: " Height="30" Width="250" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <hc:Pagination x:Name="pagGridInsurance" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGrid_PageUpdated" PageIndex="1"/>
+
+                    <TextBox Width="250"
+                            Height="40"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0 30 50 0"
+                            Grid.Column="1"
+                            Style="{StaticResource ModernTextBox}"/>
+
+
+                    <Button x:Name="AddButtonInsurance"                          
+                            BorderThickness="0"
+                            Height="35"
+                            Width="150"
+                            Content="Добавить"
+                            Foreground="White"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            FontSize="14"
+                            FontFamily="Montserrat"
+                            Style="{StaticResource AddButton}"
+                            Cursor="Hand"                           
+                            Margin="0 30 150 30"
+                            Click="AddButton_Click">
+
+
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="150" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
+                    </Button>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+
 </Page>

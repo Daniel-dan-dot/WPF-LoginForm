@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -62,13 +64,20 @@ namespace WPF_LoginForm.Pages
 
         private void btnInfoClient_Click(object sender, RoutedEventArgs e)
         {
-            AddClientWindow addClientWindow = new AddClientWindow();
-            addClientWindow.Show();
+            ClientInfoWindow clientInfoWindow = new ClientInfoWindow();
+            clientInfoWindow.Show();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            AddClientWindow addClientWindow = new AddClientWindow();
+            addClientWindow.Show();
+        }
 
+        private void btnEditClient_Click(object sender, RoutedEventArgs e)
+        {
+            AddClientWindow addClientWindow = new AddClientWindow();
+            addClientWindow.Show();
         }
     }
 }

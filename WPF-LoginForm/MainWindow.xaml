@@ -52,8 +52,8 @@
                 
 
                 
-                <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 40 0">
-                    <Border CornerRadius="10" Width="40" Height="40">
+                <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 10 0">
+                    <Border CornerRadius="10" Width="45" Height="45" VerticalAlignment="Bottom" Margin="0 0 15 5">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                                 <GradientStop Color="#7f7cf1" Offset="0"/>
@@ -61,18 +61,24 @@
                             </LinearGradientBrush>
                         </Border.Background>
 
-                        <TextBlock Text="ДД" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold"
+                        <TextBlock Text="ДД" Foreground="#ffffff" FontSize="21" FontWeight="SemiBold"
                                    TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2"/>
                     </Border>
 
-                    <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
+                    <StackPanel Margin="0 0 -100 10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                         <TextBlock Text="Данин Даниил" FontSize="16" Foreground="#c2cfff"/>
                         <TextBlock Text="Администратор" FontSize="11" Foreground="#7788bf"/>
                     </StackPanel>
-                    
 
-                    <Button Name="Exit" Click="Exit_Click" Cursor="Hand" Background="Transparent" Height="50" Width="80" BorderThickness="0">
-                        <StackPanel Orientation="Horizontal">
+
+                    <Button Name="Minimize" Click="Minimize_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="50 0 0 50" Cursor="Hand" Background="Transparent" Height="30" Width="40" BorderThickness="0">
+                        <StackPanel Orientation="Horizontal" Height="32" Width="20"  VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <fa:IconImage Icon="Minus" Style="{StaticResource mainIcon}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="Exit" Click="Exit_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10 0 0 50" Cursor="Hand" Background="Transparent" Height="32" Width="60" BorderThickness="0">
+                        <StackPanel Orientation="Horizontal" Height="32" Width="40" VerticalAlignment="Center" HorizontalAlignment="Right">
                             <fa:IconImage Icon="PowerOff" Style="{StaticResource mainIcon}"/>
                         </StackPanel>
                     </Button>
@@ -172,20 +178,10 @@
                         <!--<Image Source="/Images/LogoFin.png"
                            Width="100" Height="100"
                            Margin="0 0 0 0"/>-->
-                        <TextBlock Margin="40 0 0 0" Text="ФИНКОРП" FontWeight="SemiBold" FontSize="24" Style="{StaticResource logoIcon}" Width="130"/>
+                        <TextBlock Margin="30 0 0 0" Text="ФИНКОРП" FontWeight="SemiBold" FontSize="28" FontFamily="Arial" Style="{StaticResource logoIcon}" Width="150"/>
 
                     </StackPanel>
                 </Grid>
-
-                <!--<ContentControl Grid.Row="1"
-                            Grid.Column="1" 
-                            Margin="10 
-                            Content = "{Binding ClientsWindow}">
-            </ContentControl>
-
-            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right">
-                <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
-             </ScrollViewer>-->
 
             </Grid>
 
@@ -193,192 +189,5 @@
 
     </Border>
 
-
-    <!--<Grid>
-
-          
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="1050"/>
-        </Grid.ColumnDefinitions>
-        
-
-
-        -->
-    <!--Left Menu-->
-    <!--
-
-        <Border CornerRadius="10,0,0,10">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#223262" Offset="0"/>
-                    <GradientStop Color="#27396b" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-            
-    <StackPanel>
-                -->
-    <!--UserName-->
-
-    <!--<StackPanel>
-                    <hc:DatePicker/> </StackPanel>-->
-    <!--
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
-                    <Border CornerRadius="10" Width="40" Height="40">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                <GradientStop Color="#7f7cf1" Offset="0"/>
-                                <GradientStop Color="#d3b7ff" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-
-                        <TextBlock Text="АР" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold"
-                                   TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2"/>
-                    </Border>
-
-                    <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
-                        <TextBlock Text="Алексей Рудин" FontSize="11" Foreground="#c2cfff"/>
-                        <TextBlock Text="Менеджер" FontSize="11" Foreground="#7788bf"/>
-                    </StackPanel>
-                </StackPanel>
-                <Separator  Height="0.8" Margin="20 30" Background="#46558a"/>
-
-                -->
-    <!--Menu Buttons-->
-    <!--
-                <Button Style="{StaticResource menuButton}" Name="Home" Click="Home_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Главная" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource menuButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="Suitcase" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Услуги" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource menuButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="FileAlt" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Договоры" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource menuButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="AddressCard" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Клиенты" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Name="Empl" Style="{StaticResource menuButton}" Click="Empl_Click">
-
-                <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="Person" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Сотрудники" Style="{StaticResource menuButtonText}"/>
-                        
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource menuButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="ChartLine"
-                                      Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Статистика" Style="{StaticResource menuButtonText}"/>
-                    </StackPanel>
-                </Button>
-
-
-            </StackPanel>
-        </Border>
-
-        -->
-    <!--Main Section-->
-    <!--
-
-        <Border Height="40" HorizontalAlignment="Left" BorderBrush="#dee4ec" BorderThickness="1"
-                    CornerRadius="5" Padding="5" Background="#ffffff" Margin="776,649,0,11" Grid.Column="1">
-            
-            <StackPanel Orientation="Horizontal" >
-
-                <Button Style="{StaticResource paggingButton}">
-                    <fa:IconImage Icon="ChevronLeft"
-                                      Style="{StaticResource pagingButtonIcon}"/>
-                </Button>
-
-                <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
-                <Button Style="{StaticResource paggingButton}" Content="1"/>
-                <Button Style="{StaticResource paggingButton}" Content="2" Background="#A8BFFF" Foreground="#ffffff"/>
-
-                <TextBlock Text="..." Foreground="#A8BFFF" VerticalAlignment="Center" FontSize="15" Margin="10 0 0 0"/>
-                <Button Style="{StaticResource paggingButton}" Content="4"/>
-                <Button Style="{StaticResource paggingButton}" Content="5"/>
-
-                <Button Style="{StaticResource paggingButton}">
-                    <fa:IconImage Icon="ChevronRight"
-                                      Style="{StaticResource pagingButtonIcon}"/>
-                </Button>
-
-            </StackPanel>
-
-        </Border>
-
-        
-        
-        <Border Grid.Column="1" BorderThickness="2" CornerRadius="0,10,10,0" MouseDown="Border_MouseDown">
-
-            <Border.Background>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                    <GradientStop Color="#41518f" Offset="0"/>
-                    <GradientStop Color="#2c386c" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#9890e3" Offset="0"/>
-                    <GradientStop Color="#d9afd9" Offset="0.75"/>
-                    <GradientStop Color="#b1f4cf" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-
-            <Grid Width="950" Margin="0 250 0 0">
-
-
-                <DataGrid x:Name="DGemployee" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-                    <DataGrid.RowHeaderTemplate>
-                        <DataTemplate>
-                            <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                        </DataTemplate>
-                    </DataGrid.RowHeaderTemplate>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="80" />
-                        <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="80"/>
-                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="90"/>
-                        <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth}" Width="100"/>
-                        <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="300"/>
-                        <DataGridTextColumn Header="Телефон" Binding="{Binding Telephone}" Width="120"/>
-                        <DataGridTextColumn Header="Должность" Binding="{Binding Post.Name}" Width="200"/>
-                    
-                    </DataGrid.Columns>
-                </DataGrid>
-
-            </Grid>
-
-        </Border>
-
-
-        -->
-    <!--<ContentControl Grid.Row="1"
-
-                            Grid.Column="1" Margin="10 Content="{Binding ClientsWindow}"></ContentControl>-->
-    <!--
-        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right">
-            <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
-        </ScrollViewer>
-    </Grid>-->
 
 </Window>

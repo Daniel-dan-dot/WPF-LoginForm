@@ -7,12 +7,13 @@
         xmlns:local="clr-namespace:WPF_LoginForm.View"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="ClientInfoWindow" Height="650" Width="1000"
+        Title="ClientInfoWindow" Height="600" Width="1000"
         WindowStyle="None"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
 
 
     <Grid>
@@ -40,10 +41,10 @@
 
             <Border.Background>
 
-                <LinearGradientBrush StartPoint="1,1.5" EndPoint="1.5,0">
+                <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
 
-                    <GradientStop Color="#9890e3" Offset="0.3"/>
-                    <GradientStop Color="#d9afd9" Offset="1"/>
+                    <GradientStop Color="#9890e3" Offset="0.2"/>
+                    <GradientStop Color="#b1f4cf" Offset="1."/>
                 </LinearGradientBrush>
 
             </Border.Background>
@@ -86,274 +87,235 @@
         </Button>
         <Grid Height="200" Width="1000" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="290 30 0 0" Height="80" Width="80" Icon="UserAlt" Style="{StaticResource UserWindowIcon}"/>
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 290 0" Height="80" Width="80" Icon="FileAlt" Style="{StaticResource UserWindowIcon}"/>
-            <StackPanel Background="#614385" HorizontalAlignment="Center" VerticalAlignment="Top" Height="3" Width="100" Margin="0 75 0 0"/>
+            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 240 0" Height="80" Width="80" Icon="FileAlt" Style="{StaticResource UserWindowIcon}"/>
+            <StackPanel Background="#614385" HorizontalAlignment="Center" VerticalAlignment="Top" Height="3" Width="100" Margin="60 75 0 0"/>
             <StackPanel Background="#614385" HorizontalAlignment="Right" VerticalAlignment="Top" Height="3" Width="100" Margin="0 75 100 0"/>
             <StackPanel Background="#614385" HorizontalAlignment="Left" VerticalAlignment="Top" Height="3" Width="100" Margin="100 75 0 0"/>
 
         </Grid>
 
 
-        <Button x:Name="AddButton"                          
-                Height="40"
-                Width="150"
-                Content="Подтвердить"
-                FontWeight="Bold"
-                BorderThickness="10"
-                Foreground="#9999cc"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                FontSize="18"
-                FontFamily="Montserrat"
-                Style="{StaticResource AddButtonWindow}"
-                Cursor="Hand"                           
-                Margin="0 0 300 40">
 
-
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="150" Height="40"
-                                        CornerRadius="10"
-                                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-
-        </Button>
-        <Button x:Name="CLoseButton"                          
-                Height="40"
-                Width="150"
-                Content="Отменить"
-                FontWeight="Bold"
-                BorderThickness="10"
-                Foreground="#9999cc"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                FontSize="19"
-                FontFamily="Montserrat"
-                Style="{StaticResource AddButtonWindow}"
-                Cursor="Hand"                           
-                Margin="0 0 80 40"
-                Click="btnClose_Click">
-
-
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Width="150" Height="40"
-                                        CornerRadius="10"
-                                        Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-
-        </Button>
-
-        <Grid Margin="30 120 480 0">
+        <Grid Margin="30 110 480 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="460"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 85 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 135 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 185 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 235 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 285 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 335 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 385 0 0"/>
+            <TextBlock Text="Личные данные" FontFamily="Arial" Width="300" FontSize="32" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" Height="45" Margin="0 25 0 0"/>
 
+            <Grid Margin="0 30 0 0">
+
+
+                <TextBox x:Name="txtLastName"
+                FontSize="20"
+                Background="Transparent"
+                Foreground="Black"
+                Height="45"
+                BorderThickness="0"
+                Width="250"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 45 0 0"
+                VerticalContentAlignment="Center"/>
+
+                <TextBox x:Name="txtFirstName"
+                FontSize="20"
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                Height="45"
+                Width="250"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 95 0 0"
+                VerticalContentAlignment="Center"/>
+
+
+                <TextBox x:Name="txtPatronymic"
+                FontSize="20"
+                Background="Transparent"
+                Foreground="Black"
+                Height="45"
+                Width="250"
+                BorderThickness="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 145 0 0"
+                VerticalContentAlignment="Center"/>
+
+                <TextBox x:Name="txtDateOfBirth"
+                FontSize="20"
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                Width="220"
+                Height="45"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 195 30 0"
+                VerticalContentAlignment="Center"/>
+
+                <fa:IconImage HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 210 0 0" Height="25" Width="25" Icon="Calendar"/>
+
+
+                <TextBox x:Name="txtAddress"
+                FontSize="20"      
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                Width="220"
+                Height="45"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 245 30 0"
+                VerticalContentAlignment="Center"/>
+
+                <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 260 0 0" Height="25" Width="25" Icon="MapLocation"/>
+
+
+                <TextBox x:Name="txtPhone"
+                FontSize="20"      
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                Width="220"
+                Height="45"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 295 30 0"
+                VerticalContentAlignment="Center"/>
+
+                <fa:IconImage HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 300 0 0" Height="25" Width="25" Icon="Phone"/>
+
+
+                <TextBox x:Name="txtTypeClient"
+                FontSize="20"      
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                Width="220"
+                Height="45"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 345 30 0"
+                VerticalContentAlignment="Center"/>
+
+                <fa:IconImage HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 360 0 0" Height="25" Width="25" Icon="Users"/>
+
+
+            </Grid>
             <Grid Margin="0 20 210 0">
-                <TextBlock Text="Фамилия" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 400" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Имя" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 300" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Отчество" FontFamily="Arial" Width="110" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Дата рождения" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Адрес" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Телефон" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Тип клиента" FontFamily="Arial" Width="130" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Фамилия" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 300" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Имя" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Отчество" FontFamily="Arial" Width="110" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Дата рождения" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Адрес" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Телефон" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Тип клиента" FontFamily="Arial" Width="140" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -300" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>
 
-            <TextBox x:Name="txtLastName"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                Height="35"
-                BorderThickness="0"
-                Width="220"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0 50 30 0"
-                VerticalContentAlignment="Center"/>
 
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="UserAlt"/>
-            <TextBox x:Name="txtFirstName"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                BorderThickness="0"
-                Height="35"
-                Width="220"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0 100 30 0"
-                VerticalContentAlignment="Center"/>
-
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 110 0 0" Height="25" Width="25" Icon="UserAlt"/>
-
-            <TextBox x:Name="txtPatronymic"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                Height="35"
-                Width="220"
-                BorderThickness="0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0 150 30 0"
-                VerticalContentAlignment="Center"/>
-
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="UserAlt"/>
-            <TextBox x:Name="txtDateOfBirth"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                Height="35"
-                Width="220"
-                BorderThickness="0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0 200 30 0"
-                VerticalContentAlignment="Center"/>
-
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 210 0 0" Height="25" Width="25" Icon="CalendarAlt"/>
-
-            <TextBox x:Name="txtAddress"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                BorderThickness="0"
-                Width="220"
-                Height="35"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Margin="0 -5 30 0"
-                VerticalContentAlignment="Center"/>
-
-            <fa:IconImage VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 0 5" Height="25" Width="25" Icon="MapLocation"/>
-
-            <TextBox x:Name="txtPhone"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                BorderThickness="0"
-                Width="220"
-                Height="35"
-                HorizontalAlignment="Right"
-                Margin="0 95 30 0"
-                VerticalContentAlignment="Center"/>
-
-            <fa:IconImage HorizontalAlignment="Right" Margin="0 100 0 0" Height="25" Width="25" Icon="Phone"/>
-
-            <TextBox x:Name="txtTypeClient"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                BorderThickness="0"
-                Width="220"
-                Height="35"
-                HorizontalAlignment="Right"
-                Margin="0 95 30 0"
-                VerticalContentAlignment="Center"/>
-
-            <fa:IconImage HorizontalAlignment="Right" Margin="0 210 0 0" Height="25" Width="25" Icon="Users"/>
 
         </Grid>
 
-        
-        <Grid Margin="510 120 20 0" Height="300">
+
+        <Grid Margin="520 120 20 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="460"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 85 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 135 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 185 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 235 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 285 0 0"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="550"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Паспортные данные" FontFamily="Arial" Width="350" FontSize="32" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-            <Grid Margin="0 100 200 0">
-                <TextBlock Text="Серия/Номер" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 400" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Выдан" FontFamily="Arial" Width="120" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 300" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Дата выдачи" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="ИНН" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="СНИЛС" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            </Grid>
 
-            <TextBox x:Name="txtSerialNumberPassport"
+            <Grid Margin="10 70 0 0">
+                <TextBlock Text="Серия/Номер" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Выдан" FontFamily="Arial" Width="120" FontSize="22" FontWeight="SemiBold" Margin="0 70 0 300" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Дата выдачи" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 120 0 200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="ИНН" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 250 0 100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="СНИЛС" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 300 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                <TextBox x:Name="txtSerialPassport"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"
-                Height="35"
+                Height="45"
                 BorderThickness="0"
+                Width="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="50 0 30 0"
+                VerticalContentAlignment="Center"/>
+
+
+                <TextBox x:Name="txtNumberPassport"
+                FontSize="20"
+                Background="Transparent"
+                Foreground="Black"
+                Height="45"
+                BorderThickness="0"
+                Width="150"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 0 0 0"
+                VerticalContentAlignment="Center"/>
+
+                <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="MapLocation"/>
+
+                <TextBox x:Name="txtIssuedBy"
+                FontSize="20"
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                Height="45"
                 Width="220"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 50 30 0"
                 VerticalContentAlignment="Center"/>
 
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="UserAlt"/>
-            <TextBox x:Name="txtIssuedBy"
+
+                <TextBox x:Name="txtDateIssued"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"
                 BorderThickness="0"
-                Height="35"
+                Height="45"
                 Width="220"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 100 30 0"
                 VerticalContentAlignment="Center"/>
 
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 110 0 0" Height="25" Width="25" Icon="UserAlt"/>
-
-            <TextBox x:Name="txtDateOfIssue"
-                FontSize="20"
-                Background="Transparent"
-                Foreground="Black"
-                Height="35"
-                Width="220"
-                BorderThickness="0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0 150 30 0"
-                VerticalContentAlignment="Center"/>
-
-            <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="UserAlt"/>
-
-            <TextBox x:Name="txtINN"
+                <TextBox x:Name="txtINN"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"
                 BorderThickness="0"
                 Width="220"
-                Height="35"
+                Height="45"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="0 -100 30 0"
+                Margin="0 40 30 0"
                 VerticalContentAlignment="Center"/>
 
-            <fa:IconImage VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 0 5" Height="25" Width="25" Icon="MapLocation"/>
+                <fa:IconImage VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 60 0 5" Height="25" Width="25" Icon="InfoCircle"/>
 
-            <TextBox x:Name="txtSNILS"
+                <TextBox x:Name="txtSNILS"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"
                 BorderThickness="0"
                 Width="220"
-                Height="35"
+                Height="45"
                 HorizontalAlignment="Right"
-                Margin="0 0 30 0"
+                Margin="0 140 30 0"
                 VerticalContentAlignment="Center"/>
+                <fa:IconImage VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 160 0 5" Height="25" Width="25" Icon="CreditCard"/>
+
+            </Grid>
+            <TextBlock Text="Дополнительные данные" FontFamily="Arial" Width="420" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Margin="0 25 0 0"/>
+
         </Grid>
 
     </Grid>

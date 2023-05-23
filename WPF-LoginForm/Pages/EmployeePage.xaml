@@ -16,6 +16,7 @@
 
         <hc:Pagination x:Name="pagGrid" Cursor="Hand" Margin="100 0 0 50" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGrid_PageUpdated" PageIndex="1"/>
         <TextBox Width="250"
+                 x:Name="tbFindEmployee"
                        Height="40"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Right"
@@ -52,7 +53,7 @@
             
         </Button>
 
-        <DataGrid x:Name="DGemployee" Height="400" Margin="0 0 0 0" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+        <DataGrid x:Name="DGemployee" FontSize="12" Height="400" Margin="0 0 0 0" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
             <DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
@@ -60,7 +61,7 @@
             </DataGrid.RowHeaderTemplate>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}" Width="195" />
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding FIO}" Width="195" />
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding dateOfBirth}" Width="125"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="200"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding telephone}" Width="131"/>
@@ -107,8 +108,7 @@
                                    Foreground="White"
                                    FontSize="30"
                                    Margin="20 10 10 0"/>
-            <TextBlock x:Name="txtCount" Foreground="White" Margin="10 20 0 0" FontSize="20" Text="Найдено записей: ">
-            </TextBlock>
+            <TextBlock x:Name="txtCount" Foreground="White" Margin="10 20 0 0" FontSize="20" Text="Найдено записей: "/>
         </StackPanel>
     </Grid>
 </Page>

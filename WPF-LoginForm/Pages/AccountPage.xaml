@@ -60,10 +60,9 @@
             </DataGrid.RowHeaderTemplate>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}" Width="195" />
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding dateOfBirth}" Width="125"/>
-                <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="200"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding telephone}" Width="131"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="195" />
+                <DataGridTextColumn Header="Эл. почта" Binding="{Binding Email}" Width="125"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}" Width="131"/>
                 <DataGridTextColumn Header="Должность" Binding="{Binding post}" Width="180"/>
                 <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>

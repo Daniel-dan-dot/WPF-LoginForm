@@ -62,7 +62,7 @@
             <!--<hc:Pagination MaxPageCount="10" PageUpdated="page_PageUpdated" PageIndex="1"/>-->
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}" Width="200" />
+                <DataGridTextColumn Header="Клиент" Binding="{Binding FIO}" Width="200" />
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding dateOfBirth}" Width="125"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="200"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding telephone}" Width="131"/>
@@ -87,7 +87,7 @@
                                     </Button.Template>
                                 </Button>
 
-                                <Button x:Name="btnEditClient" Click="btnInfoClient_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
+                                <Button x:Name="btnEditClient" Click="btnEditClient_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
                                     <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
                                     <Button.Template>
                                         <ControlTemplate TargetType="{x:Type Button}">

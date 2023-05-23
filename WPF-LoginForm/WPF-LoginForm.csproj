@@ -326,7 +326,12 @@
       <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Short\ClientShort.cs" />
+    <Compile Include="Short\ContractShort.cs" />
+    <Compile Include="Short\CreditContractShort.cs" />
+    <Compile Include="Short\DepositContractShort.cs" />
     <Compile Include="Short\EmployeeShort.cs" />
+    <Compile Include="Short\InsuranceContractShort.cs" />
+    <Compile Include="Short\InvestmentContractShort.cs" />
     <Compile Include="ViewModel\EmployeesPage.xaml.cs">
       <DependentUpon>EmployeesPage.xaml</DependentUpon>
     </Compile>
@@ -338,11 +343,20 @@
     <Compile Include="View\AddClientWindow.xaml.cs">
       <DependentUpon>AddClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddContractWindow.xaml.cs">
+      <DependentUpon>AddContractWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddEmployeeWindow.xaml.cs">
       <DependentUpon>AddEmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientInfoWindow.xaml.cs">
       <DependentUpon>ClientInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InfoContractWindow.xaml.cs">
+      <DependentUpon>InfoContractWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InfoScoreWindow.xaml.cs">
+      <DependentUpon>InfoScoreWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -400,11 +414,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddContractWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddEmployeeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ClientInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InfoContractWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InfoScoreWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

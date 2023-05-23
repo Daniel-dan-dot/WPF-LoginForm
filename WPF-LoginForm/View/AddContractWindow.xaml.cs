@@ -15,24 +15,13 @@ using System.Windows.Shapes;
 namespace WPF_LoginForm.View
 {
     /// <summary>
-    /// Логика взаимодействия для ClientInfoWindow.xaml
+    /// Логика взаимодействия для AddContractWindow.xaml
     /// </summary>
-    public partial class ClientInfoWindow : Window
+    public partial class AddContractWindow : Window
     {
-        public ClientInfoWindow()
+        public AddContractWindow()
         {
             InitializeComponent();
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
         }
     }
 }

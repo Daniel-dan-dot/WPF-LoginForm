@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace WPF_LoginForm.View
 {
     /// <summary>
-    /// Логика взаимодействия для ClientInfoWindow.xaml
+    /// Логика взаимодействия для InfoScoreWindow.xaml
     /// </summary>
-    public partial class ClientInfoWindow : Window
+    public partial class InfoScoreWindow : Window
     {
-        public ClientInfoWindow()
+        public InfoScoreWindow()
         {
             InitializeComponent();
         }
@@ -33,6 +33,7 @@ namespace WPF_LoginForm.View
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+
         }
     }
 }
