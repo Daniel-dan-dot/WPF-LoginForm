@@ -28,15 +28,14 @@
                 Height="35"
                 Width="150"
                 Content="Добавить"
-                Foreground="White"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 FontSize="14"
                 FontFamily="Montserrat"
-                Style="{StaticResource AddButton}"
+                Style="{StaticResource AddButtonPages}"
                 Cursor="Hand"                           
                 Margin="0 0 150 50"
-                Click="btnInfoClient_Click">
+                Click="AddButton_Click">
 
 
             <Button.Template>
@@ -52,7 +51,7 @@
 
         </Button>
         
-        <DataGrid x:Name="DGclient" Height="400" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+        <DataGrid x:Name="DGclient" FontSize="14" Height="400" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
             <DataGrid.RowHeaderTemplate>    
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
@@ -62,11 +61,11 @@
             <!--<hc:Pagination MaxPageCount="10" PageUpdated="page_PageUpdated" PageIndex="1"/>-->
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Клиент" Binding="{Binding FIO}" Width="200" />
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding dateOfBirth}" Width="125"/>
-                <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="200"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding telephone}" Width="131"/>
-                <DataGridTextColumn Header="Тип клиента" Binding="{Binding typeClient}" Width="150"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding FIO}" Width="140" />
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding dateOfBirth}" Width="140"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="210"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding telephone}" Width="150"/>
+                <DataGridTextColumn Header="Тип клиента" Binding="{Binding typeClient}" Width="160"/>
 
                 <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>

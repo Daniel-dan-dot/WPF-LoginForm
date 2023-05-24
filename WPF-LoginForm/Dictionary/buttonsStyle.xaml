@@ -305,7 +305,8 @@
     </Style>
     
     <Style x:Key="menuButtonText" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
@@ -363,10 +364,11 @@
     </Style>
 
     <Style x:Key="paggingButton" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#9eabe2"/>
-        <Setter Property="Margin" Value="1 0"/>
-        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Background" Value="#9eabe2"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Height" Value="35"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -379,12 +381,36 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#5b60c4"/>
+                <Setter Property="Background" Value="#9890e3"/>
                 <Setter Property="Foreground" Value="#ffffff"/>
-
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="AddButtonPages" TargetType="Button">
+        <Setter Property="Background" Value="#9890e3"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="10 5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 1"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#614385"/>
+                <Setter Property="Foreground" Value="#ffffff"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 
     <Style x:Key="pagingButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Height" Value="10"/>
@@ -422,13 +448,15 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <Style x:Key="gridButtonEdit" TargetType="Button">
         <Setter Property="Width" Value="30"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="ToolTip" Value="Изменить"/>
+
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -451,6 +479,8 @@
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="ToolTip" Value="Удалить"/>
+
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -473,6 +503,7 @@
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="ToolTip" Value="Информация"/>
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -489,27 +520,35 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="gridButtonInfoSmall" TargetType="Button">
-        <Setter Property="Width" Value="20"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Margin" Value="0 0 0 0"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Foreground" Value="White"/>
+    <Style x:Key="HomeButton" TargetType="Button">
+        <Setter Property="BorderBrush" Value="#4e4376"/>
+        <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#b1f4cf" Offset="0.05"/>
-                    <GradientStop Color="#517fa4" Offset="0.5"/>
+                    <GradientStop Color="#517fa4" Offset="0.01"/>
                     <GradientStop Color="#4e4376" Offset="1"/>
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#517fa4"/>
+                <Setter Property="Background" Value="#4e4376"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
-
+    <Style x:Key="HomeGrid" TargetType="Grid">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#517fa4" Offset="0.01"/>
+                    <GradientStop Color="#4e4376" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>

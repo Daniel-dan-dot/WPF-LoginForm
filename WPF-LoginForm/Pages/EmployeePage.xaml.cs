@@ -35,12 +35,12 @@ namespace WPF_LoginForm.Pages
             EmplList = dataGridList.Select(s => new EmployeeShort()
             {
                 id = s.Id,
-                FIO = $"{s.LastName} {s.FirstName} {s.Patronymic}",
+                FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
                 dateOfBirth = s.DateOfBirth.ToString("D"),
                 telephone = s.Telephone,
                 address = s.Address,
                 post = s.Post.Name,
-            }).ToList();
+            }).OrderByDescending(s => s.id).ToList();
 
             DGemployee.ItemsSource = EmplList.Take(7).ToList();
             pagGrid.MaxPageCount = (int)Math.Ceiling(EmplList.Count / 7.0);

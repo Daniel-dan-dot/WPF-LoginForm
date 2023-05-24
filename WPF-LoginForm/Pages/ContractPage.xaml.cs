@@ -46,11 +46,11 @@ namespace WPF_LoginForm.Pages
             {
                 id = s.Id,
                 numberContract = s.NumberContract,
-                FIOClient = $"{s.Client.LastName} {s.Client.FirstName} {s.Client.Patronymic}",
+                FIOClient = $"{s.Client.LastName} {s.Client.FirstName[0]}.{s.Client.Patronymic[0]}.",
                 date = s.Date.ToString("D"),
                 city = s.City,
                 score = s.Score.NumberScore,
-            }).ToList();
+            }).OrderByDescending(s => s.id).ToList();
 
             DGcontract.ItemsSource = ContractList.Take(6).ToList();
             pagGrid.MaxPageCount = (int)Math.Ceiling(ContractList.Count / 6.0);
@@ -65,11 +65,11 @@ namespace WPF_LoginForm.Pages
             {
                 id = s.Id,
                 numberContract = s.Contract.NumberContract,
-                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName} {s.Contract.Client.Patronymic}",
+                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
                 date = s.Contract.Date.ToString("D"),
                 city = s.Contract.City,
                 score = s.Contract.Score.NumberScore,
-            }).ToList();
+            }).OrderByDescending(s => s.id).ToList();
 
             DGcontractDeposit.ItemsSource = ContractListDeposit.Take(6).ToList();
             pagGridDeposit.MaxPageCount = (int)Math.Ceiling(ContractListDeposit.Count / 6.0);
@@ -84,11 +84,11 @@ namespace WPF_LoginForm.Pages
             {
                 id = s.Id,
                 numberContract = s.Contract.NumberContract,
-                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName} {s.Contract.Client.Patronymic}",
+                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
                 date = s.Contract.Date.ToString("D"),
                 city = s.Contract.City,
                 score = s.Contract.Score.NumberScore,
-            }).ToList();
+            }).OrderByDescending(s => s.id).ToList();
 
             DGcontractCredit.ItemsSource = ContractListCredit.Take(6).ToList();
             pagGridCredit.MaxPageCount = (int)Math.Ceiling(ContractListCredit.Count / 6.0);
@@ -104,11 +104,11 @@ namespace WPF_LoginForm.Pages
             {
                 id = s.Id,
                 numberContract = s.Contract.NumberContract,
-                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName} {s.Contract.Client.Patronymic}",
+                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
                 date = s.Contract.Date.ToString("D"),
                 city = s.Contract.City,
                 score = s.Contract.Score.NumberScore,
-            }).ToList();
+            }).OrderByDescending(s => s.id).ToList();
 
             DGcontractInvestment.ItemsSource = ContractListInvestment.Take(6).ToList();
             pagGridInvestment.MaxPageCount = (int)Math.Ceiling(ContractListInvestment.Count / 6.0);
@@ -124,11 +124,11 @@ namespace WPF_LoginForm.Pages
             {
                 id = s.Id,
                 numberContract = s.Contract.NumberContract,
-                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName} {s.Contract.Client.Patronymic}",
+                FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
                 date = s.Contract.Date.ToString("D"),
                 city = s.Contract.City,
                 score = s.Contract.Score.NumberScore,
-            }).ToList();
+            }).OrderByDescending(s => s.id).ToList();
 
             DGcontractInsurance.ItemsSource = ContractListInsurance.Take(6).ToList();
             pagGridInsurance.MaxPageCount = (int)Math.Ceiling(ContractListInsurance.Count / 6.0);

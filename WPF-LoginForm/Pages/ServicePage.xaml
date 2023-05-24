@@ -5,24 +5,223 @@
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       xmlns:local="clr-namespace:WPF_LoginForm.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1100"
       Title="ServicePage">
 
     <Grid>
-        <hc:StepBar Name="step" Background="White" Foreground="White">
-            <hc:StepBarItem Content="Информация о клиенте"/>
-            <hc:StepBarItem Content="Выбор направление услуги"/>
-            <hc:StepBarItem Content="Выбор услуги"/>
-            <hc:StepBarItem Content="Выбор условий"/>
-            <hc:StepBarItem Content="Оформление"/>
-        </hc:StepBar>
-        <StackPanel>
-            <Button Name="Prev" Click="Prev_Click"  Width="180" HorizontalAlignment="Left" Margin="0 80 0 -30" Content="Назад"/>
+        <Button Margin="100 0 0 300" HorizontalAlignment="Left" Height="250" Width="300">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#614385" Offset="1"/>
+                    <GradientStop Color="#9890e3" Offset="0"/>
 
-            <Button Name="Next" Click="Next_Click" Width="180" HorizontalAlignment="Right" Margin="0 0 0 0" Content="Далее"/>
-        </StackPanel>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Clip>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+            </Button.Clip>
+            <Grid>
+                <Ellipse Width="220" Height="220" Margin="0 80 -60 0" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#9890e3" Offset="1"/>
+                            <GradientStop Color="#d9afd9" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="160" Height="160" Margin="0 0 80 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#9890e3" Offset="1"/>
+                            <GradientStop Color="#d9afd9" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#9890e3" Offset="1"/>
+                            <GradientStop Color="#d9afd9" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <fa:IconImage Icon="Briefcase" Foreground="#614385" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <StackPanel Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="ВКЛАДЫ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="140"/>
+                </StackPanel>
+
+            </Grid>
+        </Button>
+
+        <Button Margin="100 250 0 0" HorizontalAlignment="Left" Height="250" Width="300">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#614385" Offset="1"/>
+                    <GradientStop Color="#ffc3a0" Offset="0"/>
+
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Clip>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+            </Button.Clip>
+            <Grid>
+                <Ellipse Width="220" Height="220" Margin="0 80 -60 0" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#ffafbd" Offset="1"/>
+                            <GradientStop Color="#ffc3a0" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="160" Height="160" Margin="0 0 80 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#ffafbd" Offset="1"/>
+                            <GradientStop Color="#ffafbd" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#9890e3" Offset="1"/>
+                            <GradientStop Color="#ffafbd" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <fa:IconImage Icon="ChartArea" Foreground="#60273a" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <StackPanel Margin="-15 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="ИНВЕСТИЦИИ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="220"/>
+                </StackPanel>
+
+            </Grid>
+        </Button>
+
+        <Button Margin="450 0 0 300" HorizontalAlignment="Left" Height="250" Width="300">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#df89b5" Offset="0"/>
+                    <GradientStop Color="#884D80" Offset="0.5"/>
+
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Clip>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+            </Button.Clip>
+            <Grid>
+                <Ellipse Width="220" Height="220" Margin="0 80 -60 0" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#ed6ea0" Offset="1"/>
+                            <GradientStop Color="#bfd9fe" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="160" Height="160" Margin="0 0 80 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#ed6ea0" Offset="1"/>
+                            <GradientStop Color="#bfd9fe" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#ed6ea0" Offset="1"/>
+                            <GradientStop Color="#d9afd9" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <fa:IconImage Icon="MoneyBill1Wave" Foreground="#214d74" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <StackPanel Margin="-15 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="КРЕДИТЫ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="240"/>
+                </StackPanel>
+
+            </Grid>
+        </Button>
+
+        <Button Margin="450 250 0 0" HorizontalAlignment="Left" Height="250" Width="300">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#614385" Offset="1"/>
+                    <GradientStop Color="#00ecbc" Offset="0"/>
+
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Clip>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+            </Button.Clip>
+            <Grid>
+                <Ellipse Width="220" Height="220" Margin="0 80 -70 0" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#64b3f4" Offset="1"/>
+                            <GradientStop Color="#c2e59c" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="160" Height="160" Margin="0 0 40 -80" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#64b3f4" Offset="1"/>
+                            <GradientStop Color="#c2e59c" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="#c2e59c" Offset="1"/>
+                            <GradientStop Color="#64b3f4" Offset="0.8"/>
+                            <GradientStop Color="Transparent" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <fa:IconImage Icon="BuildingCircleCheck" Foreground="#214d74" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <StackPanel Margin="-20 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="СТРАХОВАНИЕ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="240"/>
+                </StackPanel>
+
+            </Grid>
+        </Button>
+        <!--<hc:StepBar Name="step" Margin="0 20 0 0">
+            <hc:StepBarItem Content="Информация о клиенте" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3">
+            
+            </hc:StepBarItem>
+            
+            <hc:StepBarItem Content="Выбор направление услуги" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
+            <hc:StepBarItem Content="Выбор услуги" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
+            <hc:StepBarItem Content="Выбор условий" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
+            <hc:StepBarItem Content="Оформление" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
+        </hc:StepBar>
+        <StackPanel Height="50" Width="1000" VerticalAlignment="Top" Margin="0 100 0 0">
+            <Grid>
+                <Button Name="Prev" Style="{StaticResource paggingButton}" Click="Prev_Click" Cursor="Hand" Width="160" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55 0 0 0" Content="Назад"/>
+                <fa:IconImage Name="PrevIcon" Icon="LeftLong" Margin="60 -2 0 0" Cursor="Hand"  Width="35" Height="35" Foreground="#4e4376" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <Button Name="Next" Style="{StaticResource paggingButton}" Click="Next_Click"  Cursor="Hand" Width="160" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0 0 50 0" Content="Далее"/>
+                <fa:IconImage Icon="RightLong" Margin="0 -2 60 0"  Cursor="Hand"  Width="40" Height="40" Foreground="#4e4376" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+            </Grid>
+
+        </StackPanel>-->
+
+        
         
     </Grid>
 

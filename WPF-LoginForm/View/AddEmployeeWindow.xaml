@@ -133,7 +133,7 @@
                 FontFamily="Montserrat"
                 Style="{StaticResource AddButtonWindow}"
                 Cursor="Hand"                           
-                Margin="0 0 80 40"
+                Margin="0 0 60 40"
                 Click="btnClose_Click">
 
 

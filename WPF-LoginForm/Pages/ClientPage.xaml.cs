@@ -35,7 +35,7 @@ namespace WPF_LoginForm.Pages
             clientList = dataGridList.Select(s => new ClientShort()
             {
                 id = s.Id,
-                FIO = $"{s.LastName} {s.FirstName} {s.Patronymic}",
+                FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
                 dateOfBirth = s.DateOfBirth.ToString("D"),
                 telephone = s.Telephone,
                 address = s.Address,
@@ -46,7 +46,7 @@ namespace WPF_LoginForm.Pages
                 inn = s.ClientInfo.INN,
                 snils = s.ClientInfo.SNILS,
 
-            }).ToList();
+            }).OrderByDescending(s => s.id).ToList();
 
             DGclient.ItemsSource = clientList.Take(7).ToList();
             pagGrid.MaxPageCount = (int)Math.Ceiling(clientList.Count / 7.0);

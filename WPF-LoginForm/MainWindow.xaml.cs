@@ -26,6 +26,9 @@ namespace WPF_LoginForm
 
             //DGemployee.ItemsSource = DB_BANK4Entities1.GetContext().Employee.ToList();
             ConfigHelper.Instance.SetLang("ru");
+            MainFrame.Content = new HomePage();
+
+            NavigationService.GetNavigationService(new HomePage());
 
             //string db = "SERVER=DESKTOP-IBJCCC1;DATABASE=DB_BANK3;UID=root;PASSWORD=;";
 
@@ -129,7 +132,7 @@ namespace WPF_LoginForm
 
         private void Minimize_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
     }
 }

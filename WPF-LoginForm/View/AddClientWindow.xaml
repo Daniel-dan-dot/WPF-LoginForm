@@ -16,10 +16,13 @@
         MouseDown="Window_MouseDown">
 
 
-    <Grid>
+    <Grid Height="650" Width="1050">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="20" Color="#000000"/>
+        </Grid.Effect>
         <Border CornerRadius="20"                    
-                BorderThickness="2"
-                Opacity="1" BorderBrush="White">
+                BorderThickness="0"
+                Opacity="1" Padding="10">
             <!--<ComboBox x:Name="cbPost" Margin="0 0 0 200" Background="Transparent" Height="10" Width="150" ItemsSource="{Binding DataList}" SelectedIndex="0"/>-->
 
             <Grid>
@@ -30,15 +33,13 @@
                         Margin="50 0 0 0"/>
                 </StackPanel>
             </Grid>
-
-            
-
+          
             <Border.Background>
 
                 <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
 
-                    <GradientStop Color="#9890e3" Offset="0.1"/>
-                    <GradientStop Color="#d9afd9" Offset="1"/>
+                    <GradientStop Color="#614385" Offset="0.1"/>
+                    <GradientStop Color="#9890e3" Offset="1"/>
                 </LinearGradientBrush>
 
             </Border.Background>

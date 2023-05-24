@@ -31,6 +31,10 @@
                 </StackPanel>
             </Grid>
 
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#000000"/>
+            </Border.Effect>
+            
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#000000" Offset="0.2"/>
@@ -43,7 +47,7 @@
 
                 <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
 
-                    <GradientStop Color="#9890e3" Offset="0.2"/>
+                    <GradientStop Color="#517fa4" Offset="0.2"/>
                     <GradientStop Color="#b1f4cf" Offset="1."/>
                 </LinearGradientBrush>
 

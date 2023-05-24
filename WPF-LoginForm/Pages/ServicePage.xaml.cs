@@ -25,14 +25,14 @@ namespace WPF_LoginForm.Pages
             InitializeComponent();
         }
 
-        private void Prev_Click(object sender, RoutedEventArgs e)
-        {
-            step.Prev();
-        }
+        //private void Prev_Click(object sender, RoutedEventArgs e)
+        //{
+        //    step.Prev();
+        //}
 
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-            step.Next();
-        }
+        //private void Next_Click(object sender, RoutedEventArgs e)
+        //{
+        //    step.Next();
+        //}
     }
 }

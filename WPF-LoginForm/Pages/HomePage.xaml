@@ -5,25 +5,829 @@
       xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPF_LoginForm.Pages"
-      xmlns:hc="https://handyorg.github.io/handycontrol"  
+      xmlns:hc="https://handyorg.github.io/handycontrol" 
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1100"
+      d:DesignHeight="610" d:DesignWidth="1100"
       Title="HomePage"
       Background="Transparent">
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="177*"/>
-            <RowDefinition Height="173*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="230*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="417*"/>
-            <ColumnDefinition Width="133*"/>
-        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" Grid.Row="1">
-            <Calendar Height="200" Width="200" Grid.ColumnSpan="2" Margin="8,0,8,0"/>
+
+        <Grid Grid.Row="1" Margin="0 20 50 20" Height="420" Width="250" HorizontalAlignment="Right">
+            <TextBlock Text="Последние договоры" Foreground="White" FontSize="26" HorizontalAlignment="Center"/>
+            
+            <Border Width="250"
+                    Height="350"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 10"                    
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="15"
+                                       RadiusY="15"
+                                       Rect="0,0,245,395"/>
+                </Border.Clip>
+                
+                <Grid Height="340" Width="250" VerticalAlignment="Top" Margin="0 10 0 0">
+                    <TextBlock x:Name="FIO1"
+                               VerticalAlignment="Top"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="150"
+                                   Height="35"
+                                   Margin="60 5 0 0"/>
+                    <TextBlock x:Name="contract1"
+                               VerticalAlignment="Top"
+                                   Foreground="Gray"
+                                   FontSize="16"
+                                   Width="140"
+                                   Height="25"
+                                   Margin="60 30 0 0"/>
+                    <Border Height="55" CornerRadius="15" Width="55" HorizontalAlignment="Left" Margin="10 0 0 0"  VerticalAlignment="Top" Background="#614385">
+                        <fa:IconImage Icon="FileAlt" Width="30" Height="30" Foreground="#ffffff" HorizontalAlignment="Center" Margin="0 0 0 0"/>
+                    </Border>
+
+                    <TextBlock x:Name="FIO2"
+                               VerticalAlignment="Top"
+                               Foreground="White"
+                                   FontSize="18"
+                                   Width="150"
+                                   Height="35"
+                                   Margin="60 75 0 10"/>
+                    <TextBlock x:Name="contract2"
+                               VerticalAlignment="Top"
+                               Foreground="Gray"
+                               FontSize="16"
+                               Width="140"
+                               Height="25"
+                               Margin="60 100 0 0"/>
+                    <Border Height="55" CornerRadius="15" Width="55" HorizontalAlignment="Left" Margin="10 70 0 0"  VerticalAlignment="Top" Background="#614385">
+                        <fa:IconImage Icon="FileAlt" Width="30" Height="30" Foreground="#ffffff" HorizontalAlignment="Center" Margin="0 0 0 0"/>
+                    </Border>
+
+                    <TextBlock x:Name="FIO3"
+                               VerticalAlignment="Top"
+                               Foreground="White"
+                                   FontSize="18"
+                                   Width="150"
+                                   Height="35"
+                                   Margin="60 145 0 10"/>
+                    <TextBlock x:Name="contract3"
+                               VerticalAlignment="Top"
+                               Foreground="Gray"
+                                   FontSize="16"
+                                   Width="140"
+                                   Height="25"
+                                   Margin="60 170 0 0"/>
+                    <Border Height="55" CornerRadius="15" Width="55" HorizontalAlignment="Left" Margin="10 0 0 10"  VerticalAlignment="Center" Background="#614385">
+                        <fa:IconImage Icon="FileAlt" Width="30" Height="30" Foreground="#ffffff" HorizontalAlignment="Center" Margin="0 0 0 0"/>
+                    </Border>
+
+                    <TextBlock x:Name="FIO4"
+                               VerticalAlignment="Bottom"                               
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="150"
+                                   Height="35"
+                                   Margin="60 0 0 95"/>
+                    <TextBlock x:Name="contract4"
+                               VerticalAlignment="Bottom"                               
+                               Foreground="Gray"
+                                   FontSize="16"
+                                   Width="140"
+                                   Height="25"
+                                   Margin="60 30 0 80"/>
+                    <Border Height="55" CornerRadius="15" Width="55" HorizontalAlignment="Left" Margin="10 0 0 80"  VerticalAlignment="Bottom" Background="#614385">
+                        <fa:IconImage Icon="FileAlt" Width="30" Height="30" Foreground="#ffffff" HorizontalAlignment="Center" Margin="0 0 0 0"/>
+                    </Border>
+
+
+                    <TextBlock x:Name="FIO5"
+                               VerticalAlignment="Bottom"                               
+                               Foreground="White"
+                                   FontSize="18"
+                                   Width="150"
+                                   Height="35"
+                                   Margin="60 0 0 25"/>
+                    <TextBlock x:Name="contract5"
+                               VerticalAlignment="Bottom"                               
+                               Foreground="Gray"
+                                   FontSize="16"
+                                   Width="140"
+                                   Height="25"
+                                   Margin="60 30 0 10"/>
+                    <Border Height="55" CornerRadius="15" Width="55" HorizontalAlignment="Left" Margin="10 0 0 10"  VerticalAlignment="Bottom" Background="#614385">
+                        <fa:IconImage Icon="FileAlt" Width="30" Height="30" Foreground="#ffffff" HorizontalAlignment="Center" Margin="0 0 0 0"/>
+                    </Border>
+
+                </Grid>
+
+
+
+
+
+
+            </Border>
+            <!--<Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Top"
+                    Margin="0 105 0 0"                    
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Кредиты :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="100"
+                                   Margin="0,10,100,0"/>
+
+                        <TextBlock x:Name="contract2"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 90" 
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Инвестиции :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="130"
+                                   Margin="10,10,80,0"/>
+
+                        <TextBlock x:Name="contract3"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Width="220"
+                    Height="40"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 30"
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="№ "
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="130"
+                                   Margin="10,10,80,0"/>
+
+                        <TextBlock x:Name="contract4"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="140,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Width="220"
+                    Height="40"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 160"
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="№ "
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="130"
+                                   Margin="10,10,80,0"/>
+
+                        <TextBlock x:Name="contract5"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="140,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>-->
+            <!--<TextBlock Text="СТАТИСТИКА" Foreground="White" FontSize="28" HorizontalAlignment="Center"/>
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Top"
+                    Margin="0 45 0 0"                    
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Вклады :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="100"
+                                   Margin="0,10,100,0"/>
+                        
+                        <TextBlock x:Name="countDeposit"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>                    
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Top"
+                    Margin="0 105 0 0"                    
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Кредиты :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="100"
+                                   Margin="0,10,100,0"/>
+
+                        <TextBlock x:Name="countCredit"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 90" 
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Инвестиции :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="130"
+                                   Margin="10,10,80,0"/>
+
+                        <TextBlock x:Name="countInvestment"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 30"
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Страхование :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="130"
+                                   Margin="10,10,80,0"/>
+
+                        <TextBlock x:Name="countInsurance"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="140,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>-->
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+
+            <Border Margin="100 20 0 0" HorizontalAlignment="Left" Height="120" Width="250">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#614385" Offset="1"/>
+                        <GradientStop Color="#9890e3" Offset="0"/>
+
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 250 120"/>
+                </Border.Clip>
+                <Grid>
+                    <Ellipse Width="200" Height="200" Margin="0 -100 -90 0" HorizontalAlignment="Right">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                <GradientStop Color="#9890e3" Offset="1"/>
+                                <GradientStop Color="#d9afd9" Offset="0.5"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <fa:IconImage Icon="UserAlt" Margin="0 0 10 30" Width="50" Height="50" Foreground="#ffffff" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    
+                    <StackPanel Margin="15 20 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Text="КЛИЕНТЫ" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="120"/>
+                        <TextBlock x:Name="countClients" Foreground="#ffffff" FontSize="32" Margin="30 0 0 0" FontWeight="SemiBold"/>
+                    </StackPanel>
+                
+                </Grid>
+            </Border>
+
+
+            <Border Margin="380 20 0 0" HorizontalAlignment="Left" Height="120" Width="250">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#614385" Offset="0.7"/>
+                        <GradientStop Color="#00ecbc" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 250 120"/>
+                </Border.Clip>
+                <Grid>
+                    <Ellipse Width="200" Height="200" Margin="0 -100 -90 0" HorizontalAlignment="Right">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                <GradientStop Color="#64b3f4" Offset="1"/>
+                                <GradientStop Color="#c2e59c" Offset="0.5"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <fa:IconImage Icon="FileAlt" Margin="0 0 10 30" Width="50" Height="50" Foreground="#ffffff" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                    <StackPanel Margin="15 20 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Text="ДОГОВОРЫ" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="120"/>
+                        <TextBlock x:Name="countContracts" Foreground="#ffffff" FontSize="32" Margin="30 0 0 0" FontWeight="SemiBold"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+            <Border Margin="660 20 0 0" HorizontalAlignment="Left" Height="120" Width="250">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#df89b5" Offset="0"/>
+                        <GradientStop Color="#884D80" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 250 120"/>
+                </Border.Clip>
+                <Grid>
+                    <Ellipse Width="200" Height="200" Margin="0 -100 -90 0" HorizontalAlignment="Right">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                <GradientStop Color="#ed6ea0" Offset="1"/>
+                                <GradientStop Color="#bfd9fe" Offset="0.2"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <fa:IconImage Icon="Users" Margin="0 0 10 20" Width="50" Height="50" Foreground="#ffffff" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                    <StackPanel Margin="15 20 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Text="СОТРУДНИКИ" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="130"/>
+                        <TextBlock x:Name="countEmployees" Foreground="#ffffff" FontSize="32" Margin="30 0 0 0" FontWeight="SemiBold"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+
+
+            <!--<Button Width="250"
+                    Height="200"
+                    Margin="50,20,0,0"
+                    HorizontalAlignment="Left"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource HomeButton}">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#211232" Offset="0"/>
+                        <GradientStop Color="#9890e3" Offset="0.6"/>
+                        <GradientStop Color="#b1f4cf" Offset="1.2"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="250" Height="200"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="ВКЛАДЫ"
+                                   Foreground="White"
+                                   FontSize="28"
+                                   Margin="10,0,10,0"/>
+                        <TextBlock Text="От 30 тыс. рублей"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Margin="20,10,10,0"/>
+                    </StackPanel>
+                    <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="122,94,0,0" Height="80" Width="80" Icon="MoneyBillWave"  Style="{StaticResource UserWindowIcon}"/>
+                </Grid>
+            </Button>
+
+            <Button Width="250"
+                    Height="200"
+                    Margin="200 20 0 0" 
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource HomeButton}">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#211232" Offset="0"/>
+                        <GradientStop Color="#9890e3" Offset="0.6"/>
+                        <GradientStop Color="#b1f4cf" Offset="1.2"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="250" Height="200"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="КРЕДИТЫ"
+                                   Foreground="White"
+                                   FontSize="28"
+                                   Margin="10,0,10,0"/>
+                        <TextBlock Text="Лучшие предложения 
+                                   по кредитам"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Margin="20,10,10,0" Height="51"/>
+                    </StackPanel>
+                    <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="145,94,0,0" Height="80" Width="80" Icon="Wallet" Style="{StaticResource UserWindowIcon}"/>
+                </Grid>
+            </Button>-->
 
         </Grid>
 
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 20 0 0" Height="40" Width="200">
+                <TextBlock Text="Статистика" FontSize="30" Style="{StaticResource menuButtonText}"/>
+            </StackPanel>
+            <Border Width="700"
+                    Height="350"
+                    CornerRadius="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="40 0 0 34"                    
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="15"
+                                       RadiusY="15"
+                                       Rect="0 0 695 345"/>
+                </Border.Clip>
+                <Grid >
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0 0 0 25">
+                        <TextBlock Text="600" Foreground="#9890e3" Margin="20 0 0 25"/>
+                        <TextBlock Text="500" Foreground="#9890e3" Margin="20 0 0 25"/>
+                        <TextBlock Text="400" Foreground="#9890e3" Margin="20 0 0 25"/>
+                        <TextBlock Text="300" Foreground="#9890e3" Margin="20 0 0 25"/>
+                        <TextBlock Text="200" Foreground="#9890e3" Margin="20 0 0 25"/>
+                        <TextBlock Text="100" Foreground="#9890e3" Margin="20 0 0 25"/>
+                        <TextBlock Text="0" Foreground="#9890e3" Margin="20 0 0 25"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 0 0 25">
+                        <TextBlock Text="1" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="2" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="3" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="4" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="5" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="6" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="8" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="9" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="10" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="11" Foreground="#9890e3" Margin="41 0 0 0"/>
+                        <TextBlock Text="12" Foreground="#9890e3" Margin="41 0 0 0"/>
+                    </StackPanel>
+
+                    <lvc:CartesianChart Margin="45 30 10 45">
+                        <lvc:CartesianChart.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#211232" Offset="0"/>
+                                <GradientStop Color="#614385" Offset="1"/>
+                            </LinearGradientBrush>
+                        </lvc:CartesianChart.Background>
+
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis MinValue="1" MaxValue="5" Foreground="#9890e3" ShowLabels="False"/>
+                        </lvc:CartesianChart.AxisX>
+                    
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis MinValue="0" MaxValue="600" Foreground="#9890e3" ShowLabels="False">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="0"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+
+                        <lvc:CartesianChart.Series>
+                                <lvc:LineSeries Stroke="#9890e3" StrokeThickness="2" PointGeometrySize="0" Values="152,46,456,123,121,541,32">
+                                    <lvc:LineSeries.Fill>
+                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <GradientStop Color="#b397e2" Offset="0.4"/>
+                                        <GradientStop Color="#614385" Offset="1.2"/>
+                                        </LinearGradientBrush>
+                                    </lvc:LineSeries.Fill>
+                                </lvc:LineSeries>
+                        </lvc:CartesianChart.Series>
+
+                    </lvc:CartesianChart>
+                    
+                </Grid>
+
+            </Border>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--<Button Width="250"
+                    Height="200"
+                    Margin="50 0 0 50"
+                    HorizontalAlignment="Left"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource HomeButton}">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#9890e3" Offset="0"/>
+                        <GradientStop Color="#d9afd9" Offset="0.75"/>
+                        <GradientStop Color="#b1f4cf" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="250" Height="200"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="ИНВЕСТИЦИИ"
+                                   Foreground="White"
+                                   FontSize="28"
+                                   Margin="10,0,10,0"/>
+                        <TextBlock Text="Посмотрите в будукщее!"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Margin="20,10,10,0"/>
+                    </StackPanel>
+                    <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="122,94,0,0" Height="80" Width="80" Icon="ChartArea" Style="{StaticResource UserWindowIcon}"/>
+                </Grid>
+            </Button>-->
+
+            <!--<Button Width="250"
+                    Height="200"
+                    Margin="200 0 0 50" 
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Style="{StaticResource HomeButton}">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#9890e3" Offset="0"/>
+                        <GradientStop Color="#d9afd9" Offset="0.5"/>
+                        <GradientStop Color="#b1f4cf" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="250" Height="200"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="СТРАХОВАНИЕ"
+                                   Foreground="White"
+                                   FontSize="28"
+                                   Margin="10,0,10,0"/>
+                        <TextBlock Text="Обезопасте себя и близких"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Margin="20,10,10,0" Height="51"/>
+                    </StackPanel>
+                    <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="122,94,0,0" Height="80" Width="80" Icon="UmbrellaBeach" Style="{StaticResource UserWindowIcon}"/>
+                </Grid>
+            </Button>-->
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="0">
+
+            <!--<TextBlock Text="ПОСЛЕДНИЕ ДОГОВОРЫ" Foreground="White" FontSize="28" HorizontalAlignment="Center"/>
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Top"
+                    Margin="0 45 0 0"                    
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Вклады :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="100"
+                                   Margin="0,10,100,0"/>
+
+                        <TextBlock x:Name="contract1"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Top"
+                    Margin="0 105 0 0"                    
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Кредиты :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="100"
+                                   Margin="0,10,100,0"/>
+
+                        <TextBlock x:Name="contract2"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Width="220"
+                    Height="50"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 90" 
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Инвестиции :"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="130"
+                                   Margin="10,10,80,0"/>
+
+                        <TextBlock x:Name="contract3"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="130,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Width="220"
+                    Height="40"
+                    CornerRadius="10"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 30"
+                    Background="#211232">
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,250,200"/>
+                </Border.Clip>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="№ "
+                                   Foreground="White"
+                                   FontSize="20"
+                                   Width="130"
+                                   Margin="10,10,80,0"/>
+
+                        <TextBlock x:Name="contract4"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Width="80"
+                                   Margin="140,-25,0,0"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>-->
+        </Grid>
     </Grid>
 </Page>
