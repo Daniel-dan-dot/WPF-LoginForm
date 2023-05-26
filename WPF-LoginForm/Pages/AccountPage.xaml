@@ -24,17 +24,10 @@
                        Style="{StaticResource ModernTextBox}"/>
 
         <Button x:Name="AddButton"                          
-                BorderThickness="0"
-                Height="35"
-                Width="150"
                 Content="Добавить"
-                Foreground="White"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
-                FontSize="14"
-                FontFamily="Montserrat"
-                Style="{StaticResource AddButton}"
-                Cursor="Hand"                           
+                Style="{StaticResource AddButtonPages}"
                 Margin="0 0 150 50"
                 Click="AddButton_Click">
 
@@ -62,8 +55,9 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="195" />
                 <DataGridTextColumn Header="Эл. почта" Binding="{Binding Email}" Width="125"/>
-                <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}" Width="131"/>
-                <DataGridTextColumn Header="Должность" Binding="{Binding post}" Width="180"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding Employee}" Width="180"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role}" Width="131"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Post}" Width="180"/>
                 <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -51,6 +51,7 @@ namespace WPF_LoginForm.View
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
             //string Login = txtLogin.Text;
             //string Password = txtPassword.Text;
 

@@ -24,35 +24,40 @@ namespace WPF_LoginForm.Pages
     /// </summary>
     public partial class AccountPage : Page
     {
-        List<Account> AccountList = new List<Account>();
+        List<Account> dataGridList = new List<Account>();
+        List<AccountShort> accountList = new List<AccountShort>();
 
         public AccountPage()
         {
             InitializeComponent();
-            AccountList = DB_BANK4Entities1.GetContext().Accounts.ToList();
-            
+            dataGridList = DB_BANK4Entities1.GetContext().Accounts.ToList();
+            accountList = dataGridList.Select(s => new AccountShort()
+            {
+                Id = s.Id,
+                Email = s.Email,
+                Login = s.Login,
+                Password=s.Password,
+                FIOEmployee = $"{s.Employee.LastName} {s.Employee.FirstName[0]}.{s.Employee.Patronymic[0]}.",
+                Post = s.Employee.Post.Name,
 
-            DGaccount.ItemsSource = AccountList.Take(7).ToList();
-            pagGrid.MaxPageCount = (int)Math.Ceiling(AccountList.Count / 7.0);
+            }).OrderByDescending(s => s.Id).ToList();
 
-            /*            DGemployee.ItemsSource = dataGridList.Take(8).ToList();
-                        pagGrid.MaxPageCount = (int)Math.Ceiling(dataGridList.Count / 8.0);
-            */
+            DGaccount.ItemsSource = accountList.Take(7).ToList();
+            pagGrid.MaxPageCount = (int)Math.Ceiling(accountList.Count / 7.0);
             txtCount.Text = "Найдено записей: ";
-            txtCount.Text += AccountList.Count().ToString();
-
+            txtCount.Text += dataGridList.Count().ToString();
         }
 
         private void pagGrid_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
         {
-            DGaccount.ItemsSource = AccountList.Skip((e.Info - 1) * 7).Take(7).ToList();
+            DGaccount.ItemsSource = accountList.Skip((e.Info - 1) * 7).Take(7).ToList();
 
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
-            addEmployeeWindow.Show();
+            AddAccountsWindow addAccountWindow = new AddAccountsWindow();
+            addAccountWindow.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -60,6 +65,6 @@ namespace WPF_LoginForm.Pages
             Growl.Error("Запись удалена");
 
         }
-    
+
     }
 }

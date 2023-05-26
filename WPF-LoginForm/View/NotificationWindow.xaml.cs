@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -15,25 +16,25 @@ using System.Windows.Shapes;
 namespace WPF_LoginForm.View
 {
     /// <summary>
-    /// Логика взаимодействия для ClientInfoWindow.xaml
+    /// Логика взаимодействия для NotificationWindow.xaml
     /// </summary>
-    public partial class ClientInfoWindow : Window
+    public partial class NotificationWindow : Window
     {
-        public ClientInfoWindow()
+        public NotificationWindow()
         {
             InitializeComponent();
-
         }
+
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            DragMove();
+            DialogResult = true;
+            
         }
     }
 }

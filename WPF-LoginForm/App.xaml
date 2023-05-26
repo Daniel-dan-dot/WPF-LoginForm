@@ -6,7 +6,9 @@
              xmlns:viewModel="clr-namespace:WPF_LoginForm.ViewModel"
              xmlns:view="clr-namespace:WPF_LoginForm.View"
              StartupUri="MainWindow.xaml">
-
+    
+    <!--View/LoginView-->
+    
     <Application.Resources>
 
         <ResourceDictionary>

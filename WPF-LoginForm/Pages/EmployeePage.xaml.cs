@@ -1,8 +1,13 @@
 ﻿using HandyControl.Controls;
+using HandyControl.Tools;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,13 +30,21 @@ namespace WPF_LoginForm.Pages
     /// </summary>
     public partial class EmployeePage : Page
     {
+
         List<Employee> dataGridList = new List<Employee>();
         List<EmployeeShort> EmplList = new List<EmployeeShort>();
 
         public EmployeePage()
         {
             InitializeComponent();
-            dataGridList = DB_BANK4Entities1.GetContext().Employees.ToList();
+            LoadEmployee();
+            ConfigHelper.Instance.SetLang("ru");
+
+        }
+
+        private void LoadEmployee()
+        {
+           dataGridList = DB_BANK4Entities1.GetContext().Employees.ToList();
             EmplList = dataGridList.Select(s => new EmployeeShort()
             {
                 id = s.Id,
@@ -47,7 +60,6 @@ namespace WPF_LoginForm.Pages
 
             txtCount.Text = "Найдено записей: ";
             txtCount.Text += EmplList.Count().ToString();
-            
         }
 
         private void pagGrid_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
@@ -60,14 +72,52 @@ namespace WPF_LoginForm.Pages
         {
             AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
             addEmployeeWindow.Show();
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void tbFindEmployee_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            Growl.Error("Запись удалена");
+
         }
 
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+            var dialog = System.Windows.MessageBox.Show("Вы действительно хотите удалить сотрудника?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+            if (dialog == MessageBoxResult.Yes)
+            {
+                int id = (DGemployee.SelectedItem as Employee).Id;
+                Employee employee = _db.Employees.Find(id);
+
+
+                _db.Employees.Remove(employee);
+                _db.SaveChanges();
+                LoadEmployee();
+                Growl.Success("Сотрудник успешно удален!");
+            }
+        }
+
+        private void btnModify_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
+
+            Employee employee = new Employee();
+            addEmployeeWindow.txtFirstName.Text = employee.FirstName;
+            addEmployeeWindow.txtLastName.Text = employee.LastName;
+            addEmployeeWindow.txtPatronymic.Text = employee.Patronymic;
+            addEmployeeWindow.txtAddress.Text = employee.Address;
+            addEmployeeWindow.txtPhone.Text = employee.Telephone;
+            addEmployeeWindow.cbPost.SelectedValue = employee.Post;
+            _db.Employees.Add(employee);
+
+            addEmployeeWindow.Show();
+
+
+        }
     }
 
     

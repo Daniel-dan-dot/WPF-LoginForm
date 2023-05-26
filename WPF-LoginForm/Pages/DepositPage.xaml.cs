@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_LoginForm.View
+namespace WPF_LoginForm.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddContractWindow.xaml
+    /// Логика взаимодействия для DepositPage.xaml
     /// </summary>
-    public partial class AddContractWindow : Window
+    public partial class DepositPage : Page
     {
-        public AddContractWindow()
+        public DepositPage()
         {
             InitializeComponent();
         }

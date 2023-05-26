@@ -38,14 +38,13 @@
 
                 <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
 
-                    <GradientStop Color="#614385" Offset="0.1"/>
-                    <GradientStop Color="#9890e3" Offset="1"/>
+                    <GradientStop Color="#614385" Offset="1.1"/>
+                    <GradientStop Color="#9890e3" Offset="0.2"/>
                 </LinearGradientBrush>
 
             </Border.Background>
         </Border>
 
-        <TextBlock Text="Клиент" Opacity="0.4" Foreground="#614385" FontFamily="Arial" Width="100" FontSize="16" FontWeight="SemiBold" Margin="12 8 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <Button x:Name="btnClose"  
                 VerticalAlignment="Top"
@@ -84,9 +83,9 @@
         <Grid Height="200" Width="1000" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="290 30 0 0" Height="80" Width="80" Icon="UserAlt" Style="{StaticResource UserWindowIcon}"/>
             <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 30 240 0" Height="80" Width="80" Icon="FileAlt" Style="{StaticResource UserWindowIcon}"/>
-            <StackPanel Background="#614385" HorizontalAlignment="Center" VerticalAlignment="Top" Height="3" Width="100" Margin="60 75 0 0"/>
-            <StackPanel Background="#614385" HorizontalAlignment="Right" VerticalAlignment="Top" Height="3" Width="100" Margin="0 75 100 0"/>
-            <StackPanel Background="#614385" HorizontalAlignment="Left" VerticalAlignment="Top" Height="3" Width="100" Margin="100 75 0 0"/>
+            <StackPanel Background="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Top" Height="3" Width="100" Margin="60 75 0 0"/>
+            <StackPanel Background="#ffffff" HorizontalAlignment="Right" VerticalAlignment="Top" Height="3" Width="100" Margin="0 75 100 0"/>
+            <StackPanel Background="#ffffff" HorizontalAlignment="Left" VerticalAlignment="Top" Height="3" Width="100" Margin="100 75 0 0"/>
 
         </Grid>
 
@@ -154,18 +153,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="460"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Личные данные" FontFamily="Arial" Width="300" FontSize="32" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" Height="45" Margin="0 25 0 0"/>
+            <TextBlock Text="Личные данные" Foreground="#ffffff" FontFamily="Arial" Width="300" FontSize="32" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" Height="45" Margin="0 25 0 0"/>
             
             <Grid Margin="0 30 0 0">
 
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 105 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 155 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 205 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 255 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 255 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 305 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 355 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 405 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 105 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 155 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 205 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 255 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 255 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 305 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 355 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 405 0 0"/>
 
                 <TextBox x:Name="txtLastName"
                 FontSize="20"
@@ -216,7 +215,7 @@
                 Margin="0 60 30 0"
                 VerticalContentAlignment="Center"/>
 
-                <fa:IconImage ToolTip="Адрес, указанный в паспорте (желательно индекс)" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="MapLocation"/>
+                <fa:IconImage Foreground="#ffffff" ToolTip="Адрес, указанный в паспорте (желательно индекс)" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="MapLocation"/>
 
                 <TextBox x:Name="txtPhone"
                 Style="{StaticResource TelephoneTextBox}"
@@ -230,7 +229,7 @@
                 Margin="0 160 30 0"
                 VerticalContentAlignment="Center"/>
 
-                <fa:IconImage HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="Phone"/>
+                <fa:IconImage Foreground="#ffffff" HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="Phone"/>
 
                 <hc:DatePicker Margin="200 0 0 40" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="Hand"/>
                 <ComboBox x:Name="cbTypeClient" VerticalAlignment="Bottom" FontSize="20" Height="45" Width="250" Margin="200 0 0 105" Background="Transparent" BorderThickness="0" Foreground="Black"/>
@@ -238,13 +237,13 @@
 
             </Grid>
             <Grid Margin="0 100 210 0">
-                <TextBlock Text="Фамилия" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 400" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Имя" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 300" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Отчество" FontFamily="Arial" Width="110" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Дата рождения" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Адрес" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Телефон" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Тип клиента" FontFamily="Arial" Width="140" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Фамилия" Foreground="#ffffff" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 400" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Имя" Foreground="#ffffff" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 300" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Отчество" Foreground="#ffffff" FontFamily="Arial" Width="110" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Дата рождения" Foreground="#ffffff" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Адрес" Foreground="#ffffff" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Телефон" Foreground="#ffffff" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Тип клиента" Foreground="#ffffff" FontFamily="Arial" Width="140" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 -200" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>
 
 
@@ -256,22 +255,22 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="460"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Паспортные данные" FontFamily="Arial" Width="350" FontSize="32" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock Text="Паспортные данные" Foreground="#ffffff" FontFamily="Arial" Width="350" FontSize="32" FontWeight="Bold" Margin="0 20 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
 
             <Grid Margin="10 90 0 0">
-                <TextBlock Text="Серия/Номер" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBlock Text="Выдан" FontFamily="Arial" Width="120" FontSize="22" FontWeight="SemiBold" Margin="0 70 0 300" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBlock Text="Дата выдачи" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 120 0 200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBlock Text="ИНН" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 250 0 100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBlock Text="СНИЛС" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 300 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Серия/Номер" Foreground="#ffffff" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Выдан" Foreground="#ffffff" FontFamily="Arial" Width="120" FontSize="22" FontWeight="SemiBold" Margin="0 70 0 300" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Дата выдачи" Foreground="#ffffff" FontFamily="Arial" Width="150" FontSize="22" FontWeight="SemiBold" Margin="0 120 0 200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="ИНН" Foreground="#ffffff" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 250 0 100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="СНИЛС" Foreground="#ffffff" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 300 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="85" Margin="30 40 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="150" Margin="300 40 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 90 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 140 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 270 0 0"/>
-                <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 320 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="85" Margin="30 40 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="150" Margin="300 40 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 90 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 140 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 270 0 0"/>
+                <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 320 0 0"/>
 
                 <TextBox x:Name="txtSerialPassport"
                 FontSize="20"
@@ -298,7 +297,7 @@
                 Margin="0 0 0 0"
                 VerticalContentAlignment="Center"/>
 
-                <fa:IconImage ToolTip="Каким органом или министерством" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="MapLocation"/>
+                <fa:IconImage Foreground="#ffffff" ToolTip="Каким органом или министерством" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="MapLocation"/>
 
                 <TextBox x:Name="txtIssuedBy"
                 FontSize="20"
@@ -327,7 +326,7 @@
                 Margin="0 60 30 0"
                 VerticalContentAlignment="Center"/>
 
-                <fa:IconImage ToolTip="Идентификационный номер налогоплательщика" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 60 0 5" Height="25" Width="25" Icon="InfoCircle"/>
+                <fa:IconImage Foreground="#ffffff" ToolTip="Идентификационный номер налогоплательщика" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 60 0 5" Height="25" Width="25" Icon="InfoCircle"/>
 
                 <TextBox x:Name="txtSNILS"
                 FontSize="20"
@@ -339,10 +338,10 @@
                 HorizontalAlignment="Right"
                 Margin="0 160 30 0"
                 VerticalContentAlignment="Center"/>
-                <fa:IconImage ToolTip="Страховой номер индивидуального лицевого счёта" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 160 0 5" Height="25" Width="25" Icon="CreditCard"/>
+                <fa:IconImage Foreground="#ffffff" ToolTip="Страховой номер индивидуального лицевого счёта" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 160 0 5" Height="25" Width="25" Icon="CreditCard"/>
 
             </Grid>
-            <TextBlock Text="Дополнительные данные" FontFamily="Arial" Width="420" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Margin="0 25 0 0"/>
+            <TextBlock Foreground="#ffffff" Text="Дополнительные данные" FontFamily="Arial" Width="420" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Margin="0 25 0 0"/>
 
         </Grid>
 

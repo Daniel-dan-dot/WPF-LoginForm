@@ -149,13 +149,6 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource menuButton}" Cursor="Hand">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="ChartLine"
-                                      Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Статистика" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
                     <Button Name="AccountMenu" Click="AccountMenu_Click" Style="{StaticResource menuButton}" Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserAlt"
@@ -163,7 +156,7 @@
                             <TextBlock Text="Аккаунты" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
-                    <Button Style="{StaticResource menuButton}" Margin="0 180 0 0" Cursor="Hand">
+                    <Button Style="{StaticResource menuButton}" Margin="0 220 0 0" Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="SignOut"
                                       Style="{StaticResource menuButtonIcon}"/>

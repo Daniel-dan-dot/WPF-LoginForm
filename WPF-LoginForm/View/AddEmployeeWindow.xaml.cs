@@ -27,9 +27,11 @@ namespace WPF_LoginForm.View
             InitializeComponent();
             //cbPost.DisplayMemberPath;
             //cbPost.SelectedValuePath;
-            cbEmployee.ItemsSource = DB_BANK4Entities1.GetContext().Posts.ToList();
-            cbEmployee.SelectedValuePath = "Id";
-            cbEmployee.DisplayMemberPath = "Name";
+
+
+            cbPost.ItemsSource = DB_BANK4Entities1.GetContext().Posts.ToList();
+            cbPost.SelectedValuePath = "Id";
+            cbPost.DisplayMemberPath = "Name";
 
         }
 
@@ -46,8 +48,28 @@ namespace WPF_LoginForm.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            Employee employee = new Employee();
+            employee.FirstName = txtFirstName.Text;
+            employee.LastName = txtLastName.Text;
+            employee.Patronymic = txtPatronymic.Text;
+            employee.Address = txtAddress.Text;
+            employee.Telephone = txtPhone.Text;
+            employee.DateOfBirth = (DateTime)dpDateOfBirth.SelectedDate;
+            employee.Post = (Post)cbPost.SelectedItem;
+
+            _db.Employees.Add(employee);
+            _db.SaveChanges();
+            this.Close();
             Growl.SuccessGlobal("Запись добавлена");
 
+        }
+
+        private void txtPhone_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Char.IsDigit((char)e.Key)) return;
+            else e.Handled = true;
         }
     }
 }

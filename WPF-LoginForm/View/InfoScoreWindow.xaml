@@ -32,24 +32,21 @@
 
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#000000" Offset="0.2"/>
-                    <GradientStop Color="#537895" Offset="0.6"/>
-                    <GradientStop Color="#09203f" Offset="0.2"/>
+                    <GradientStop Color="#10523b" Offset="0.6"/>
+                    <GradientStop Color="#264238" Offset="0.2"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
 
                 <LinearGradientBrush StartPoint="1,1.5" EndPoint="1.5,0">
-
-                    <GradientStop Color="#9890e3" Offset="0.3"/>
+                    <GradientStop Color="#3b8b70" Offset="0.1"/>
                     <GradientStop Color="#b1f4cf" Offset="1"/>
                 </LinearGradientBrush>
 
             </Border.Background>
         </Border>
 
-        <TextBlock Text="Счет" Opacity="0.4" Foreground="#614385" FontFamily="Arial" Width="100" FontSize="16" FontWeight="SemiBold" Margin="12 8 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <Button x:Name="btnClose"  
                 VerticalAlignment="Top"
@@ -64,10 +61,10 @@
 
             <Button.Style>
                 <Style TargetType="Button">
-                    <Setter Property="Background" Value="#614385"/>
+                    <Setter Property="Background" Value="#509880"/>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#b490ca"/>
+                            <Setter Property="Background" Value="#3a4843"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -85,75 +82,74 @@
             </Button.Template>
         </Button>
 
-        <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 0 0" Height="80" Width="80" Icon="CreditCard" Style="{StaticResource UserWindowIcon}"/>
-        <StackPanel Background="#614385" HorizontalAlignment="Right" VerticalAlignment="Top" Height="3" Width="100" Margin="0 75 80 0"/>
-        <StackPanel Background="#614385" HorizontalAlignment="Left" VerticalAlignment="Top" Height="3" Width="100" Margin="80 75 0 0"/>
+        <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 40 0 0" Height="80" Width="80" Icon="CreditCard" Foreground="#ffffff"/>
+        <StackPanel Background="#ffffff" HorizontalAlignment="Right" VerticalAlignment="Top" Height="3" Width="100" Margin="0 75 80 0"/>
+        <StackPanel Background="#ffffff" HorizontalAlignment="Left" VerticalAlignment="Top" Height="3" Width="100" Margin="80 75 0 0"/>
 
         <Grid Margin="50 120 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="460"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 85 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 135 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 185 0 0"/>
-            <StackPanel Background="Black" VerticalAlignment="Top" Height="3" Width="300" Margin="200 235 0 0"/>
+            <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 85 0 0"/>
+            <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 135 0 0"/>
+            <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 185 0 0"/>
+            <StackPanel Background="#ffffff" VerticalAlignment="Top" Height="3" Width="300" Margin="200 235 0 0"/>
 
             <Grid Margin="10 0 200 0">
-                <TextBlock Text="№ счета" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 180" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="БИК" FontFamily="Arial" Width="100" FontSize="22" FontWeight="SemiBold" Margin="0 0 0 80" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="КПП" FontFamily="Arial" Width="110" FontSize="22" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Text="Тип счета" FontFamily="Arial" Width="170" FontSize="22" FontWeight="SemiBold" Margin="0 120 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="№ счета" Foreground="#ffffff" FontFamily="Arial" Width="120" FontSize="26" FontWeight="SemiBold" Margin="0 0 0 190" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="БИК" Foreground="#ffffff" FontFamily="Arial" Width="100" FontSize="26" FontWeight="SemiBold" Margin="0 0 0 80" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="КПП" Foreground="#ffffff" FontFamily="Arial" Width="110" FontSize="26" FontWeight="SemiBold" Margin="0 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Тип счета" Foreground="#ffffff" FontFamily="Arial" Width="170" FontSize="26" FontWeight="SemiBold" Margin="0 120 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>
 
-            <TextBox x:Name="txtLastName"
-                FontSize="20"
+            <TextBlock x:Name="txtNumberScore"
+                FontSize="22"
                 Background="Transparent"
-                Foreground="Black"
+                Foreground="#c7f7e7"
                 Height="45"
-                BorderThickness="0"
-                Width="220"
+                Width="250"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0 45 30 0"
-                VerticalContentAlignment="Center"/>
+                Margin="0 50 0 0"
+/>
 
-            <TextBox x:Name="txtFirstName"
-                FontSize="20"
+            <TextBlock x:Name="txtBIC"
+                FontSize="26"
                 Background="Transparent"
-                Foreground="Black"
-                BorderThickness="0"
+                Foreground="#c7f7e7"
+                
                 Height="45"
-                Width="220"
+                Width="250"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0 95 30 0"
-                VerticalContentAlignment="Center"/>
+                Margin="0 100 0 0"
+/>
 
 
-            <TextBox x:Name="txtPatronymic"
-                FontSize="20"
+            <TextBlock x:Name="txtTRCC"
+                FontSize="26"
                 Background="Transparent"
-                Foreground="Black"
+                Foreground="#c7f7e7"
                 Height="45"
-                Width="220"
-                BorderThickness="0"
+                Width="250"
+                
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0 145 30 0"
-                VerticalContentAlignment="Center"/>
+                Margin="0 150 0 0"
+/>
 
 
-            <TextBox x:Name="txtTypeScore"
-                FontSize="20"
+            <TextBlock x:Name="txtTypeScore"
+                FontSize="26"
                 Background="Transparent"
-                Foreground="Black"
+                Foreground="#c7f7e7"
                 Height="45"
                 Width="220"
-                BorderThickness="0"
+                
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Margin="0 195 30 0"
-                VerticalContentAlignment="Center"/>
+                Margin="0 200 30 0"
+/>
 
 
         </Grid>

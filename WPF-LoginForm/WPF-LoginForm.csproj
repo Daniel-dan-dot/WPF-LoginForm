@@ -322,6 +322,9 @@
     <Compile Include="Pages\ContractPage.xaml.cs">
       <DependentUpon>ContractPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DepositPage.xaml.cs">
+      <DependentUpon>DepositPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EmployeePage.xaml.cs">
       <DependentUpon>EmployeePage.xaml</DependentUpon>
     </Compile>
@@ -331,6 +334,7 @@
     <Compile Include="Pages\ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Short\AccountShort.cs" />
     <Compile Include="Short\ClientShort.cs" />
     <Compile Include="Short\ContractShort.cs" />
     <Compile Include="Short\ContractSuperShort.cs" />
@@ -339,6 +343,7 @@
     <Compile Include="Short\EmployeeShort.cs" />
     <Compile Include="Short\InsuranceContractShort.cs" />
     <Compile Include="Short\InvestmentContractShort.cs" />
+    <Compile Include="Short\ShortEmployeeShort.cs" />
     <Compile Include="ViewModel\EmployeesPage.xaml.cs">
       <DependentUpon>EmployeesPage.xaml</DependentUpon>
     </Compile>
@@ -347,11 +352,14 @@
     <Compile Include="ViewModel\StatisticWindow.xaml.cs">
       <DependentUpon>StatisticWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddAccountsWindow.xaml.cs">
+      <DependentUpon>AddAccountsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddAccountWindow.xaml.cs">
+      <DependentUpon>AddAccountWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddClientWindow.xaml.cs">
       <DependentUpon>AddClientWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddContractWindow.xaml.cs">
-      <DependentUpon>AddContractWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddEmployeeWindow.xaml.cs">
       <DependentUpon>AddEmployeeWindow.xaml</DependentUpon>
@@ -368,6 +376,9 @@
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="View\NotificationWindow.xaml.cs">
+      <DependentUpon>NotificationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary\buttonsStyle.xaml">
       <SubType>Designer</SubType>
@@ -397,6 +408,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DepositPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -417,11 +432,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddClientWindow.xaml">
+    <Page Include="View\AddAccountsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddContractWindow.xaml">
+    <Page Include="View\AddAccountWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -445,6 +464,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+    <Page Include="View\NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

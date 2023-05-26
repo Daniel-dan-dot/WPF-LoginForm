@@ -16,24 +16,20 @@
 
         <hc:Pagination x:Name="pagGrid" Cursor="Hand" Margin="100 0 0 50" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="page_PageUpdated" PageIndex="1"/>
         <TextBox Width="250"
-                       Height="40"
+                 x:Name="tbFilter"      
+                 Height="40"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Right"
                        Margin="0 50 50 0"
                        Grid.Column="1"
-                       Style="{StaticResource ModernTextBox}"/>
+                       Style="{StaticResource ModernTextBox}"
+                 TextChanged="tbFilter_TextChanged"/>
 
         <Button x:Name="AddButton"                          
-                BorderThickness="0"
-                Height="35"
-                Width="150"
                 Content="Добавить"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
-                FontSize="14"
-                FontFamily="Montserrat"
                 Style="{StaticResource AddButtonPages}"
-                Cursor="Hand"                           
                 Margin="0 0 150 50"
                 Click="AddButton_Click">
 
@@ -61,7 +57,7 @@
             <!--<hc:Pagination MaxPageCount="10" PageUpdated="page_PageUpdated" PageIndex="1"/>-->
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Клиент" Binding="{Binding FIO}" Width="140" />
+                <DataGridTextColumn Header="Клиент" Binding="{Binding FIO}" Width="130" />
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding dateOfBirth}" Width="140"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding address}" Width="210"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding telephone}" Width="150"/>
@@ -72,12 +68,12 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
 
-                                <Button x:Name="btnInfoClient" Click="btnInfoClient_Click" Style="{StaticResource gridButtonInfo}" Cursor="Hand">
+                                <Button x:Name="btnInfoClient" Click="btnInfoClient_Click" Margin="0 -3 0 0"  Style="{StaticResource gridButtonInfo}" Cursor="Hand">
                                     <fa:IconImage Icon="info" Style="{StaticResource gridButtonIcon}"/>
                                     <Button.Template>
                                         <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border Width="30" Height="30"
-                                        CornerRadius="5"
+                                            <Border Width="35" Height="35"
+                                        CornerRadius="10"
                                         Background="{TemplateBinding Background}">
                                                 <ContentPresenter VerticalAlignment="Center"
                                         HorizontalAlignment="Center"/>
@@ -86,12 +82,12 @@
                                     </Button.Template>
                                 </Button>
 
-                                <Button x:Name="btnEditClient" Click="btnEditClient_Click" ToolTip="Изменить" Margin="3 0 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
+                                <Button x:Name="btnEditClient" Click="btnEditClient_Click" ToolTip="Изменить" Margin="3 -3 0 0" Style="{StaticResource gridButtonEdit}" Cursor="Hand">
                                     <fa:IconImage Icon="Pencil" Style="{StaticResource gridButtonIcon}"/>
                                     <Button.Template>
                                         <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border Width="30" Height="30"
-                                        CornerRadius="5"
+                                            <Border Width="35" Height="35"
+                                        CornerRadius="10"
                                         Background="{TemplateBinding Background}">
                                                 <ContentPresenter VerticalAlignment="Center"
                                         HorizontalAlignment="Center"/>
@@ -100,12 +96,12 @@
                                     </Button.Template>
                                 </Button>
 
-                                <Button x:Name="btnDeleteClient" Click="btnInfoClient_Click" ToolTip="Удалить"  Margin="3 0 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
+                                <Button x:Name="btnDeleteClient" Click="btnDeleteClient_Click" ToolTip="Удалить"  Margin="3 -3 0 0" Style="{StaticResource gridButtonDelete}" Cursor="Hand">
                                     <fa:IconImage Icon="Ban" Style="{StaticResource gridButtonIcon}"/>
                                     <Button.Template>
                                         <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border Width="30" Height="30"
-                                        CornerRadius="5"
+                                            <Border Width="35" Height="35"
+                                        CornerRadius="10"
                                         Background="{TemplateBinding Background}">
                                                 <ContentPresenter VerticalAlignment="Center"
                                         HorizontalAlignment="Center"/>
