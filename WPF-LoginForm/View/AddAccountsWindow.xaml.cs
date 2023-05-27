@@ -27,12 +27,12 @@ namespace WPF_LoginForm.View
         public AddAccountsWindow()
         {
             InitializeComponent();
-            dataList = DB_BANK4Entities1.GetContext().Employees.ToList();
-            employeeShort = dataList.Select(s => new ShortEmployeeShort()
-            {
-                Id = s.Id,
-                FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
-            }).ToList();
+            //dataList = DB_BANK4Entities1.GetContext().Employees.ToList();
+            //employeeShort = dataList.Select(s => new ShortEmployeeShort()
+            //{
+            //    Id = s.Id,
+            //    FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
+            //}).ToList();
 
             cbEmployee.ItemsSource = DB_BANK4Entities1.GetContext().Employees.ToList();
             cbEmployee.SelectedValuePath = "Id";
@@ -45,7 +45,7 @@ namespace WPF_LoginForm.View
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+                if (e.ChangedButton == MouseButton.Left) this.DragMove();
 
         }
 
@@ -57,7 +57,22 @@ namespace WPF_LoginForm.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Growl.SuccessGlobal("Аккаунт успешно добавлен");
+            //var _db = DB_BANK4Entities1.GetContext();
+
+
+
+            //Account account = new Account();
+            //account.Employee.LastName = cbEmployee.Text;
+            //account.Role.Name = cbRole.Text;
+            //account.Login = txtLogin.Text;
+            //account.Password = pbPassword.Password.ToArray();
+            //account.Email = txtEmail.Text;
+
+            //_db.Accounts.Add(account);
+            //_db.SaveChanges();
+            //this.Close();
+           
+            //Growl.SuccessGlobal("Аккаунт успешно добавлен");
 
         }
     }

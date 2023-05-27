@@ -35,8 +35,7 @@ namespace WPF_LoginForm.View
 
         private void Window_MouseDown(object sender, RoutedEventArgs e)
         {
-
-            DragMove();
+           this.DragMove();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

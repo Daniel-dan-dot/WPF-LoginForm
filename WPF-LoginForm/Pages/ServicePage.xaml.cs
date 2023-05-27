@@ -29,8 +29,25 @@ namespace WPF_LoginForm.Pages
 
         private void btnDeposit_Click(object sender, RoutedEventArgs e)
         {
-            //ServicePage sp = new ServicePage();
-            //NavigationService.GetNavigationService(new ServicePage());
+            NavigationService.Navigate(new DepositPage());
+        }
+
+        private void btnCredit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CreditPage());
+
+        }
+
+        private void btnInsurance_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new InsurancePage());
+
+        }
+
+        private void btnInvetment_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new InvestmentPage());
+
         }
 
         //private void Prev_Click(object sender, RoutedEventArgs e)

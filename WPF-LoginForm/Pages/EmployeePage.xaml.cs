@@ -84,13 +84,11 @@ namespace WPF_LoginForm.Pages
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             var _db = DB_BANK4Entities1.GetContext();
-            var dialog = System.Windows.MessageBox.Show("Вы действительно хотите удалить сотрудника?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (dialog == MessageBoxResult.Yes)
+            var dialog = new NotificationWindow();
+            if (dialog.ShowDialog() == true)
             {
-                int id = (DGemployee.SelectedItem as Employee).Id;
+                int id = (DGemployee.SelectedItem as EmployeeShort).id;
                 Employee employee = _db.Employees.Find(id);
-
 
                 _db.Employees.Remove(employee);
                 _db.SaveChanges();
@@ -112,7 +110,6 @@ namespace WPF_LoginForm.Pages
             addEmployeeWindow.txtAddress.Text = employee.Address;
             addEmployeeWindow.txtPhone.Text = employee.Telephone;
             addEmployeeWindow.cbPost.SelectedValue = employee.Post;
-            _db.Employees.Add(employee);
 
             addEmployeeWindow.Show();
 

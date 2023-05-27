@@ -322,6 +322,9 @@
     <Compile Include="Pages\ContractPage.xaml.cs">
       <DependentUpon>ContractPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CreditPage.xaml.cs">
+      <DependentUpon>CreditPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DepositPage.xaml.cs">
       <DependentUpon>DepositPage.xaml</DependentUpon>
     </Compile>
@@ -330,6 +333,12 @@
     </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InsurancePage.xaml.cs">
+      <DependentUpon>InsurancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentPage.xaml.cs">
+      <DependentUpon>InvestmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
@@ -408,6 +417,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CreditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DepositPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -417,6 +430,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InsurancePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InvestmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

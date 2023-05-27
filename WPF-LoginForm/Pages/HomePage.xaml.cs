@@ -24,7 +24,12 @@ namespace WPF_LoginForm.Pages
     public partial class HomePage : Page
     {
         List<Contract> dataGridList = new List<Contract>();
+        List<DepositContract> depositContract= new List<DepositContract>();
+        List<CreditContract> creditContract = new List<CreditContract>();
+        List<InvestmentContract> investmentContract = new List<InvestmentContract>();
+        List<InsuranceContract> insuranceContract = new List<InsuranceContract>();
         List<ContractSuperShort> ContractList = new List<ContractSuperShort>();
+        
         List<Client> dataGridListClient = new List<Client>();
         List<Employee> dataGridListEmployee = new List<Employee>();
 
@@ -56,8 +61,12 @@ namespace WPF_LoginForm.Pages
 
             dataGridListClient = DB_BANK4Entities1.GetContext().Clients.ToList();
             dataGridListEmployee = DB_BANK4Entities1.GetContext().Employees.ToList();
+            depositContract = DB_BANK4Entities1.GetContext().DepositContracts.ToList();
+            creditContract = DB_BANK4Entities1.GetContext().CreditContracts.ToList();
+            investmentContract = DB_BANK4Entities1.GetContext().InvestmentContracts.ToList();
+            insuranceContract = DB_BANK4Entities1.GetContext().InsuranceContracts.ToList();
 
-            countContracts.Text += dataGridList.Count().ToString();
+            countContracts.Text += (depositContract.Count()+ creditContract.Count()+ investmentContract.Count()+ insuranceContract.Count()).ToString();
             countClients.Text += dataGridListClient.Count().ToString();
             countEmployees.Text += dataGridListEmployee.Count().ToString();
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,7 +27,7 @@ namespace WPF_LoginForm.Pages
     /// </summary>
     public partial class ContractPage : Page
     {
-        List<Contract> dataGridList = new List<Contract>();
+        //List<Contract> dataGridList = new List<Contract>();
         List<DepositContract> dataGridListDeposit = new List<DepositContract>();
         List<CreditContract> dataGridListCredit = new List<CreditContract>();
         List<InvestmentContract> dataGridListInvestment = new List<InvestmentContract>();
@@ -43,7 +44,7 @@ namespace WPF_LoginForm.Pages
             InitializeComponent();
 
             //TODO ДОГОВОРЫ
-            LoadContract();
+            //LoadContract();
             
             //TODO ВКЛАДЫ
             LoadDepositContract();
@@ -115,25 +116,25 @@ namespace WPF_LoginForm.Pages
             txtCountCredit.Text = "Найдено записей: ";
             txtCountCredit.Text += ContractListCredit.Count().ToString();
         }
-        private void LoadContract()
-        {
-            dataGridList = DB_BANK4Entities1.GetContext().Contracts.ToList();
-            ContractList = dataGridList.Select(s => new ContractShort()
-            {
-                id = s.Id,
-                numberContract = s.NumberContract,
-                FIOClient = $"{s.Client.LastName} {s.Client.FirstName[0]}.{s.Client.Patronymic[0]}.",
-                date = s.Date.ToString("D"),
-                city = s.City,
-                score = s.Score.NumberScore,
-            }).OrderByDescending(s => s.id).ToList();
+        //private void LoadContract()
+        //{
+        //    dataGridList = DB_BANK4Entities1.GetContext().Contracts.ToList();
+        //    ContractList = dataGridList.Select(s => new ContractShort()
+        //    {
+        //        id = s.Id,
+        //        numberContract = s.NumberContract,
+        //        FIOClient = $"{s.Client.LastName} {s.Client.FirstName[0]}.{s.Client.Patronymic[0]}.",
+        //        date = s.Date.ToString("D"),
+        //        city = s.City,
+        //        score = s.Score.NumberScore,
+        //    }).OrderByDescending(s => s.id).ToList();
 
-            DGcontract.ItemsSource = ContractList.Take(6).ToList();
-            pagGrid.MaxPageCount = (int)Math.Ceiling(ContractList.Count / 6.0);
+        //    DGcontract.ItemsSource = ContractList.Take(6).ToList();
+        //    pagGrid.MaxPageCount = (int)Math.Ceiling(ContractList.Count / 6.0);
 
-            txtCount.Text = "Найдено записей: ";
-            txtCount.Text += ContractList.Count().ToString();
-        }
+        //    txtCount.Text = "Найдено записей: ";
+        //    txtCount.Text += ContractList.Count().ToString();
+        //}
 
         private void LoadDepositContract()
         {
@@ -159,80 +160,60 @@ namespace WPF_LoginForm.Pages
 
         }
 
-        private void pagGrid_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
-        {
-            DGcontract.ItemsSource = ContractList.Skip((e.Info - 1) * 6).Take(6).ToList();
-
-        }
 
 
-        private void btnInfoScore_Click(object sender, RoutedEventArgs e)
-        {
-            var _db = DB_BANK4Entities1.GetContext();
+        //private void btnInfoScore_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var _db = DB_BANK4Entities1.GetContext();
 
-            InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
-            Contract contract = new Contract();
-
-
-            infoScoreWindow.Show();
-            int id = (DGcontract.SelectedItem as ContractShort).id;
-            contract = _db.Contracts.Find(id);
-
-            _db.SaveChanges();
-            LoadDepositContract();
+        //    InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
+        //    Contract contract = new Contract();
 
 
-            infoScoreWindow.txtNumberScore.Text = contract.Score.NumberScore;
-            infoScoreWindow.txtBIC.Text = contract.Score.BIC;
-            infoScoreWindow.txtTRCC.Text = contract.Score.TRRC;
-            infoScoreWindow.txtTypeScore.Text = contract.Score.TypeScore.Name;
+        //    infoScoreWindow.Show();
+        //    int id = (DGcontract.SelectedItem as ContractShort).id;
+        //    contract = _db.Contracts.Find(id);
 
-        }
-
-        private void btnInfoContractDeposit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnInfoClient_Click(object sender, RoutedEventArgs e)
-        {
-            var _db = DB_BANK4Entities1.GetContext();
-
-            ClientInfoWindow clientInfoWindow = new ClientInfoWindow();
-            Contract contract = new Contract();
+        //    _db.SaveChanges();
+        //    LoadDepositContract();
 
 
-            clientInfoWindow.Show();
-            int id = (DGcontract.SelectedItem as ContractShort).id;
-            contract = _db.Contracts.Find(id);
+        //    infoScoreWindow.txtNumberScore.Text = contract.Score.NumberScore;
+        //    infoScoreWindow.txtBIC.Text = contract.Score.BIC;
+        //    infoScoreWindow.txtTRCC.Text = contract.Score.TRRC;
+        //    infoScoreWindow.txtTypeScore.Text = contract.Score.TypeScore.Name;
 
-            _db.SaveChanges();
-            LoadDepositContract();
+        //}
+
+        //private void btnInfoContractDeposit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var _db = DB_BANK4Entities1.GetContext();
+
+        //    InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
+        //    DepositContract contract = new DepositContract();
 
 
-            clientInfoWindow.txtLastName.Text = contract.Client.LastName;
-            clientInfoWindow.txtFirstName.Text = contract.Client.FirstName;
-            clientInfoWindow.txtPatronymic.Text = contract.Client.Patronymic;
-            clientInfoWindow.txtDateOfBirth.Text = contract.Client.DateOfBirth.ToString("D");
-            clientInfoWindow.txtAddress.AppendText(contract.Client.Address);
-            clientInfoWindow.txtPhone.Text = contract.Client.Telephone;
-            clientInfoWindow.txtTypeClient.Text = contract.Client.TypeClient.Name;
-            clientInfoWindow.txtSerialPassport.Text = contract.Client.ClientInfo.SerialPassport;
-            clientInfoWindow.txtNumberPassport.Text = contract.Client.ClientInfo.NumberPassport;
-            clientInfoWindow.txtIssuedBy.AppendText(contract.Client.ClientInfo.IssuedBy);
-            clientInfoWindow.txtDateIssued.Text = contract.Client.ClientInfo.DateOfIssue.ToString("D");
-            clientInfoWindow.txtINN.Text = contract.Client.ClientInfo.INN;
-            clientInfoWindow.txtSNILS.Text = contract.Client.ClientInfo.SNILS;
+        //    infoScoreWindow.Show();
+        //    int id = (DGcontractDeposit.SelectedItem as ContractShort).id;
+        //    contract = _db.DepositContracts.Find(id);
 
-        }
+        //    _db.SaveChanges();
+        //    LoadDepositContract();
+
+
+        //    infoScoreWindow.txtNumberScore.Text = contract.Contract.Score.NumberScore;
+        //    infoScoreWindow.txtBIC.Text = contract.Contract.Score.BIC;
+        //    infoScoreWindow.txtTRCC.Text = contract.Contract.Score.TRRC;
+        //    infoScoreWindow.txtTypeScore.Text = contract.Contract.Score.TypeScore.Name;
+        //}
 
 
 
         private void btnDeleteContractDeposit_Click(object sender, RoutedEventArgs e)
         {
             var _db = DB_BANK4Entities1.GetContext();
-            var dialog = System.Windows.MessageBox.Show("Вы действительно хотите удалить договор?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (dialog == MessageBoxResult.Yes)
+            var dialog = new NotificationWindow();
+            if (dialog.ShowDialog() == true)
             {
                 int id = (DGcontractDeposit.SelectedItem as DepositContractShort).id;
                 DepositContract depositContract = _db.DepositContracts.Find(id);
@@ -247,8 +228,8 @@ namespace WPF_LoginForm.Pages
         private void btnDeleteContractCredit_Click(object sender, RoutedEventArgs e)
         {
             var _db = DB_BANK4Entities1.GetContext();
-            var dialog = System.Windows.MessageBox.Show("Вы действительно хотите удалить договор?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (dialog == MessageBoxResult.Yes)
+            var dialog = new NotificationWindow();
+            if (dialog.ShowDialog() == true)
             {
                 int id = (DGcontractCredit.SelectedItem as CreditContractShort).id;
                 CreditContract creditContract = _db.CreditContracts.Find(id);
@@ -266,8 +247,8 @@ namespace WPF_LoginForm.Pages
         private void btnDeleteContractInvestment_Click(object sender, RoutedEventArgs e)
         {
             var _db = DB_BANK4Entities1.GetContext();
-            var dialog = System.Windows.MessageBox.Show("Вы действительно хотите удалить договор?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (dialog == MessageBoxResult.Yes)
+            var dialog = new NotificationWindow();
+            if (dialog.ShowDialog() == true)
             {
                 int id = (DGcontractInvestment.SelectedItem as InvestmentContractShort).id;
                 InvestmentContract investmentContract = _db.InvestmentContracts.Find(id);
@@ -280,12 +261,14 @@ namespace WPF_LoginForm.Pages
         private void btnDeleteContractInsurance_Click(object sender, RoutedEventArgs e)
         {
             var _db = DB_BANK4Entities1.GetContext();
-            var dialog = System.Windows.MessageBox.Show("Вы действительно хотите удалить договор?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (dialog == MessageBoxResult.Yes)
+            var dialog = new NotificationWindow();
+            if (dialog.ShowDialog() == true)
             {
                 int id = (DGcontractInsurance.SelectedItem as InsuranceContractShort).id;
                 InsuranceContract insuranceContract = _db.InsuranceContracts.Find(id);
-                _db.InsuranceContracts.Remove(insuranceContract); _db.SaveChanges();
+
+                _db.InsuranceContracts.Remove(insuranceContract);
+                _db.SaveChanges();
                 LoadInsuranceContract();
                 Growl.Success("Договор успешно удален!");
             }
@@ -298,27 +281,255 @@ namespace WPF_LoginForm.Pages
 
         }
 
-        private void btnDeleteContract_Click(object sender, RoutedEventArgs e)
+        private void AddButtonDeposit_Click(object sender, RoutedEventArgs e)
         {
-            var _db = DB_BANK4Entities1.GetContext();
-            var dialog = System.Windows.MessageBox.Show("Вы действительно хотите удалить договор?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            
-            if (dialog == MessageBoxResult.Yes)
-            {
-                
-                int id = (DGcontract.SelectedItem as Contract).Id;
-                //Contract Contract = _db.Contracts.Include(c=>c.).FirstOrDefault(c=>c.i);
+            NavigationService.Navigate(new DepositPage()); 
 
-                //_db.Contracts.Remove(Contract); 
-                _db.SaveChanges();
-                LoadContract();
-                Growl.Success("Договор успешно удален!");
-            }
         }
 
-
-        private void btnInfoClient_Click_1(object sender, RoutedEventArgs e)
+        private void btnInfoDepositScore_Click(object sender, RoutedEventArgs e)
         {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
+            DepositContract contract = new DepositContract();
+
+
+            infoScoreWindow.Show();
+            int id = (DGcontractDeposit.SelectedItem as DepositContractShort).id;
+            contract = _db.DepositContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadDepositContract();
+
+
+            infoScoreWindow.txtNumberScore.Text = contract.Contract.Score.NumberScore;
+            infoScoreWindow.txtBIC.Text = contract.Contract.Score.BIC;
+            infoScoreWindow.txtTRCC.Text = contract.Contract.Score.TRRC;
+            infoScoreWindow.txtTypeScore.Text = contract.Contract.Score.TypeScore.Name;
+        }
+
+        private void btnInfoClientDeposit_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            ClientInfoWindow clientInfoWindow = new ClientInfoWindow();
+            DepositContract contract = new DepositContract();
+
+
+            clientInfoWindow.Show();
+            int id = (DGcontractDeposit.SelectedItem as DepositContractShort).id;
+            contract = _db.DepositContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadDepositContract();
+
+
+            clientInfoWindow.txtLastName.Text = contract.Contract.Client.LastName;
+            clientInfoWindow.txtFirstName.Text = contract.Contract.Client.FirstName;
+            clientInfoWindow.txtPatronymic.Text = contract.Contract.Client.Patronymic;
+            clientInfoWindow.txtDateOfBirth.Text = contract.Contract.Client.DateOfBirth.ToString("D");
+            clientInfoWindow.txtAddress.AppendText(contract.Contract.Client.Address);
+            clientInfoWindow.txtPhone.Text = contract.Contract.Client.Telephone;
+            clientInfoWindow.txtTypeClient.Text = contract.Contract.Client.TypeClient.Name;
+            clientInfoWindow.txtSerialPassport.Text = contract.Contract.Client.ClientInfo.SerialPassport;
+            clientInfoWindow.txtNumberPassport.Text = contract.Contract.Client.ClientInfo.NumberPassport;
+            clientInfoWindow.txtIssuedBy.AppendText(contract.Contract.Client.ClientInfo.IssuedBy);
+            clientInfoWindow.txtDateIssued.Text = contract.Contract.Client.ClientInfo.DateOfIssue.ToString("D");
+            clientInfoWindow.txtINN.Text = contract.Contract.Client.ClientInfo.INN;
+            clientInfoWindow.txtSNILS.Text = contract.Contract.Client.ClientInfo.SNILS;
+        }
+
+        private void btnInfoClientCredit_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            ClientInfoWindow clientInfoWindow = new ClientInfoWindow();
+            CreditContract contract = new CreditContract();
+
+
+            clientInfoWindow.Show();
+            int id = (DGcontractCredit.SelectedItem as CreditContractShort).id;
+            contract = _db.CreditContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadCreditContract();
+
+
+            clientInfoWindow.txtLastName.Text = contract.Contract.Client.LastName;
+            clientInfoWindow.txtFirstName.Text = contract.Contract.Client.FirstName;
+            clientInfoWindow.txtPatronymic.Text = contract.Contract.Client.Patronymic;
+            clientInfoWindow.txtDateOfBirth.Text = contract.Contract.Client.DateOfBirth.ToString("D");
+            clientInfoWindow.txtAddress.AppendText(contract.Contract.Client.Address);
+            clientInfoWindow.txtPhone.Text = contract.Contract.Client.Telephone;
+            clientInfoWindow.txtTypeClient.Text = contract.Contract.Client.TypeClient.Name;
+            clientInfoWindow.txtSerialPassport.Text = contract.Contract.Client.ClientInfo.SerialPassport;
+            clientInfoWindow.txtNumberPassport.Text = contract.Contract.Client.ClientInfo.NumberPassport;
+            clientInfoWindow.txtIssuedBy.AppendText(contract.Contract.Client.ClientInfo.IssuedBy);
+            clientInfoWindow.txtDateIssued.Text = contract.Contract.Client.ClientInfo.DateOfIssue.ToString("D");
+            clientInfoWindow.txtINN.Text = contract.Contract.Client.ClientInfo.INN;
+            clientInfoWindow.txtSNILS.Text = contract.Contract.Client.ClientInfo.SNILS;
+        }
+
+        private void btnInfoScoreCredit_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
+            CreditContract contract = new CreditContract();
+
+
+            infoScoreWindow.Show();
+            int id = (DGcontractCredit.SelectedItem as CreditContractShort).id;
+            contract = _db.CreditContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadCreditContract();
+
+
+            infoScoreWindow.txtNumberScore.Text = contract.Contract.Score.NumberScore;
+            infoScoreWindow.txtBIC.Text = contract.Contract.Score.BIC;
+            infoScoreWindow.txtTRCC.Text = contract.Contract.Score.TRRC;
+            infoScoreWindow.txtTypeScore.Text = contract.Contract.Score.TypeScore.Name;
+        }
+
+        private void btnInfoClientInvestment_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            ClientInfoWindow clientInfoWindow = new ClientInfoWindow();
+            InvestmentContract contract = new InvestmentContract();
+
+
+            clientInfoWindow.Show();
+            int id = (DGcontractInvestment.SelectedItem as InvestmentContractShort).id;
+            contract = _db.InvestmentContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadInvestmentContract();
+
+
+            clientInfoWindow.txtLastName.Text = contract.Contract.Client.LastName;
+            clientInfoWindow.txtFirstName.Text = contract.Contract.Client.FirstName;
+            clientInfoWindow.txtPatronymic.Text = contract.Contract.Client.Patronymic;
+            clientInfoWindow.txtDateOfBirth.Text = contract.Contract.Client.DateOfBirth.ToString("D");
+            clientInfoWindow.txtAddress.AppendText(contract.Contract.Client.Address);
+            clientInfoWindow.txtPhone.Text = contract.Contract.Client.Telephone;
+            clientInfoWindow.txtTypeClient.Text = contract.Contract.Client.TypeClient.Name;
+            clientInfoWindow.txtSerialPassport.Text = contract.Contract.Client.ClientInfo.SerialPassport;
+            clientInfoWindow.txtNumberPassport.Text = contract.Contract.Client.ClientInfo.NumberPassport;
+            clientInfoWindow.txtIssuedBy.AppendText(contract.Contract.Client.ClientInfo.IssuedBy);
+            clientInfoWindow.txtDateIssued.Text = contract.Contract.Client.ClientInfo.DateOfIssue.ToString("D");
+            clientInfoWindow.txtINN.Text = contract.Contract.Client.ClientInfo.INN;
+            clientInfoWindow.txtSNILS.Text = contract.Contract.Client.ClientInfo.SNILS;
+        }
+
+        private void AddButtonInvestment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnInfoClientInsurance_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            ClientInfoWindow clientInfoWindow = new ClientInfoWindow();
+            InsuranceContract contract = new InsuranceContract();
+
+
+            clientInfoWindow.Show();
+            int id = (DGcontractInsurance.SelectedItem as InsuranceContractShort).id;
+            contract = _db.InsuranceContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadInsuranceContract();
+
+
+            clientInfoWindow.txtLastName.Text = contract.Contract.Client.LastName;
+            clientInfoWindow.txtFirstName.Text = contract.Contract.Client.FirstName;
+            clientInfoWindow.txtPatronymic.Text = contract.Contract.Client.Patronymic;
+            clientInfoWindow.txtDateOfBirth.Text = contract.Contract.Client.DateOfBirth.ToString("D");
+            clientInfoWindow.txtAddress.AppendText(contract.Contract.Client.Address);
+            clientInfoWindow.txtPhone.Text = contract.Contract.Client.Telephone;
+            clientInfoWindow.txtTypeClient.Text = contract.Contract.Client.TypeClient.Name;
+            clientInfoWindow.txtSerialPassport.Text = contract.Contract.Client.ClientInfo.SerialPassport;
+            clientInfoWindow.txtNumberPassport.Text = contract.Contract.Client.ClientInfo.NumberPassport;
+            clientInfoWindow.txtIssuedBy.AppendText(contract.Contract.Client.ClientInfo.IssuedBy);
+            clientInfoWindow.txtDateIssued.Text = contract.Contract.Client.ClientInfo.DateOfIssue.ToString("D");
+            clientInfoWindow.txtINN.Text = contract.Contract.Client.ClientInfo.INN;
+            clientInfoWindow.txtSNILS.Text = contract.Contract.Client.ClientInfo.SNILS;
+        }
+
+        private void btnInfoScoreInsurance_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
+            InsuranceContract contract = new InsuranceContract();
+
+
+            infoScoreWindow.Show();
+            int id = (DGcontractInsurance.SelectedItem as InsuranceContractShort).id;
+            contract = _db.InsuranceContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadInsuranceContract();
+
+
+            infoScoreWindow.txtNumberScore.Text = contract.Contract.Score.NumberScore;
+            infoScoreWindow.txtBIC.Text = contract.Contract.Score.BIC;
+            infoScoreWindow.txtTRCC.Text = contract.Contract.Score.TRRC;
+            infoScoreWindow.txtTypeScore.Text = contract.Contract.Score.TypeScore.Name;
+        }
+
+        private void AddButtonInsurance_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnInfoScoreInvestment_Click(object sender, RoutedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+
+            InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
+            InvestmentContract contract = new InvestmentContract();
+
+
+            infoScoreWindow.Show();
+            int id = (DGcontractInvestment.SelectedItem as InvestmentContractShort).id;
+            contract = _db.InvestmentContracts.Find(id);
+
+            _db.SaveChanges();
+            LoadInvestmentContract();
+
+
+            infoScoreWindow.txtNumberScore.Text = contract.Contract.Score.NumberScore;
+            infoScoreWindow.txtBIC.Text = contract.Contract.Score.BIC;
+            infoScoreWindow.txtTRCC.Text = contract.Contract.Score.TRRC;
+            infoScoreWindow.txtTypeScore.Text = contract.Contract.Score.TypeScore.Name;
+        }
+
+        private void pagGridDeposit_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
+        {
+            DGcontractDeposit.ItemsSource = ContractListDeposit.Skip((e.Info - 1) * 6).Take(6).ToList();
+
+        }
+
+        private void pagGridCredit_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
+        {
+            DGcontractCredit.ItemsSource = ContractListCredit.Skip((e.Info - 1) * 6).Take(6).ToList();
+
+        }
+
+        private void pagGridInvestment_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
+        {
+            DGcontractInvestment.ItemsSource = ContractListInvestment.Skip((e.Info - 1) * 6).Take(6).ToList();
+
+        }
+
+        private void pagGridInsurance_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
+        {
+            DGcontractInsurance.ItemsSource = ContractListInsurance.Skip((e.Info - 1) * 6).Take(6).ToList();
 
         }
     }

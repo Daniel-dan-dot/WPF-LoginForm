@@ -70,7 +70,7 @@ namespace WPF_LoginForm
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                this.DragMove();
+                    if (e.ChangedButton == MouseButton.Left) this.DragMove();
             }
         }
 
@@ -121,7 +121,7 @@ namespace WPF_LoginForm
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+                if (e.ChangedButton == MouseButton.Left) this.DragMove();
         }
 
         private void AccountMenu_Click(object sender, RoutedEventArgs e)

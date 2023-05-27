@@ -53,7 +53,7 @@
 
                 
                 <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 10 0">
-                    <Border CornerRadius="10" Width="45" Height="45" VerticalAlignment="Bottom" Margin="0 0 15 5">
+                    <Border CornerRadius="10" Width="45" Height="45" VerticalAlignment="Bottom" Margin="0 0 15 30">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                                 <GradientStop Color="#7f7cf1" Offset="0"/>
@@ -65,9 +65,9 @@
                                    TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2"/>
                     </Border>
 
-                    <StackPanel Margin="0 0 -100 10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <StackPanel Margin="0 0 -20 35" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                         <TextBlock Text="Данин Даниил" FontSize="16" Foreground="#c2cfff"/>
-                        <TextBlock Text="Администратор" FontSize="11" Foreground="#7788bf"/>
+                        <TextBlock Text="Администратор" FontSize="12" Foreground="#7788bf"/>
                     </StackPanel>
 
 

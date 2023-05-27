@@ -33,7 +33,7 @@ namespace WPF_LoginForm.View
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+                if (e.ChangedButton == MouseButton.Left) this.DragMove();
         }
     }
 }

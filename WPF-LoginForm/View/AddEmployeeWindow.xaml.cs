@@ -43,12 +43,14 @@ namespace WPF_LoginForm.View
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+                if (e.ChangedButton == MouseButton.Left) this.DragMove();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             var _db = DB_BANK4Entities1.GetContext();
+
+
 
             Employee employee = new Employee();
             employee.FirstName = txtFirstName.Text;

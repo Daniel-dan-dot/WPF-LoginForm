@@ -182,7 +182,7 @@
 
             <fa:IconImage Foreground="#ffffff" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 156 0 0" Height="25" Width="25" Icon="UserAlt"/>
 
-            <TextBox x:Name="txtPassword"
+            <PasswordBox x:Name="pbPassword"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="#000000"

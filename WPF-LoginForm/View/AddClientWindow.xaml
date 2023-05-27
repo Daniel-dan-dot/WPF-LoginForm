@@ -231,7 +231,7 @@
 
                 <fa:IconImage Foreground="#ffffff" HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="Phone"/>
 
-                <hc:DatePicker Margin="200 0 0 40" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="Hand"/>
+                <hc:DatePicker x:Name="dpDateOfBirth" Margin="200 0 0 40" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="Hand"/>
                 <ComboBox x:Name="cbTypeClient" VerticalAlignment="Bottom" FontSize="20" Height="45" Width="250" Margin="200 0 0 105" Background="Transparent" BorderThickness="0" Foreground="Black"/>
 
 
@@ -311,7 +311,7 @@
                 Margin="0 50 30 0"
                 VerticalContentAlignment="Center"/>
 
-                <hc:DatePicker Margin="200 100 0 0" VerticalAlignment="Top" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="Hand"/>
+                <hc:DatePicker x:Name="dpDateOfIssued" Margin="200 100 0 0" VerticalAlignment="Top" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="Hand"/>
 
 
                 <TextBox x:Name="txtINN"

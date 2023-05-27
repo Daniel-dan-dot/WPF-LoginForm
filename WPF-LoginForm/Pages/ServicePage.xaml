@@ -12,7 +12,7 @@
       Title="ServicePage">
 
     <Grid>
-        <Button Margin="120 0 0 300" x:Name="btnDeposit" Click="btnDeposit_Click" HorizontalAlignment="Left" Height="250" Width="300" BorderThickness="0" Cursor="Hand">
+        <Button Margin="100 0 0 300" x:Name="btnDeposit" Click="btnDeposit_Click" HorizontalAlignment="Left" Height="250" Width="400" BorderThickness="0" Cursor="Hand">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="#614385" Offset="1"/>
@@ -21,10 +21,10 @@
                 </LinearGradientBrush>
             </Button.Background>
             <Button.Clip>
-                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 400 250"/>
             </Button.Clip>
             <Grid>
-                <Ellipse Width="220" Height="220" Margin="0 80 -60 0" HorizontalAlignment="Right">
+                <Ellipse Width="280" Height="280" Margin="0 70 -120 0" HorizontalAlignment="Right">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#9890e3" Offset="1"/>
@@ -32,7 +32,7 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="160" Height="160" Margin="0 0 80 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Ellipse Width="170" Height="170" Margin="0 0 100 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#9890e3" Offset="1"/>
@@ -41,7 +41,7 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Ellipse Width="120" Height="120" Margin="0 30 -100 0" VerticalAlignment="Top" HorizontalAlignment="Right">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                             <GradientStop Color="#9890e3" Offset="1"/>
@@ -50,16 +50,17 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <fa:IconImage Icon="Briefcase" Foreground="#614385" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-                <StackPanel Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock Text="ВКЛАДЫ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="140"/>
+                <fa:IconImage Icon="Briefcase" Foreground="#614385" Margin="0 100 -30 0" Width="110" Height="110" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <StackPanel Margin="-40 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="ВКЛАДЫ" Foreground="#ffffff" FontSize="40" FontWeight="SemiBold" Width="280"/>
                 </StackPanel>
-
+                
             </Grid>
         </Button>
 
-        <Button Margin="120 250 0 0" HorizontalAlignment="Left" Height="250" Width="300" BorderThickness="0" Cursor="Hand">
+        <Button Margin="100 250 0 0" x:Name="btnInvetment" Click="btnInvetment_Click"  HorizontalAlignment="Left" Height="250" Width="400" BorderThickness="0" Cursor="Hand">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="#614385" Offset="1"/>
@@ -68,10 +69,10 @@
                 </LinearGradientBrush>
             </Button.Background>
             <Button.Clip>
-                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 400 250"/>
             </Button.Clip>
             <Grid>
-                <Ellipse Width="220" Height="220" Margin="0 80 -60 0" HorizontalAlignment="Right">
+                <Ellipse Width="280" Height="280" Margin="0 70 -120 0" HorizontalAlignment="Right">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#ffafbd" Offset="1"/>
@@ -79,7 +80,7 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="160" Height="160" Margin="0 0 80 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Ellipse Width="170" Height="170" Margin="0 0 100 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#ffafbd" Offset="1"/>
@@ -88,7 +89,7 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Ellipse Width="120" Height="120" Margin="0 30 -100 0" VerticalAlignment="Top" HorizontalAlignment="Right">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                             <GradientStop Color="#9890e3" Offset="1"/>
@@ -97,16 +98,16 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <fa:IconImage Icon="ChartArea" Foreground="#60273a" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-                <StackPanel Margin="-15 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock Text="ИНВЕСТИЦИИ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="220"/>
+                <fa:IconImage Icon="ChartArea" Foreground="#60273a" Margin="0 100 -30 0" Width="110" Height="110" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <StackPanel Margin="-50 15 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="ИНВЕСТИЦИИ" Foreground="#ffffff" FontSize="40" FontWeight="SemiBold" Width="280"/>
                 </StackPanel>
-
             </Grid>
         </Button>
 
-        <Button Margin="460 0 0 300" HorizontalAlignment="Left" Height="250" Width="300" BorderThickness="0" Cursor="Hand">
+        <Button Margin="550 0 0 300" x:Name="btnCredit" Click="btnCredit_Click"  HorizontalAlignment="Left" Height="250" Width="400" BorderThickness="0" Cursor="Hand">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="#df89b5" Offset="0"/>
@@ -115,10 +116,10 @@
                 </LinearGradientBrush>
             </Button.Background>
             <Button.Clip>
-                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 400 250"/>
             </Button.Clip>
             <Grid>
-                <Ellipse Width="220" Height="220" Margin="0 80 -60 0" HorizontalAlignment="Right">
+                <Ellipse Width="280" Height="280" Margin="0 70 -120 0" HorizontalAlignment="Right">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#ed6ea0" Offset="1"/>
@@ -126,7 +127,7 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="160" Height="160" Margin="0 0 80 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Ellipse Width="170" Height="170" Margin="0 0 90 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#ed6ea0" Offset="1"/>
@@ -135,7 +136,7 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Ellipse Width="120" Height="120" Margin="0 30 -100 0" VerticalAlignment="Top" HorizontalAlignment="Right">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                             <GradientStop Color="#ed6ea0" Offset="1"/>
@@ -144,16 +145,16 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <fa:IconImage Icon="MoneyBill1Wave" Foreground="#750d1f" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <fa:IconImage Icon="MoneyBill1Wave" Foreground="#750d1f" Margin="0 100 -30 0" Width="110" Height="110" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-                <StackPanel Margin="-15 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock Text="КРЕДИТЫ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="240"/>
+                <StackPanel Margin="-40 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="КРЕДИТЫ" Foreground="#ffffff" FontSize="40" FontWeight="SemiBold" Width="240"/>
                 </StackPanel>
 
             </Grid>
         </Button>
 
-        <Button Margin="460 250 0 0" HorizontalAlignment="Left" Height="250" Width="300" BorderThickness="0" Cursor="Hand">
+        <Button Margin="550 250 0 0" x:Name="btnInsurance" Click="btnInsurance_Click" HorizontalAlignment="Left" Height="250" Width="400" BorderThickness="0" Cursor="Hand">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="#614385" Offset="1"/>
@@ -162,18 +163,18 @@
                 </LinearGradientBrush>
             </Button.Background>
             <Button.Clip>
-                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 300 250"/>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 400 250"/>
             </Button.Clip>
             <Grid>
-                <Ellipse Width="220" Height="220" Margin="0 80 -70 0" HorizontalAlignment="Right">
+                <Ellipse Width="280" Height="280" Margin="0 70 -120 0" HorizontalAlignment="Right">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#64b3f4" Offset="1"/>
-                            <GradientStop Color="#c2e59c" Offset="0.5"/>
+                            <GradientStop Color="#c2e59c" Offset="0.1"/>
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="160" Height="160" Margin="0 0 40 -80" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Ellipse Width="170" Height="170" Margin="0 0 100 -70" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                             <GradientStop Color="#64b3f4" Offset="1"/>
@@ -182,7 +183,8 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Ellipse Width="80" Height="80" Margin="0 60 -60 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Ellipse Width="120" Height="120" Margin="0 30 -100 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                             <GradientStop Color="#c2e59c" Offset="1"/>
@@ -191,10 +193,10 @@
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <fa:IconImage Icon="BuildingCircleCheck" Foreground="#214d74" Margin="0 100 20 0" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <fa:IconImage Icon="BuildingCircleCheck" Foreground="#214d74" Margin="0 100 -30 0" Width="110" Height="110" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-                <StackPanel Margin="-20 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock Text="СТРАХОВАНИЕ" Foreground="#ffffff" FontSize="32" FontWeight="SemiBold" Width="240"/>
+                <StackPanel Margin="-50 15 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="СТРАХОВАНИЕ" Foreground="#ffffff" FontSize="40" FontWeight="SemiBold" Width="280"/>
                 </StackPanel>
 
             </Grid>

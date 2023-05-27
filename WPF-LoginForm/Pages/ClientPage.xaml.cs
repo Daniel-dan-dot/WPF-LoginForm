@@ -141,8 +141,35 @@ namespace WPF_LoginForm.Pages
 
         private void btnEditClient_Click(object sender, RoutedEventArgs e)
         {
-            AddClientWindow addClientWindow = new AddClientWindow();
-            addClientWindow.Show();
+            var _db = DB_BANK4Entities1.GetContext();
+
+            AddClientWindow ClientWindow = new AddClientWindow();
+            Client client = new Client();
+
+
+            ClientWindow.Show();
+            int id = (DGclient.SelectedItem as ClientShort).id;
+            client = _db.Clients.Find(id);
+
+            _db.SaveChanges();
+            LoadClient();
+
+
+            ClientWindow.txtLastName.Text = client.LastName;
+            ClientWindow.txtFirstName.Text = client.FirstName;
+            ClientWindow.txtPatronymic.Text = client.Patronymic;
+            ClientWindow.dpDateOfBirth.Text = client.DateOfBirth.ToString("D");
+            ClientWindow.txtAddress.AppendText(client.Address);
+            ClientWindow.txtPhone.Text = client.Telephone;
+            ClientWindow.cbTypeClient.Text = client.TypeClient.Name;
+            ClientWindow.txtSerialPassport.Text = client.ClientInfo.SerialPassport;
+            ClientWindow.txtNumberPassport.Text = client.ClientInfo.NumberPassport;
+            ClientWindow.txtIssuedBy.AppendText(client.ClientInfo.IssuedBy);
+            ClientWindow.dpDateOfIssued.Text = client.ClientInfo.DateOfIssue.ToString("D");
+            ClientWindow.txtINN.Text = client.ClientInfo.INN;
+            ClientWindow.txtSNILS.Text = client.ClientInfo.SNILS;
+
+
         }
 
         private void btnDeleteClient_Click(object sender, RoutedEventArgs e)
