@@ -37,9 +37,7 @@ namespace WPF_LoginForm.Pages
         }
 
         private void LoadClient()
-        {
-
-            
+        {    
             dataGridList = DB_BANK4Entities1.GetContext().Clients.ToList();
             clientList = dataGridList.Select(s => new ClientShort()
             {
@@ -60,19 +58,20 @@ namespace WPF_LoginForm.Pages
             DGclient.ItemsSource = clientList.Take(7).ToList();
             pagGrid.MaxPageCount = (int)Math.Ceiling(clientList.Count / 7.0);
             txtCount.Text = "Найдено записей: ";
-            txtCount.Text += dataGridList.Count().ToString();
+            txtCount.Text += clientList.Count().ToString();
         }
 
         private void LoadClient(string filtr)
         {
-            if (filtr == "")
-            {
-                LoadClient();
-            }
-            else
-            {
-                dataGridList = DB_BANK4Entities1.GetContext().Clients.ToList();
-                clientList = dataGridList.Where(x=>x.LastName.StartsWith(filtr)).Select(s => new ClientShort()
+            //filtr = "Краснова";
+            //if (filtr == string.Empty)
+            //    LoadClient();
+            //else
+            //{
+            filtr = "Краснова";
+
+            dataGridList = DB_BANK4Entities1.GetContext().Clients.ToList();
+                clientList = dataGridList.Where(x => x.LastName.StartsWith(filtr)).Select(s => new ClientShort()
                 {
                     id = s.Id,
                     FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
@@ -87,12 +86,13 @@ namespace WPF_LoginForm.Pages
                     snils = s.ClientInfo.SNILS,
 
                 }).OrderByDescending(s => s.id).ToList();
-
+                LoadClient();
                 DGclient.ItemsSource = clientList.Take(7).ToList();
                 pagGrid.MaxPageCount = (int)Math.Ceiling(clientList.Count / 7.0);
                 txtCount.Text = "Найдено записей: ";
-                txtCount.Text += dataGridList.Count().ToString();
-            }
+                txtCount.Text += clientList.Count().ToString();
+
+            
 
         }
 
@@ -135,8 +135,35 @@ namespace WPF_LoginForm.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddClientWindow addClientWindow = new AddClientWindow();
-            addClientWindow.Show();
+            var _db = DB_BANK4Entities1.GetContext();
+
+            AddClientWindow ClientWindow = new AddClientWindow();
+            Client client = new Client();
+
+            if (ClientWindow.ShowDialog() == true)
+            {
+                client.ClientInfo.SerialPassport = ClientWindow.txtSerialPassport.Text;
+                client.ClientInfo.NumberPassport = ClientWindow.txtNumberPassport.Text;
+                client.ClientInfo.IssuedBy = ClientWindow.txtIssuedBy.Text;
+                client.ClientInfo.DateOfIssue = (DateTime)ClientWindow.dpDateOfIssued.SelectedDate;
+                client.ClientInfo.INN = ClientWindow.txtINN.Text;
+                client.ClientInfo.SNILS = ClientWindow.txtSNILS.Text;
+                client.FirstName = ClientWindow.txtFirstName.Text;
+                client.LastName = ClientWindow.txtLastName.Text;
+                client.Patronymic = ClientWindow.txtPatronymic.Text;
+                client.Address = ClientWindow.txtAddress.Text;
+                client.Telephone = ClientWindow.txtPhone.Text;
+                client.DateOfBirth = (DateTime)ClientWindow.dpDateOfBirth.SelectedDate;
+                client.TypeClient = (TypeClient)ClientWindow.cbTypeClient.SelectedItem;
+
+
+                _db.Clients.Add(client);
+                _db.SaveChanges();
+
+                Growl.Warning("Клиент успешно добавлен!");
+
+                LoadClient();
+            }
         }
 
         private void btnEditClient_Click(object sender, RoutedEventArgs e)
@@ -146,21 +173,13 @@ namespace WPF_LoginForm.Pages
             AddClientWindow ClientWindow = new AddClientWindow();
             Client client = new Client();
 
-
-            ClientWindow.Show();
             int id = (DGclient.SelectedItem as ClientShort).id;
             client = _db.Clients.Find(id);
 
-            _db.SaveChanges();
-            LoadClient();
+            ClientWindow.cbTypeClient.ItemsSource = DB_BANK4Entities1.GetContext().TypeClients.ToList();
+            ClientWindow.cbTypeClient.SelectedValuePath = "Id";
+            ClientWindow.cbTypeClient.DisplayMemberPath = "Name";
 
-
-            ClientWindow.txtLastName.Text = client.LastName;
-            ClientWindow.txtFirstName.Text = client.FirstName;
-            ClientWindow.txtPatronymic.Text = client.Patronymic;
-            ClientWindow.dpDateOfBirth.Text = client.DateOfBirth.ToString("D");
-            ClientWindow.txtAddress.AppendText(client.Address);
-            ClientWindow.txtPhone.Text = client.Telephone;
             ClientWindow.cbTypeClient.Text = client.TypeClient.Name;
             ClientWindow.txtSerialPassport.Text = client.ClientInfo.SerialPassport;
             ClientWindow.txtNumberPassport.Text = client.ClientInfo.NumberPassport;
@@ -168,6 +187,36 @@ namespace WPF_LoginForm.Pages
             ClientWindow.dpDateOfIssued.Text = client.ClientInfo.DateOfIssue.ToString("D");
             ClientWindow.txtINN.Text = client.ClientInfo.INN;
             ClientWindow.txtSNILS.Text = client.ClientInfo.SNILS;
+            ClientWindow.txtLastName.Text = client.LastName;
+            ClientWindow.txtFirstName.Text = client.FirstName;
+            ClientWindow.txtPatronymic.Text = client.Patronymic;
+            ClientWindow.dpDateOfBirth.Text = client.DateOfBirth.ToString("D");
+            ClientWindow.txtAddress.AppendText(client.Address);
+            ClientWindow.txtPhone.Text = client.Telephone;
+
+            if (ClientWindow.ShowDialog() == true)
+            {
+                client.ClientInfo.SerialPassport = ClientWindow.txtSerialPassport.Text;
+                client.ClientInfo.NumberPassport = ClientWindow.txtNumberPassport.Text;
+                client.ClientInfo.IssuedBy = ClientWindow.txtIssuedBy.Text;
+                client.ClientInfo.DateOfIssue = (DateTime)ClientWindow.dpDateOfIssued.SelectedDate;
+                client.ClientInfo.INN = ClientWindow.txtINN.Text;
+                client.ClientInfo.SNILS = ClientWindow.txtSNILS.Text;
+                client.FirstName = ClientWindow.txtFirstName.Text;
+                client.LastName = ClientWindow.txtLastName.Text;
+                client.Patronymic = ClientWindow.txtPatronymic.Text;
+                client.Address = ClientWindow.txtAddress.Text;
+                client.Telephone = ClientWindow.txtPhone.Text;
+                client.DateOfBirth = (DateTime)ClientWindow.dpDateOfBirth.SelectedDate;
+                client.TypeClient = (TypeClient)ClientWindow.cbTypeClient.SelectedItem;
+
+                _db.Entry(client).State = EntityState.Modified;
+                _db.SaveChanges();
+
+                Growl.Warning("Клиент успешно изменен!");
+
+                LoadClient();
+            }
 
 
         }
@@ -193,7 +242,13 @@ namespace WPF_LoginForm.Pages
 
         private void tbFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            LoadClient(tbFilter.Text.Trim());
+            //var _db = DB_BANK4Entities1.GetContext();
+            //if (tbFilter.Text == "")
+            //    LoadClient();
+            //else
+            //    DGclient.ItemsSource = _db.Clients.Where(x => x.LastName == tbFilter.Text || x.LastName.Contains(tbFilter.Text)).ToList();
+           LoadClient(tbFilter.Text.ToString());
+
         }
     }
 }

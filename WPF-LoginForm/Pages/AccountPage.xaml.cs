@@ -30,13 +30,24 @@ namespace WPF_LoginForm.Pages
         public AccountPage()
         {
             InitializeComponent();
+            LoadAccount();
+        }
+
+        private void pagGrid_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
+        {
+            DGaccount.ItemsSource = accountList.Skip((e.Info - 1) * 7).Take(7).ToList();
+
+        }
+        private void LoadAccount()
+        {
             dataGridList = DB_BANK4Entities1.GetContext().Accounts.ToList();
             accountList = dataGridList.Select(s => new AccountShort()
             {
                 Id = s.Id,
                 Email = s.Email,
                 Login = s.Login,
-                Password=s.Password,
+                Password = s.Password,
+                Role=s.Role.Name,
                 FIOEmployee = $"{s.Employee.LastName} {s.Employee.FirstName[0]}.{s.Employee.Patronymic[0]}.",
                 Post = s.Employee.Post.Name,
 
@@ -48,12 +59,6 @@ namespace WPF_LoginForm.Pages
             txtCount.Text += dataGridList.Count().ToString();
         }
 
-        private void pagGrid_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
-        {
-            DGaccount.ItemsSource = accountList.Skip((e.Info - 1) * 7).Take(7).ToList();
-
-        }
-
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddAccountsWindow addAccountWindow = new AddAccountsWindow();
@@ -62,7 +67,18 @@ namespace WPF_LoginForm.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Growl.Error("Запись удалена");
+            var _db = DB_BANK4Entities1.GetContext();
+            var dialog = new NotificationWindow();
+            if (dialog.ShowDialog() == true)
+            {
+                int id = (DGaccount.SelectedItem as AccountShort).Id;
+                Account account = _db.Accounts.Find(id);
+
+                _db.Accounts.Remove(account);
+                _db.SaveChanges();
+                LoadAccount();
+                Growl.Success("Аккаунт успешно удален!");
+            }
 
         }
 

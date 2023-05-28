@@ -364,9 +364,6 @@
     <Compile Include="View\AddAccountsWindow.xaml.cs">
       <DependentUpon>AddAccountsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddAccountWindow.xaml.cs">
-      <DependentUpon>AddAccountWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\AddClientWindow.xaml.cs">
       <DependentUpon>AddClientWindow.xaml</DependentUpon>
     </Compile>
@@ -388,6 +385,9 @@
     </Compile>
     <Compile Include="View\NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NotificationWIndowLogin.xaml.cs">
+      <DependentUpon>NotificationWIndowLogin.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary\buttonsStyle.xaml">
       <SubType>Designer</SubType>
@@ -457,10 +457,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddAccountWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\AddClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -487,6 +483,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Page Include="View\NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NotificationWIndowLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

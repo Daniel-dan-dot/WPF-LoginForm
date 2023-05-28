@@ -1,6 +1,7 @@
 ﻿using HandyControl.Controls;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WPF_LoginForm.Model;
+using WPF_LoginForm.Pages;
+using WPF_LoginForm.Short;
 
 namespace WPF_LoginForm.View
 {
@@ -25,19 +28,13 @@ namespace WPF_LoginForm.View
         public AddEmployeeWindow()
         {
             InitializeComponent();
-            //cbPost.DisplayMemberPath;
-            //cbPost.SelectedValuePath;
 
-
-            cbPost.ItemsSource = DB_BANK4Entities1.GetContext().Posts.ToList();
-            cbPost.SelectedValuePath = "Id";
-            cbPost.DisplayMemberPath = "Name";
 
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            DialogResult = false;
 
         }
 
@@ -48,30 +45,19 @@ namespace WPF_LoginForm.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            var _db = DB_BANK4Entities1.GetContext();
-
-
-
-            Employee employee = new Employee();
-            employee.FirstName = txtFirstName.Text;
-            employee.LastName = txtLastName.Text;
-            employee.Patronymic = txtPatronymic.Text;
-            employee.Address = txtAddress.Text;
-            employee.Telephone = txtPhone.Text;
-            employee.DateOfBirth = (DateTime)dpDateOfBirth.SelectedDate;
-            employee.Post = (Post)cbPost.SelectedItem;
-
-            _db.Employees.Add(employee);
-            _db.SaveChanges();
-            this.Close();
-            Growl.SuccessGlobal("Запись добавлена");
-
+            DialogResult = true;
         }
 
-        private void txtPhone_KeyDown(object sender, KeyEventArgs e)
+        private void num_KeyDown(object sender, KeyEventArgs e)
         {
-            if (!Char.IsDigit((char)e.Key)) return;
-            else e.Handled = true;
+            if (Char.IsDigit((char)e.Key)||Char.IsSymbol((char)e.Key)) 
+             e.Handled = true;
+        }
+
+        private void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Char.IsDigit((char)e.Key))
+                e.Handled = true;
         }
     }
 }

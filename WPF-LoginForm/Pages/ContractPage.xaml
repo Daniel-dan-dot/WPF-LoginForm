@@ -24,12 +24,6 @@
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Вклады" Height="38" Width="250" Margin="5 0">
                 <Grid Background="Transparent">
                     <DataGrid x:Name="DGcontractDeposit" FontSize="14" Height="350" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-                        <DataGrid.RowHeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                            </DataTemplate>
-                        </DataGrid.RowHeaderTemplate>
-
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="№ Договора" Binding="{Binding numberContract}" Width="190" />
@@ -160,12 +154,6 @@
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Кредиты" Height="38" Width="250" Margin="5 0">
                 <Grid Background="Transparent">
                     <DataGrid x:Name="DGcontractCredit" FontSize="14" Height="350" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-                        <DataGrid.RowHeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                            </DataTemplate>
-                        </DataGrid.RowHeaderTemplate>
-
 
 
                         <DataGrid.Columns>
@@ -298,14 +286,6 @@
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Инвестиции" Height="38" Width="250" Margin="5 0">
                 <Grid Background="Transparent">
                     <DataGrid x:Name="DGcontractInvestment" FontSize="14" Height="350" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-                        <DataGrid.RowHeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                            </DataTemplate>
-                        </DataGrid.RowHeaderTemplate>
-
-
-
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="№ Договора" Binding="{Binding numberContract}" Width="190" />
                             <DataGridTextColumn Header="Клиент" Binding="{Binding FIOClient}" Width="120"/>
@@ -435,13 +415,6 @@
             <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Header= "Страхование"  Height="38" Width="250" Margin="5 0">
                 <Grid Background="Transparent">
                     <DataGrid x:Name="DGcontractInsurance" FontSize="14" Height="350" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-                        <DataGrid.RowHeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                            </DataTemplate>
-                        </DataGrid.RowHeaderTemplate>
-
-
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="№ Договора" Binding="{Binding numberContract}" Width="190" />
                             <DataGridTextColumn Header="Клиент" Binding="{Binding FIOClient}" Width="120"/>

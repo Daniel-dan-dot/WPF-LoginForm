@@ -176,7 +176,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 65 0 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="txt_KeyDown"/>
 
                 <TextBox x:Name="txtFirstName"
                 FontSize="20"
@@ -188,7 +188,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 115 0 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="txt_KeyDown"/>
 
 
                 <TextBox x:Name="txtPatronymic"
@@ -201,7 +201,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 165 0 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="txt_KeyDown"/>
 
                 <TextBox x:Name="txtAddress"
                 FontSize="20"
@@ -227,7 +227,7 @@
                 Height="45"
                 HorizontalAlignment="Right"
                 Margin="0 160 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="num_KeyDown"/>
 
                 <fa:IconImage Foreground="#ffffff" HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="Phone"/>
 
@@ -282,7 +282,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 Margin="50 0 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="num_KeyDown"/>
 
 
                 <TextBox x:Name="txtNumberPassport"
@@ -295,7 +295,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 0 0 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center"  KeyDown="num_KeyDown"/>
 
                 <fa:IconImage Foreground="#ffffff" ToolTip="Каким органом или министерством" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="MapLocation"/>
 
@@ -309,7 +309,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 50 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="txt_KeyDown"/>
 
                 <hc:DatePicker x:Name="dpDateOfIssued" Margin="200 100 0 0" VerticalAlignment="Top" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="Black" Cursor="Hand"/>
 
@@ -324,7 +324,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Margin="0 60 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center"  KeyDown="num_KeyDown"/>
 
                 <fa:IconImage Foreground="#ffffff" ToolTip="Идентификационный номер налогоплательщика" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 60 0 5" Height="25" Width="25" Icon="InfoCircle"/>
 
@@ -337,7 +337,7 @@
                 Height="45"
                 HorizontalAlignment="Right"
                 Margin="0 160 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="num_KeyDown"/>
                 <fa:IconImage Foreground="#ffffff" ToolTip="Страховой номер индивидуального лицевого счёта" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 160 0 5" Height="25" Width="25" Icon="CreditCard"/>
 
             </Grid>

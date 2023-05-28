@@ -134,5 +134,12 @@ namespace WPF_LoginForm
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void btnOut_Click(object sender, RoutedEventArgs e)
+        {
+            LoginView login = new LoginView();
+            login.Show();
+            this.Close();
+        }
     }
 }

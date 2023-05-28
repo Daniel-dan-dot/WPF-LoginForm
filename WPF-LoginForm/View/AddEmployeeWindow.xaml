@@ -181,7 +181,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 45 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="txt_KeyDown"/>
 
             <fa:IconImage Foreground="#ffffff" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="UserAlt"/>
             <TextBox x:Name="txtFirstName"
@@ -194,7 +194,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 95 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="txt_KeyDown"/>
 
             <fa:IconImage Foreground="#ffffff" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 110 0 0" Height="25" Width="25" Icon="UserAlt"/>
 
@@ -208,7 +208,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0 145 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center" KeyDown="txt_KeyDown"/>
 
             <fa:IconImage Foreground="#ffffff" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 160 0 0" Height="25" Width="25" Icon="UserAlt"/>
 
@@ -237,7 +237,8 @@
                 ToolTip="+7 ( ___ ) - ___ - __ - __"
                 HorizontalAlignment="Right"
                 Margin="0 95 30 0"
-                VerticalContentAlignment="Center"/>
+                VerticalContentAlignment="Center"
+                KeyDown="num_KeyDown"/>
 
             <fa:IconImage Foreground="#ffffff" HorizontalAlignment="Right" Margin="0 100 0 0" Height="25" Width="25" Icon="Phone"/>
             <hc:DatePicker x:Name="dpDateOfBirth" Margin="200 0 0 100" FontSize="20" Height="45" Width="250" Background="Transparent" BorderThickness="0" Foreground="#000000" Cursor="Hand"/>

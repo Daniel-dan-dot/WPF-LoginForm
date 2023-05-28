@@ -5,7 +5,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:viewModel="clr-namespace:WPF_LoginForm.ViewModel"
              xmlns:view="clr-namespace:WPF_LoginForm.View"
-             StartupUri="MainWindow.xaml">
+             StartupUri="View/LoginView.xaml">
     
     <!--View/LoginView-->
     

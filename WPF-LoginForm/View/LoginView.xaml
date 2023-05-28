@@ -154,52 +154,62 @@
 
                     <TextBox x:Name="txtLogin"
                              Text="admin"
-                             FontSize="13"
+                             FontSize="18"
                              FontWeight="Medium"
                              FontFamily="Montserrat"                            
                              Foreground="White"
+                             Background="Transparent"
                              CaretBrush="LightGray"
                              BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,2"
+                             BorderThickness="0"
                              Height="28"
+                             Width="200"
                              VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
+                             Margin="20,5,0,0"
                              Padding="20,0,0,0">
 
-                        <TextBox.Background>
-                            <ImageBrush ImageSource="/Images/user-icon.png"
-                                        Stretch="None"
-                                        AlignmentX="Left"/>
-                        </TextBox.Background>
                     </TextBox>
+                    <StackPanel Width="220" Height="2" Background="White"/>
+                    <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 -30 0 0" Height="20" Width="20" Icon="UserAlt" Foreground="#ffffff" Opacity="0.9"/>
 
+                    <TextBlock x:Name="txtErrorLogin"
+                               Foreground="#ae295a"
+                               FontSize="10"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"                             
+                               Margin="0,1,0,0"/>
+                    
                     <TextBlock Text="Пароль"
                                Foreground="DarkGray"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"                             
-                               Margin="0,15,0,0"/>
+                               Margin="0,5,0,0"/>
 
-                    <TextBox x:Name="txtPassword"
-                             FontSize="13"
+                    <PasswordBox x:Name="txtPassword"
+                             Password="admin"
+                             FontSize="18"
                              FontWeight="Medium"
                              FontFamily="Montserrat"                            
                              Foreground="White"
                              CaretBrush="LightGray"
                              BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,2"
+                             BorderThickness="0"
+                             Background="Transparent"
                              Height="28"
                              VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
+                             Margin="20,5,0,0"
                              Padding="20,0,0,0">
+                    </PasswordBox>
+                    <StackPanel Width="220" Height="2" Background="White"/>
+                    <fa:IconImage VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 -30 0 0" Height="20" Width="20" Icon="Key" Foreground="#ffffff" Opacity="0.9"/>
 
-                        <TextBox.Background>
-                            <ImageBrush ImageSource="/Images/key-icon.png"
-                                        Stretch="None"
-                                        AlignmentX="Left"/>
-                        </TextBox.Background>
-                    </TextBox>
-
+                    <TextBlock x:Name="txtErrorPassword"
+                               Foreground="#ae295a"
+                               FontSize="10"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"                             
+                               Margin="0,1,0,0"/>
                     <Button x:Name="btnLogin"                          
                             BorderThickness="0"
                             Content="ВОЙТИ"

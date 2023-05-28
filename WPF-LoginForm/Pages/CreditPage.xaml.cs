@@ -26,29 +26,13 @@ namespace WPF_LoginForm.Pages
         public CreditPage()
         {
             InitializeComponent();
-            CreditList = DB_BANK4Entities1.GetContext().Credits.ToList();
 
             cbTermCredit.ItemsSource = DB_BANK4Entities1.GetContext().TermCredits.ToList();
             cbTermCredit.SelectedValuePath = "Id";
             cbTermCredit.DisplayMemberPath = "Name";
 
 
-            CreditName1.Text += CreditList[0].Name.ToString();
-            CreditSumm1.Text += CreditList[0].MinimalSumm.ToString();
-            CreditContiditions1.Text += CreditList[0].Conditions.ToString();
-
-            CreditName2.Text += CreditList[1].Name.ToString();
-            CreditSumm2.Text += CreditList[1].MinimalSumm.ToString();
-            CreditContiditions2.Text += CreditList[1].Conditions.ToString();
-
-            CreditName3.Text += CreditList[2].Name.ToString();
-            CreditSumm3.Text += CreditList[2].MinimalSumm.ToString();
-            CreditContiditions3.Text += CreditList[2].Conditions.ToString();
-
-            CreditName4.Text += CreditList[3].Name.ToString();
-            CreditSumm4.Text += CreditList[3].MinimalSumm.ToString();
-            CreditContiditions4.Text += CreditList[3].Conditions.ToString();
-
+            DGcredit.ItemsSource = DB_BANK4Entities1.GetContext().Credits.ToList();
 
 
 

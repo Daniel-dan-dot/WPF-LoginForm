@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Tools.Extension;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_LoginForm.Model;
+using WPF_LoginForm.Short;
 
 namespace WPF_LoginForm.View
 {
@@ -50,37 +52,54 @@ namespace WPF_LoginForm.View
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            var _db = DB_BANK4Entities1.GetContext();
 
-            //string Login = txtLogin.Text;
-            //string Password = txtPassword.Text;
-
-
-            //if (accountDB = DB_BANK4Entities1.GetContext().Account.Any(u => u.Login == Login))
-            //{
-
-            //    var accountList = accountDB.AccountRoles.Where(s => s.Account.Login == Login).
-            //        Select(u => new { u.Account.Email, u.Role.Name, u.Account.Employee.FirstName, u.Account.Employee.LastName, u.Account.Employee.Patronymic, u.Account.Employee.DateOfBirth }).ToList();
-
-            //    var dateOfBirth = accountList[0].DateOfBirth.ToString("D");
-            //    string forHash = $"{accountList[0].Email}{Login}{Password}{accountList[0].FirstName}{accountList[0].LastName}{accountList[0].Patronymic}{dateOfBirth}";
-
-            //    byte[] passwordByte = SHA512.Create().ComputeHash(Encoding.BigEndianUnicode.GetBytes(forHash));
+            string Login = txtLogin.Text;
+            string Password = txtPassword.Password;
 
 
-            //    if (accountDB.Accounts.Any(u => u.Login == Login && u.Password == passwordByte))
-            //    {
+            if (_db.Accounts.Any(u => u.Login == Login))
+            {
 
-            //        MessageBox.Show("Вход подтвержден");
-            //        TheAcess = true;
-            //        TheAccountRole = accountList[0].Name;
+                var accountList = _db.Accounts.Where(s => s.Login == Login).
+                    Select(u => new { u.Login, u.Email,u.Employee.LastName, u.Employee.FirstName, u.Role.Name }).ToList();
 
-            //        this.Close();
-            //    }
-            //    else
-            //        MessageBox.Show("Не верный пароль.");
-            //}
-            //else
-            //    MessageBox.Show("Не верный логин.");
+                string forHash = $"{Login}{Password}";
+
+                byte[] passwordByte = SHA512.Create().ComputeHash(Encoding.BigEndianUnicode.GetBytes(forHash));
+
+
+                if (_db.Accounts.Any(u => u.Login == Login && u.Password == passwordByte))
+                {
+
+
+                    MainWindow main = new MainWindow();
+                    Employee employee = new Employee();
+                    Account account = new Account();
+
+                    if (accountList[0].Name == "Менеджер" || accountList[0].Name == "Сотрудник")
+                    {
+                        main.AccountMenu.Hide();
+                        
+                        if(accountList[0].Name == "Сотрудник")
+                            main.EmployeeMenu.Hide();
+                    }
+
+                    main.NameEmployee.Text = $"{accountList[0].LastName} {accountList[0].FirstName}";
+                    main.ShortNameEmployee.Text = $"{accountList[0].LastName[0]}{accountList[0].FirstName[0]}";
+                    main.Role.Text = $"{accountList[0].Name}";
+                    main.Show();
+                    this.Close();
+
+                }
+                else
+                    txtErrorPassword.Text=string.Empty;
+                    txtErrorPassword.Text ="*Не верный пароль";
+            }
+            else
+                txtErrorLogin.Text = string.Empty;
+                txtErrorLogin.Text = "*Не верный логин";
+
         }
     }
 }

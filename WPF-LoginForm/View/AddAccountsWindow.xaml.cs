@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,21 +28,23 @@ namespace WPF_LoginForm.View
         public AddAccountsWindow()
         {
             InitializeComponent();
-            //dataList = DB_BANK4Entities1.GetContext().Employees.ToList();
-            //employeeShort = dataList.Select(s => new ShortEmployeeShort()
-            //{
-            //    Id = s.Id,
-            //    FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
-            //}).ToList();
+            dataList = DB_BANK4Entities1.GetContext().Employees.ToList();
+            employeeShort = dataList.Select(s => new ShortEmployeeShort()
+            {
+                Id = s.Id,
+                FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
+            }).ToList();
 
-            cbEmployee.ItemsSource = DB_BANK4Entities1.GetContext().Employees.ToList();
+            cbEmployee.ItemsSource = employeeShort.ToList();
             cbEmployee.SelectedValuePath = "Id";
-            cbEmployee.DisplayMemberPath = "LastName";
+            cbEmployee.DisplayMemberPath = "FIO";
 
             cbRole.ItemsSource = DB_BANK4Entities1.GetContext().Roles.ToList();
             cbRole.SelectedValuePath = "Id";
             cbRole.DisplayMemberPath = "Name";
         }
+
+
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -57,22 +60,22 @@ namespace WPF_LoginForm.View
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            //var _db = DB_BANK4Entities1.GetContext();
+            var _db = DB_BANK4Entities1.GetContext();
 
+            Account account = new Account();
+            account.IdEmployee = (int)cbEmployee.SelectedValue;
+            account.Role = (Role)cbRole.SelectedItem;
+            account.Login = txtLogin.Text;
+            string forHash = $"{txtLogin.Text}{pbPassword.Password}";
+            account.Password = SHA512.Create().ComputeHash(Encoding.BigEndianUnicode.GetBytes(forHash));
 
+            account.Email = txtEmail.Text;
 
-            //Account account = new Account();
-            //account.Employee.LastName = cbEmployee.Text;
-            //account.Role.Name = cbRole.Text;
-            //account.Login = txtLogin.Text;
-            //account.Password = pbPassword.Password.ToArray();
-            //account.Email = txtEmail.Text;
+            _db.Accounts.Add(account);
+            _db.SaveChanges();
+            this.Close();
 
-            //_db.Accounts.Add(account);
-            //_db.SaveChanges();
-            //this.Close();
-           
-            //Growl.SuccessGlobal("Аккаунт успешно добавлен");
+            Growl.SuccessGlobal("Аккаунт успешно добавлен");
 
         }
     }

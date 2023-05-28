@@ -48,12 +48,6 @@
         </Button>
 
         <DataGrid x:Name="DGemployee" FontSize="14" Height="400" Margin="0 0 0 0" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-            <DataGrid.RowHeaderTemplate>
-                <DataTemplate>
-                    <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                </DataTemplate>
-            </DataGrid.RowHeaderTemplate>
-
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Сотрудник" Binding="{Binding FIO}" Width="120" />
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding dateOfBirth}" Width="140"/>

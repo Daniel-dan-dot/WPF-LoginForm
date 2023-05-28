@@ -70,8 +70,35 @@ namespace WPF_LoginForm.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+
+            var _db = DB_BANK4Entities1.GetContext();
+
             AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
-            addEmployeeWindow.Show();
+
+            Employee employee = new Employee();
+
+            
+            addEmployeeWindow.cbPost.ItemsSource = _db.Posts.ToList();
+            addEmployeeWindow.cbPost.SelectedValuePath = "Id";
+            addEmployeeWindow.cbPost.DisplayMemberPath = "Name";
+            
+            if (addEmployeeWindow.ShowDialog() == true)
+            {
+                employee.FirstName = addEmployeeWindow.txtFirstName.Text;
+                employee.LastName = addEmployeeWindow.txtLastName.Text;
+                employee.Patronymic = addEmployeeWindow.txtPatronymic.Text;
+                employee.Address = addEmployeeWindow.txtAddress.Text;
+                employee.Telephone = addEmployeeWindow.txtPhone.Text;
+                employee.DateOfBirth = (DateTime)addEmployeeWindow.dpDateOfBirth.SelectedDate;
+                employee.Post = (Post)addEmployeeWindow.cbPost.SelectedItem;
+
+                _db.Employees.Add(employee);
+                _db.SaveChanges();
+
+                Growl.Warning("Новый сотрудник добавлен!");
+
+                LoadEmployee();
+            }
 
         }
 
@@ -99,20 +126,49 @@ namespace WPF_LoginForm.Pages
 
         private void btnModify_Click(object sender, RoutedEventArgs e)
         {
+
             var _db = DB_BANK4Entities1.GetContext();
 
-            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
-
+            AddEmployeeWindow modifyEmployeeWindow = new AddEmployeeWindow();
+   
             Employee employee = new Employee();
-            addEmployeeWindow.txtFirstName.Text = employee.FirstName;
-            addEmployeeWindow.txtLastName.Text = employee.LastName;
-            addEmployeeWindow.txtPatronymic.Text = employee.Patronymic;
-            addEmployeeWindow.txtAddress.Text = employee.Address;
-            addEmployeeWindow.txtPhone.Text = employee.Telephone;
-            addEmployeeWindow.cbPost.SelectedValue = employee.Post;
 
-            addEmployeeWindow.Show();
+            int id = (DGemployee.SelectedItem as EmployeeShort).id;
 
+            employee = _db.Employees.Find(id);
+
+            modifyEmployeeWindow.cbPost.ItemsSource = _db.Posts.ToList();
+            modifyEmployeeWindow.cbPost.SelectedValuePath = "Id";
+            modifyEmployeeWindow.cbPost.DisplayMemberPath = "Name";
+
+
+            modifyEmployeeWindow.txtFirstName.Text = employee.FirstName;
+            modifyEmployeeWindow.txtLastName.Text = employee.LastName;
+            modifyEmployeeWindow.txtPatronymic.Text = employee.Patronymic;
+            modifyEmployeeWindow.txtAddress.Text = employee.Address;
+            modifyEmployeeWindow.txtPhone.Text = employee.Telephone;
+            modifyEmployeeWindow.cbPost.SelectedItem = employee.Post;
+            modifyEmployeeWindow.dpDateOfBirth.SelectedDate = employee.DateOfBirth;
+            
+
+
+            if (modifyEmployeeWindow.ShowDialog() ==true)
+            {
+                employee.FirstName = modifyEmployeeWindow.txtFirstName.Text;
+                employee.LastName = modifyEmployeeWindow.txtLastName.Text;
+                employee.Patronymic = modifyEmployeeWindow.txtPatronymic.Text;
+                employee.Address = modifyEmployeeWindow.txtAddress.Text;
+                employee.Telephone = modifyEmployeeWindow.txtPhone.Text;
+                employee.DateOfBirth = (DateTime)modifyEmployeeWindow.dpDateOfBirth.SelectedDate;
+                employee.Post = (Post)modifyEmployeeWindow.cbPost.SelectedItem;
+
+                _db.Entry(employee).State = EntityState.Modified;
+                _db.SaveChanges();
+
+                Growl.Warning("Сотрудник успешно изменен!");
+
+                LoadEmployee();
+            }
 
         }
     }

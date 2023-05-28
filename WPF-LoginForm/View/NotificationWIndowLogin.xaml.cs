@@ -10,24 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_LoginForm.Model;
 
-namespace WPF_LoginForm.Pages
+namespace WPF_LoginForm.View
 {
     /// <summary>
-    /// Логика взаимодействия для InvestmentPage.xaml
+    /// Логика взаимодействия для NotificationWIndowLogin.xaml
     /// </summary>
-    public partial class InvestmentPage : Page
+    public partial class NotificationWIndowLogin : Window
     {
-
-        public InvestmentPage()
+        public NotificationWIndowLogin()
         {
             InitializeComponent();
-            DGinvestment.ItemsSource = DB_BANK4Entities1.GetContext().Investments.ToList();
+        }
 
-
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

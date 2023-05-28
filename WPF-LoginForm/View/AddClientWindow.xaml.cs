@@ -24,26 +24,35 @@ namespace WPF_LoginForm.View
         public AddClientWindow()
         {
             InitializeComponent();
-            cbTypeClient.ItemsSource = DB_BANK4Entities1.GetContext().TypeClients.ToList();
-            cbTypeClient.SelectedValuePath = "Id";
-            cbTypeClient.DisplayMemberPath = "Name";
+
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-
-        }
-
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            Growl.Success("Запись добавлена");
+            DialogResult = false;
 
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-                if (e.ChangedButton == MouseButton.Left) this.DragMove();
+            if (e.ChangedButton == MouseButton.Left) this.DragMove();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+        private void num_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Char.IsDigit((char)e.Key) || Char.IsSymbol((char)e.Key))
+                e.Handled = true;
+        }
+
+        private void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Char.IsDigit((char)e.Key))
+                e.Handled = true;
         }
     }
 }

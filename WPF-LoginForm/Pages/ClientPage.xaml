@@ -18,11 +18,11 @@
         <TextBox Width="250"
                  x:Name="tbFilter"      
                  Height="40"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Right"
-                       Margin="0 50 50 0"
-                       Grid.Column="1"
-                       Style="{StaticResource ModernTextBox}"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Right"
+                 Margin="0 50 50 0"
+                 Grid.Column="1"
+                 Style="{StaticResource ModernTextBox}"
                  TextChanged="tbFilter_TextChanged"/>
 
         <Button x:Name="AddButton"                          
@@ -48,13 +48,6 @@
         </Button>
         
         <DataGrid x:Name="DGclient" FontSize="14" Height="400" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-            <DataGrid.RowHeaderTemplate>    
-                <DataTemplate>
-                    <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
-                </DataTemplate>
-            </DataGrid.RowHeaderTemplate>
-            
-            <!--<hc:Pagination MaxPageCount="10" PageUpdated="page_PageUpdated" PageIndex="1"/>-->
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Клиент" Binding="{Binding FIO}" Width="130" />

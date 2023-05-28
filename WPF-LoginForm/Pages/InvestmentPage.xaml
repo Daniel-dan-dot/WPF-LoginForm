@@ -20,79 +20,58 @@
                                    Margin="10 -40 0 0"/>
             <StackPanel Height="2" Width="140" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 5 0 0"/>
             <Grid Margin="100 60 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <TextBlock Text="Название" Margin="-20 -40 -0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="400"/>
-                <TextBlock Text="Стоимость выплат" Margin="140 -40 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="200"/>
-                <TextBlock Text="Срок" Margin="400 -40 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="140"/>
-                <TextBlock Text="Описание" Margin="550 -40 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="140"/>
+                <TextBlock Text="Название" Margin="-30 -35 -0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="18" FontWeight="SemiBold" Width="400"/>
+                <TextBlock Text="риска" Margin="210 -30 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="18" FontWeight="SemiBold" Width="200"/>
+                <TextBlock Text="Уровень" Margin="200 -45 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="18" FontWeight="SemiBold" Width="200"/>
+                <TextBlock Text="Направление" Margin="310 -35 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="18" FontWeight="SemiBold" Width="140"/>
+                <TextBlock Text="Мин.взнос" Margin="440 -35 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="18" FontWeight="SemiBold" Width="140"/>
+                <TextBlock Text="Информация" Margin="560 -35 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="18" FontWeight="SemiBold" Width="140"/>
             </Grid>
 
-            <Button x:Name="Insurance1"  Margin="50,75,0,0" HorizontalAlignment="Left" Height="110" Width="750" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#884D80" Offset="1"/>
-                        <GradientStop Color="#ffc3a0" Offset="0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Clip>
-                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 750 110"/>
-                </Button.Clip>
-                <Grid Margin="-100 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="InsuranceName1" Margin="-220 -25 0 0" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="400"/>
-                    <TextBlock x:Name="InsuranceCost1" Margin="-50 -25 0 0" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="140"/>
-                    <TextBlock x:Name="InsuranceCase1" Margin="400 -36 0 0" Foreground="#ffffff" FontSize="16" FontWeight="SemiBold" Width="395"/>
-                </Grid>
-            </Button>
 
-            <Button x:Name="Insurance2"  Margin="50,190,0,0" HorizontalAlignment="Left" Height="110" Width="750" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#884D80" Offset="1"/>
-                        <GradientStop Color="#ffc3a0" Offset="0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Clip>
-                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 750 110"/>
-                </Button.Clip>
-                <Grid Margin="-50 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="InsuranceName2" Margin="-270 -25 0 0"  Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="400"/>
-                    <TextBlock x:Name="InsuranceCost2" Margin="-120 -25 0 0" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="140"/>
-                    <TextBlock x:Name="InsuranceCase2" Margin="360 -35 0 0" Foreground="#ffffff" FontSize="16" FontWeight="SemiBold" Width="410"/>
-                </Grid>
-            </Button>
-            <Button x:Name="Insurance3"  Margin="50,305,0,0" HorizontalAlignment="Left" Height="110" Width="750" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#884D80" Offset="1"/>
-                        <GradientStop Color="#ffc3a0" Offset="0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Clip>
-                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 750 110"/>
-                </Button.Clip>
-                <Grid Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="InsuranceName3"  Margin="-310 -25 0 0" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="400"/>
-                    <TextBlock x:Name="InsuranceCost3"  Margin="-150 -25 0 0" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="140"/>
-                    <TextBlock x:Name="InsuranceCase3"    Margin="330 -45 0 0" Foreground="#ffffff" FontSize="16" FontWeight="SemiBold" Width="420"/>
-                </Grid>
-            </Button>
+            <DataGrid x:Name="DGinvestment" Background="Transparent" BorderThickness="0" FontSize="14" Height="500" Margin="0 0 0 20" Width="1000" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Width="230" hc:BackgroundSwitchElement.MouseDownBackground="#d299c2" hc:BackgroundSwitchElement.MouseHoverBackground="#ebbba7"/>
+                    <DataGridTextColumn Binding="{Binding InvestmentRiskLevel.Name}" Width="130"/>
+                    <DataGridTextColumn Binding="{Binding InvestmentDirection.Name}" Width="120"/>
+                    <DataGridTextColumn Binding="{Binding MinimalContribution}" Width="80"/>
+                    <DataGridTemplateColumn IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Margin="40 -4 0 0" Style="{StaticResource gridButtonInfo}" Background="#d299c2" Cursor="Hand" ToolTip="{Binding NameOfIndustries}">
+                                        <fa:IconImage Icon="Industry" Style="{StaticResource gridButtonIcon}"/>
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Width="35" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                    <Button Margin="7 -4 0 0" Style="{StaticResource gridButtonInfo}" Background="#ebbba7" Cursor="Hand" ToolTip="{Binding NameOfCompanies}">
+                                        <fa:IconImage Icon="Building" Style="{StaticResource gridButtonIcon}"/>
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Width="35" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
 
-            <Button x:Name="Insurance4"  Margin="50,420,0,0" HorizontalAlignment="Left" Height="110" Width="750" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#884D80" Offset="1"/>
-                        <GradientStop Color="#ffc3a0" Offset="0"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Clip>
-                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 750 110"/>
-                </Button.Clip>
-                <Grid Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock x:Name="InsuranceName4"  Margin="-310 -25 0 0" Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="400"/>
-                    <TextBlock x:Name="InsuranceCost4"  Margin="-150 -25 0 0"  Foreground="#ffffff" FontSize="20" FontWeight="SemiBold" Width="140"/>
-                    <TextBlock x:Name="InsuranceCase4"    Margin="330 -35 0 0"  Foreground="#ffffff" FontSize="16" FontWeight="SemiBold" Width="410"/>
-                </Grid>
-            </Button>
-
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Grid>
 

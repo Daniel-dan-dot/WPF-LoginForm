@@ -126,9 +126,9 @@ namespace WPF_LoginForm.Pages
 
             var _db = DB_BANK4Entities1.GetContext();
 
-            int id = (cbTermDeposit.SelectedValue as TermDeposit).Id;
+            int id = (cbTermDeposit.SelectedItem as TermDeposit).Id;
 
-            txtBetDeposit.Text = BetDepositList[id].Bet.ToString()+" %";
+            txtBetDeposit.Text = BetDepositList[id].Bet.ToString();
 
 
         }

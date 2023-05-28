@@ -61,13 +61,13 @@
                             </LinearGradientBrush>
                         </Border.Background>
 
-                        <TextBlock Text="ДД" Foreground="#ffffff" FontSize="21" FontWeight="SemiBold"
+                        <TextBlock x:Name="ShortNameEmployee" Foreground="#ffffff" FontSize="21" FontWeight="SemiBold"
                                    TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2"/>
                     </Border>
 
                     <StackPanel Margin="0 0 -20 35" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                        <TextBlock Text="Данин Даниил" FontSize="16" Foreground="#c2cfff"/>
-                        <TextBlock Text="Администратор" FontSize="12" Foreground="#7788bf"/>
+                        <TextBlock x:Name="NameEmployee"  FontSize="16" Foreground="#c2cfff"/>
+                        <TextBlock x:Name="Role" FontSize="12" Foreground="#7788bf"/>
                     </StackPanel>
 
 
@@ -111,8 +111,7 @@
                 <!--MENU-->
 
                 <StackPanel Grid.Row="2">
-                    <Button Style="{StaticResource menuButton}" Name="Home"  Cursor="Hand" Click="Home_Click">
-
+                    <Button Style="{StaticResource menuButton}" Margin="0 15 0 0" Name="Home"  Cursor="Hand" Click="Home_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Главная" Style="{StaticResource menuButtonText}"/>
@@ -156,7 +155,7 @@
                             <TextBlock Text="Аккаунты" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
-                    <Button Style="{StaticResource menuButton}" Margin="0 220 0 0" Cursor="Hand">
+                    <Button x:Name="btnOut" Click="btnOut_Click" Style="{StaticResource menuButton}" Margin="0 220 0 0" Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="SignOut"
                                       Style="{StaticResource menuButtonIcon}"/>
