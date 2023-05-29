@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Controls;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -15,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_LoginForm.Model;
 using WPF_LoginForm.Short;
+using WPF_LoginForm.View;
 
 namespace WPF_LoginForm.Pages
 {
@@ -26,10 +28,15 @@ namespace WPF_LoginForm.Pages
         List<Deposit> DepositList = new List<Deposit>();
         List<BetDeposit> BetDepositList = new List<BetDeposit>();
 
+        byte BetDepId;
+
         public DepositPage()
         {
             InitializeComponent();
             DepositList = DB_BANK4Entities1.GetContext().Deposits.ToList();
+
+            BetDepositList = DB_BANK4Entities1.GetContext().BetDeposits.ToList();
+
 
             cbTermDeposit.ItemsSource = DB_BANK4Entities1.GetContext().TermDeposits.ToList();
             cbTermDeposit.SelectedValuePath = "Id";
@@ -124,13 +131,6 @@ namespace WPF_LoginForm.Pages
         private void Deposit1_Click(object sender, RoutedEventArgs e)
         {
 
-            var _db = DB_BANK4Entities1.GetContext();
-
-            int id = (cbTermDeposit.SelectedItem as TermDeposit).Id;
-
-            txtBetDeposit.Text = BetDepositList[id].Bet.ToString();
-
-
         }
 
         private void Deposit2_Click(object sender, RoutedEventArgs e)
@@ -156,6 +156,28 @@ namespace WPF_LoginForm.Pages
         private void Deposit6_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void cbTermDeposit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            int id = (cbTermDeposit.SelectedItem as TermDeposit).Id;
+            var betTemp = BetDepositList.Where(x => x.IdTermDeposit == id).ToList();
+
+            txtBetDeposit.Text = betTemp[0].Bet.ToString();
+
+            BetDepId = betTemp[0].Id;
+        }
+
+        private void AddSave_Click(object sender, RoutedEventArgs e)
+        {
+            Growl.Success("Договор был успешно оформлен!");
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddContractWindow contractWindow = new AddContractWindow();
+            contractWindow.Show();
         }
     }
 }

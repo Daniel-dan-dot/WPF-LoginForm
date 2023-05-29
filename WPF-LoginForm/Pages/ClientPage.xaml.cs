@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -47,7 +48,8 @@ namespace WPF_LoginForm.Pages
                 telephone = s.Telephone,
                 address = s.Address,
                 typeClient = s.TypeClient.Name,
-                serialNumberPassport = $"{s.ClientInfo.SerialPassport} / {s.ClientInfo.NumberPassport}",
+                serialPassport = s.ClientInfo.SerialPassport,
+                NumberPassport= s.ClientInfo.NumberPassport,
                 issuedBy = s.ClientInfo.IssuedBy,
                 dateOfIssue = s.ClientInfo.DateOfIssue.ToString("D"),
                 inn = s.ClientInfo.INN,
@@ -61,40 +63,29 @@ namespace WPF_LoginForm.Pages
             txtCount.Text += clientList.Count().ToString();
         }
 
-        private void LoadClient(string filtr)
-        {
-            //filtr = "Краснова";
-            //if (filtr == string.Empty)
-            //    LoadClient();
-            //else
-            //{
-            filtr = "Краснова";
+        //private void LoadClient(string filtr)
+        //{
+        //    if (filtr == "")
+        //        LoadClient();
+        //    else
+        //    {
 
-            dataGridList = DB_BANK4Entities1.GetContext().Clients.ToList();
-                clientList = dataGridList.Where(x => x.LastName.StartsWith(filtr)).Select(s => new ClientShort()
-                {
-                    id = s.Id,
-                    FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
-                    dateOfBirth = s.DateOfBirth.ToString("D"),
-                    telephone = s.Telephone,
-                    address = s.Address,
-                    typeClient = s.TypeClient.Name,
-                    serialNumberPassport = $"{s.ClientInfo.SerialPassport} / {s.ClientInfo.NumberPassport}",
-                    issuedBy = s.ClientInfo.IssuedBy,
-                    dateOfIssue = s.ClientInfo.DateOfIssue.ToString("D"),
-                    inn = s.ClientInfo.INN,
-                    snils = s.ClientInfo.SNILS,
-
-                }).OrderByDescending(s => s.id).ToList();
-                LoadClient();
-                DGclient.ItemsSource = clientList.Take(7).ToList();
-                pagGrid.MaxPageCount = (int)Math.Ceiling(clientList.Count / 7.0);
-                txtCount.Text = "Найдено записей: ";
-                txtCount.Text += clientList.Count().ToString();
-
-            
-
-        }
+        //        dataGridList = DB_BANK4Entities1.GetContext().Clients.ToList();
+        //        clientList = dataGridList.Where(x => x.LastName.StartsWith(filtr)).Select(s => new ClientShort()
+        //        {
+        //            id = s.Id,
+        //            FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
+        //            dateOfBirth = s.DateOfBirth.ToString("D"),
+        //            telephone = s.Telephone,
+        //            address = s.Address,
+        //            typeClient = s.TypeClient.Name,
+        //        }).ToList();
+        //        DGclient.ItemsSource = clientList.Take(7).ToList();
+        //        pagGrid.MaxPageCount = (int)Math.Ceiling(clientList.Count / 7.0);
+        //        txtCount.Text = "Найдено записей: ";
+        //        txtCount.Text += clientList.Count().ToString();
+        //    }
+        //}
 
         private void page_PageUpdated(object sender, HandyControl.Data.FunctionEventArgs<int> e)
         {
@@ -242,13 +233,30 @@ namespace WPF_LoginForm.Pages
 
         private void tbFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //var _db = DB_BANK4Entities1.GetContext();
-            //if (tbFilter.Text == "")
-            //    LoadClient();
-            //else
-            //    DGclient.ItemsSource = _db.Clients.Where(x => x.LastName == tbFilter.Text || x.LastName.Contains(tbFilter.Text)).ToList();
-           LoadClient(tbFilter.Text.ToString());
+            var _db = DB_BANK4Entities1.GetContext();
+            if (tbFilter.Text == "" || tbFilter.Text == "")
+                LoadClient();
+            else
+            {
 
+
+                dataGridList = DB_BANK4Entities1.GetContext().Clients.ToList();
+                clientList = dataGridList.Where(x => x.LastName.ToLower().StartsWith(tbFilter.Text)).Select(s => new ClientShort()
+                {
+                    id = s.Id,
+                    FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
+                    dateOfBirth = s.DateOfBirth.ToString("D"),
+                    telephone = s.Telephone,
+                    address = s.Address,
+                    typeClient = s.TypeClient.Name,
+                }).ToList();
+
+
+                DGclient.ItemsSource = clientList;
+                pagGrid.MaxPageCount = (int)Math.Ceiling(clientList.Count / 7.0);
+                txtCount.Text = "Найдено записей: ";
+                txtCount.Text += clientList.Count().ToString();
+            }
         }
     }
 }

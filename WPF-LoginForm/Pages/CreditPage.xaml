@@ -8,62 +8,142 @@
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       xmlns:local="clr-namespace:WPF_LoginForm.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="750" d:DesignWidth="1100"
+      d:DesignHeight="700" d:DesignWidth="1100"
       Title="CreditPage">
     <Grid>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="200" Width="300" Margin="10,0,0,50">
-            <TextBlock Text="Срок" Margin="80 0 0 0" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="50"/>
-            <ComboBox x:Name="cbTermCredit" Margin="100 0 0 50" FontSize="20" Height="45" Width="150" Background="White" BorderThickness="0" Foreground="Black"/>
+        <Button x:Name="AddButton"                          
+                Content="Договор"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Style="{StaticResource AddButtonPages}"
+                Margin="0 50 50 0"
+                Click="AddButton_Click">
 
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="AddSave"                          
+                Content="Сохранить"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Style="{StaticResource AddButtonPages}"
+                Margin="0 100 50 0"
+                Click="AddSave_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="150" Height="35"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <Grid Margin="0 0 30 0">
+            <TextBlock Text="Срок" Margin="0 0 0 250" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="200"/>
+            <TextBlock Text="Ставка" Margin="0 320 -0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="200"/>
+            <TextBlock Text="Сумма" Margin="0 40 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="200"/>
+            <TextBlock x:Name="txtBetCredit"  Margin="0 410 -10 0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="200"/>
+            <ComboBox x:Name="cbTermCredit" Margin="0 0 70 100" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Height="45" Width="200" Background="White" BorderThickness="0" Foreground="Black" 
+                      SelectionChanged="cbTermCredit_SelectionChanged"/>
+            <fa:IconImage Icon="Rub" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 10 195" Foreground="White"/>
+            <TextBlock Text="%" TextAlignment="Center" Margin="0 410 100 0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="50"/>
+            <ComboBox x:Name="cbSummCredit" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="22" FontWeight="SemiBold" Width="200" Background="White" BorderThickness="0" 
+                      Margin="0 180 70 0"
+                      SelectionChanged="cbSummCredit_SelectionChanged"/>
+            <TextBlock x:Name="txtError" Margin="0 480 -0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#ae295a" FontSize="22" FontWeight="SemiBold" Width="200"/>
         </Grid>
 
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="474,0,0,115">
-            <TextBlock Text="Ставка" Margin="0,0,100,105"  Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="100"/>
-            <TextBlock x:Name="txtBetCredit" Text="10" TextAlignment="Center" Margin="0,60,145,40"  Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="50"/>
-            <TextBlock Text="%" TextAlignment="Center" Margin="0 60 120 0" HorizontalAlignment="Right" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="50"/>
-
-        </Grid>
-
-        <Grid Height="540" Width="800" Margin="0 30 250 0" >
+        <Grid Height="510" Width="700" Margin="0 0 250 0" >
             <TextBlock Text="КРЕДИТЫ"
                                    Foreground="White"
                                    FontSize="30"
                                    Margin="10 -40 0 0"/>
             <StackPanel Height="2" Width="140" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 5 0 0"/>
             <Grid Margin="100 60 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <TextBlock Text="Название" Margin="60 -20 -0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="400"/>
-                <TextBlock Text="Мин. сумма" Margin="260 -20 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="140"/>
-                <TextBlock Text="Условия" Margin="460 -20 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" Width="140"/>
+                <TextBlock Text="Название" Margin="-20 -20 -0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="400"/>
+                <TextBlock Text="Мин. сумма" Margin="200 -20 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="140"/>
+                <TextBlock Text="Условия" Margin="430 -20 0 0" HorizontalAlignment="Left" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="140"/>
             </Grid>
 
-            <DataGrid x:Name="DGcredit" Background="Transparent" BorderThickness="0" FontSize="14" Height="500" Margin="0 20 10 0" Width="600" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" IsReadOnly="True">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Width="230" hc:BackgroundSwitchElement.MouseDownBackground="#d299c2" hc:BackgroundSwitchElement.MouseHoverBackground="#ebbba7"/>
-                    <DataGridTextColumn Binding="{Binding MinimalSumm}" Width="130"/>
-                    <DataGridTemplateColumn IsReadOnly="True" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Width="80">
-                                    <Button Margin="0 -4 0 0" Style="{StaticResource gridButtonInfo}" Background="#d299c2" Width="80" Cursor="Hand" ToolTip="{Binding Conditions}">
-                                        <fa:IconImage Icon="Book" Style="{StaticResource gridButtonIcon}"/>
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="{x:Type Button}">
-                                                <Border Width="80" Height="35"
-                                        CornerRadius="10"
-                                        Background="{TemplateBinding Background}">
-                                                    <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+            <Button x:Name="Credit1" Click="Credit1_Click" Margin="50,80,0,0" HorizontalAlignment="Left" Height="100" Width="600" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#df89b5" Offset="0"/>
+                        <GradientStop Color="#884D80" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 600 100"/>
+                </Button.Clip>
+                <Grid Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock x:Name="CreditName1" Margin="-160 -20 0 0"  Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="400"/>
+                    <TextBlock x:Name="MinSumm1" Margin="110 -15 0 0" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="140"/>
+                    <fa:IconImage x:Name="Book1" Icon="Book" Height="40" Width="40" HorizontalAlignment="Right" Foreground="White" Margin="0,-12,-119,12"/>
+                </Grid>
+            </Button>
 
+            <Button x:Name="Credit2" Click="Credit2_Click" Margin="50,190,0,0" HorizontalAlignment="Left" Height="100" Width="600" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#df89b5" Offset="0"/>
+                        <GradientStop Color="#884D80" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 600 100"/>
+                </Button.Clip>
+                <Grid Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock x:Name="CreditName2" Margin="-160 -20 0 0"  Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="400"/>
+                    <TextBlock x:Name="MinSumm2" Margin="110 -15 0 0" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="140"/>
+                    <fa:IconImage x:Name="Book2" Icon="Book" Height="40" Width="40" HorizontalAlignment="Right" Foreground="White" Margin="0,-12,-119,12"/>
+                </Grid>
+            </Button>
+            <Button x:Name="Credit3" Click="Credit3_Click" Margin="50,300,0,0" HorizontalAlignment="Left" Height="100" Width="600" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#df89b5" Offset="0"/>
+                        <GradientStop Color="#884D80" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 600 100"/>
+                </Button.Clip>
+                <Grid Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock x:Name="CreditName3"  Margin="-160 -20 0 0" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="400"/>
+                    <TextBlock x:Name="MinSumm3"  Margin="110 -15 0 0" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="140"/>
+                    <fa:IconImage x:Name="Book3" Icon="Book" Height="40" Width="40" HorizontalAlignment="Right" Foreground="White" Margin="0,-12,-119,12"/>
+                </Grid>
+            </Button>
+
+            <Button x:Name="Credit4" Click="Credit4_Click" Margin="50,410,0,0" HorizontalAlignment="Left" Height="100" Width="600" BorderThickness="0" Cursor="Hand" Grid.Row="1" VerticalAlignment="Top">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#df89b5" Offset="0"/>
+                        <GradientStop Color="#884D80" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 600 100"/>
+                </Button.Clip>
+                <Grid Margin="-10 30 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock x:Name="CreditName4"  Margin="-160 -20 0 0" Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="400"/>
+                    <TextBlock x:Name="MinSumm4"  Margin="110 -15 0 0"  Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Width="140"/>
+                    <fa:IconImage x:Name="Book4" Icon="Book" Height="40" Width="40" HorizontalAlignment="Right" Foreground="White" Margin="0,-12,-119,12"/>
+                </Grid>
+            </Button>
 
         </Grid>
 

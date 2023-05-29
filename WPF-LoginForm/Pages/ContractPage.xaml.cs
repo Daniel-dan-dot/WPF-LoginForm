@@ -42,9 +42,6 @@ namespace WPF_LoginForm.Pages
         public ContractPage()
         {
             InitializeComponent();
-
-            //TODO ДОГОВОРЫ
-            //LoadContract();
             
             //TODO ВКЛАДЫ
             LoadDepositContract();
@@ -116,26 +113,6 @@ namespace WPF_LoginForm.Pages
             txtCountCredit.Text = "Найдено записей: ";
             txtCountCredit.Text += ContractListCredit.Count().ToString();
         }
-        //private void LoadContract()
-        //{
-        //    dataGridList = DB_BANK4Entities1.GetContext().Contracts.ToList();
-        //    ContractList = dataGridList.Select(s => new ContractShort()
-        //    {
-        //        id = s.Id,
-        //        numberContract = s.NumberContract,
-        //        FIOClient = $"{s.Client.LastName} {s.Client.FirstName[0]}.{s.Client.Patronymic[0]}.",
-        //        date = s.Date.ToString("D"),
-        //        city = s.City,
-        //        score = s.Score.NumberScore,
-        //    }).OrderByDescending(s => s.id).ToList();
-
-        //    DGcontract.ItemsSource = ContractList.Take(6).ToList();
-        //    pagGrid.MaxPageCount = (int)Math.Ceiling(ContractList.Count / 6.0);
-
-        //    txtCount.Text = "Найдено записей: ";
-        //    txtCount.Text += ContractList.Count().ToString();
-        //}
-
         private void LoadDepositContract()
         {
             dataGridListDeposit = DB_BANK4Entities1.GetContext().DepositContracts.ToList();
@@ -159,55 +136,6 @@ namespace WPF_LoginForm.Pages
         {
 
         }
-
-
-
-        //private void btnInfoScore_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var _db = DB_BANK4Entities1.GetContext();
-
-        //    InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
-        //    Contract contract = new Contract();
-
-
-        //    infoScoreWindow.Show();
-        //    int id = (DGcontract.SelectedItem as ContractShort).id;
-        //    contract = _db.Contracts.Find(id);
-
-        //    _db.SaveChanges();
-        //    LoadDepositContract();
-
-
-        //    infoScoreWindow.txtNumberScore.Text = contract.Score.NumberScore;
-        //    infoScoreWindow.txtBIC.Text = contract.Score.BIC;
-        //    infoScoreWindow.txtTRCC.Text = contract.Score.TRRC;
-        //    infoScoreWindow.txtTypeScore.Text = contract.Score.TypeScore.Name;
-
-        //}
-
-        //private void btnInfoContractDeposit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var _db = DB_BANK4Entities1.GetContext();
-
-        //    InfoScoreWindow infoScoreWindow = new InfoScoreWindow();
-        //    DepositContract contract = new DepositContract();
-
-
-        //    infoScoreWindow.Show();
-        //    int id = (DGcontractDeposit.SelectedItem as ContractShort).id;
-        //    contract = _db.DepositContracts.Find(id);
-
-        //    _db.SaveChanges();
-        //    LoadDepositContract();
-
-
-        //    infoScoreWindow.txtNumberScore.Text = contract.Contract.Score.NumberScore;
-        //    infoScoreWindow.txtBIC.Text = contract.Contract.Score.BIC;
-        //    infoScoreWindow.txtTRCC.Text = contract.Contract.Score.TRRC;
-        //    infoScoreWindow.txtTypeScore.Text = contract.Contract.Score.TypeScore.Name;
-        //}
-
-
 
         private void btnDeleteContractDeposit_Click(object sender, RoutedEventArgs e)
         {
@@ -278,6 +206,7 @@ namespace WPF_LoginForm.Pages
 
         private void AddButtonCredit_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new CreditPage());
 
         }
 
@@ -426,6 +355,7 @@ namespace WPF_LoginForm.Pages
 
         private void AddButtonInvestment_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new InvestmentPage());
 
         }
 
@@ -484,6 +414,7 @@ namespace WPF_LoginForm.Pages
 
         private void AddButtonInsurance_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new InsurancePage());
 
         }
 
@@ -531,6 +462,110 @@ namespace WPF_LoginForm.Pages
         {
             DGcontractInsurance.ItemsSource = ContractListInsurance.Skip((e.Info - 1) * 6).Take(6).ToList();
 
+        }
+
+        private void tbFilterDeposit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+            if (tbFilterDeposit.Text == "" || tbFilterDeposit.Text == " ")
+                LoadDepositContract();
+            else
+            {
+                dataGridListDeposit = DB_BANK4Entities1.GetContext().DepositContracts.ToList();
+                ContractListDeposit = dataGridListDeposit.Where(x => x.Contract.Client.LastName.ToLower().StartsWith(tbFilterDeposit.Text)).Select(s => new DepositContractShort()
+                {
+                    id = s.Id,
+                    numberContract = s.Contract.NumberContract,
+                    FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
+                    date = s.Contract.Date.ToString("D"),
+                    city = s.Contract.City,
+                    score = s.Contract.Score.NumberScore,
+                }).OrderByDescending(s => s.id).ToList();
+
+                DGcontractDeposit.ItemsSource = ContractListDeposit.Take(6).ToList();
+                pagGridDeposit.MaxPageCount = (int)Math.Ceiling(ContractListDeposit.Count / 6.0);
+
+                txtCountDeposit.Text = "Найдено записей: ";
+                txtCountDeposit.Text += ContractListDeposit.Count().ToString();
+            }
+        }
+
+        private void tbFilterCredit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+            if (tbFilterCredit.Text == "" || tbFilterCredit.Text == " ")
+                LoadDepositContract();
+            else
+            {
+                dataGridListCredit = DB_BANK4Entities1.GetContext().CreditContracts.ToList();
+                ContractListCredit = dataGridListCredit.Where(x => x.Contract.Client.LastName.ToLower().StartsWith(tbFilterDeposit.Text)).Select(s => new CreditContractShort()
+                {
+                    id = s.Id,
+                    numberContract = s.Contract.NumberContract,
+                    FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
+                    date = s.Contract.Date.ToString("D"),
+                    city = s.Contract.City,
+                    score = s.Contract.Score.NumberScore,
+                }).OrderByDescending(s => s.id).ToList();
+
+                DGcontractCredit.ItemsSource = ContractListCredit.Take(6).ToList();
+                pagGridCredit.MaxPageCount = (int)Math.Ceiling(ContractListCredit.Count / 6.0);
+
+                txtCountCredit.Text = "Найдено записей: ";
+                txtCountCredit.Text += ContractListCredit.Count().ToString();
+            }
+        }
+
+        private void tbFilterInvesment_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+            if (tbFilterInvesment.Text == "" || tbFilterInvesment.Text == " ")
+                LoadDepositContract();
+            else
+            {
+                dataGridListInvestment = DB_BANK4Entities1.GetContext().InvestmentContracts.ToList();
+                ContractListInvestment = dataGridListInvestment.Where(x => x.Contract.Client.LastName.ToLower().StartsWith(tbFilterDeposit.Text)).Select(s => new InvestmentContractShort()
+                {
+                    id = s.Id,
+                    numberContract = s.Contract.NumberContract,
+                    FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
+                    date = s.Contract.Date.ToString("D"),
+                    city = s.Contract.City,
+                    score = s.Contract.Score.NumberScore,
+                }).OrderByDescending(s => s.id).ToList();
+
+                DGcontractInvestment.ItemsSource = ContractListInvestment.Take(6).ToList();
+                pagGridInvestment.MaxPageCount = (int)Math.Ceiling(ContractListInvestment.Count / 6.0);
+
+                txtCountInvestment.Text = "Найдено записей: ";
+                txtCountInvestment.Text += ContractListInvestment.Count().ToString();
+            }
+        }
+
+        private void tbFilterInsurance_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+            if (tbFilterInsurance.Text == "" || tbFilterInsurance.Text == " ")
+                LoadDepositContract();
+            else
+            {
+                dataGridListInsurance = DB_BANK4Entities1.GetContext().InsuranceContracts.ToList();
+                ContractListInsurance = dataGridListInsurance.Where(x => x.Contract.Client.LastName.ToLower().StartsWith(tbFilterDeposit.Text)).Select(s => new InsuranceContractShort()
+                {
+                    id = s.Id,
+                    numberContract = s.Contract.NumberContract,
+                    FIOClient = $"{s.Contract.Client.LastName} {s.Contract.Client.FirstName[0]}.{s.Contract.Client.Patronymic[0]}.",
+                    date = s.Contract.Date.ToString("D"),
+                    city = s.Contract.City,
+                    score = s.Contract.Score.NumberScore,
+                }).OrderByDescending(s => s.id).ToList();
+
+                DGcontractInsurance.ItemsSource = ContractListInsurance.Take(6).ToList();
+                pagGridInsurance.MaxPageCount = (int)Math.Ceiling(ContractListInsurance.Count / 6.0);
+
+                txtCountInsurance.Text = "Найдено записей: ";
+                txtCountInsurance.Text += ContractListInsurance.Count().ToString();
+            }
         }
     }
 }

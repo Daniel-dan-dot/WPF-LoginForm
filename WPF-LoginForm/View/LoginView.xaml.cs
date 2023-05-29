@@ -93,11 +93,13 @@ namespace WPF_LoginForm.View
 
                 }
                 else
-                    txtErrorPassword.Text=string.Empty;
+                    txtErrorLogin.Text = "";
+                    txtErrorPassword.Text="";
                     txtErrorPassword.Text ="*Не верный пароль";
             }
             else
-                txtErrorLogin.Text = string.Empty;
+                txtErrorPassword.Text = "";
+                txtErrorLogin.Text = "";
                 txtErrorLogin.Text = "*Не верный логин";
 
         }

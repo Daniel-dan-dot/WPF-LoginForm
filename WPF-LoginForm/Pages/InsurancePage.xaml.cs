@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_LoginForm.Model;
+using WPF_LoginForm.View;
 
 namespace WPF_LoginForm.Pages
 {
@@ -28,41 +30,37 @@ namespace WPF_LoginForm.Pages
             InitializeComponent();
             insuranceList = DB_BANK4Entities1.GetContext().Insurances.ToList();
 
-            cbTermInsurance.ItemsSource = DB_BANK4Entities1.GetContext().TermInsurances.ToList();
-            cbTermInsurance.SelectedValuePath = "Id";
-            cbTermInsurance.DisplayMemberPath = "Name";
+            //DGinsurance.ItemsSource = DB_BANK4Entities1.GetContext().Insurances.ToList();
+            cbSummInsurance.ItemsSource = DB_BANK4Entities1.GetContext().SummInsurances.ToList();
+            cbSummInsurance.SelectedValuePath = "Id";
+            cbSummInsurance.DisplayMemberPath = "Sum";
 
 
             InsuranceName1.Text += insuranceList[0].Name.ToString();
             InsuranceCost1.Text += insuranceList[0].CostOfPayments.ToString();
-            InsuranceCase1.Text += insuranceList[0].InsuranceCase.ToString();
+            Case1.ToolTip += insuranceList[0].InsuranceCase.ToString();
 
             InsuranceName2.Text += insuranceList[1].Name.ToString();
             InsuranceCost2.Text += insuranceList[1].CostOfPayments.ToString();
-            InsuranceCase2.Text += insuranceList[1].InsuranceCase.ToString();
+            Case2.ToolTip += insuranceList[1].InsuranceCase.ToString();
 
             InsuranceName3.Text += insuranceList[2].Name.ToString();
             InsuranceCost3.Text += insuranceList[2].CostOfPayments.ToString();
-            InsuranceCase3.Text += insuranceList[2].InsuranceCase.ToString();
+            Case3.ToolTip += insuranceList[2].InsuranceCase.ToString();
 
             InsuranceName4.Text += insuranceList[3].Name.ToString();
             InsuranceCost4.Text += insuranceList[3].CostOfPayments.ToString();
-            InsuranceCase4.Text += insuranceList[3].InsuranceCase.ToString();
+            Case4.ToolTip += insuranceList[3].InsuranceCase.ToString();
 
-
-
-            cbSummInsurance.ItemsSource = DB_BANK4Entities1.GetContext().SummInsurances.ToList();
-            cbSummInsurance.SelectedValuePath = "Id";
-            cbSummInsurance.DisplayMemberPath = "Summ";
-
-        }
-
-        private void Insurance1_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
         private void Insurance2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Insurance1_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -75,6 +73,17 @@ namespace WPF_LoginForm.Pages
         private void Insurance4_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void AddSave_Click(object sender, RoutedEventArgs e)
+        {
+            Growl.Success("Договор был успешно оформлен!");
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddContractWindow contractWindow = new AddContractWindow();
+            contractWindow.Show();
         }
     }
 }

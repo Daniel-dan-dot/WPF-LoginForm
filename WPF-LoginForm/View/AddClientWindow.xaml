@@ -216,9 +216,9 @@
                 VerticalContentAlignment="Center"/>
 
                 <fa:IconImage Foreground="#ffffff" ToolTip="Адрес, указанный в паспорте (желательно индекс)" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 60 0 0" Height="25" Width="25" Icon="MapLocation"/>
+                <!--Style="{StaticResource TelephoneTextBox}"-->
 
                 <TextBox x:Name="txtPhone"
-                Style="{StaticResource TelephoneTextBox}"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="Black"

@@ -14,7 +14,8 @@ namespace WPF_LoginForm.Short
         public string address { get; set; }
         public string telephone { get; set; }
         public string typeClient { get; set; }
-        public string serialNumberPassport { get; set; }
+        public string serialPassport { get; set; }
+        public string NumberPassport { get; set; }
         public string issuedBy { get; set; }
         public string dateOfIssue { get; set; }
         public string inn { get; set; }

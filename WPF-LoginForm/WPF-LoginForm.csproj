@@ -352,6 +352,7 @@
     <Compile Include="Short\EmployeeShort.cs" />
     <Compile Include="Short\InsuranceContractShort.cs" />
     <Compile Include="Short\InvestmentContractShort.cs" />
+    <Compile Include="Short\ShortClientShort.cs" />
     <Compile Include="Short\ShortEmployeeShort.cs" />
     <Compile Include="ViewModel\EmployeesPage.xaml.cs">
       <DependentUpon>EmployeesPage.xaml</DependentUpon>
@@ -366,6 +367,9 @@
     </Compile>
     <Compile Include="View\AddClientWindow.xaml.cs">
       <DependentUpon>AddClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddContractWindow.xaml.cs">
+      <DependentUpon>AddContractWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddEmployeeWindow.xaml.cs">
       <DependentUpon>AddEmployeeWindow.xaml</DependentUpon>
@@ -458,6 +462,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddContractWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

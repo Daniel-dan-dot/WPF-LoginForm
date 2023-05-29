@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace WPF_LoginForm.Short
 {
-    public class ShortEmployeeShort
+    public class ShortClientShort
     {
         public int Id { get; set; }
         public string FIO { get; set; }
     }
 }
+

@@ -116,14 +116,32 @@
 
                     <hc:Pagination x:Name="pagGridDeposit" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGridDeposit_PageUpdated" PageIndex="1"/>
 
-                    <TextBox Width="250"
-                            Height="40"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                            Margin="0 30 50 0"
-                            Grid.Column="1"
-                            Style="{StaticResource ModernTextBox}"/>
-
+                    <TextBox Width="220"
+                 x:Name="tbFilterDeposit"      
+                 Height="40"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Right"
+                 Margin="0 20 60 0"
+                 Grid.Column="1"
+                 Foreground="White"
+                 Background="#353340"
+                 BorderThickness="0"
+                 FontSize="18"
+                 TextChanged="tbFilterDeposit_TextChanged"
+                 />
+                    <StackPanel Width="40" Height="40" 
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Margin="410 20 0 0" Background="Transparent">
+                        <Border Background="#353340" Height="40" CornerRadius="5">
+                            <fa:IconImage Icon="Search" 
+                 Width="25" Height="25" 
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="0 0 0 0"
+                 Foreground="DarkGray"/>
+                        </Border>
+                    </StackPanel>
 
                     <Button x:Name="AddButtonDeposit"                          
                             Content="Добавить"
@@ -248,13 +266,32 @@
 
                     <hc:Pagination x:Name="pagGridCredit" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGridCredit_PageUpdated" PageIndex="1"/>
 
-                    <TextBox Width="250"
-                            Height="40"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                            Margin="0 30 50 0"
-                            Grid.Column="1"
-                            Style="{StaticResource ModernTextBox}"/>
+                    <TextBox Width="220"
+                 x:Name="tbFilterCredit"      
+                 Height="40"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Right"
+                 Margin="0 20 60 0"
+                 Grid.Column="1"
+                 Foreground="White"
+                 Background="#353340"
+                 BorderThickness="0"
+                 FontSize="18"
+                 TextChanged="tbFilterCredit_TextChanged"
+                 />
+                    <StackPanel Width="40" Height="40" 
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Margin="410 20 0 0" Background="Transparent">
+                        <Border Background="#353340" Height="40" CornerRadius="5">
+                            <fa:IconImage Icon="Search" 
+                 Width="25" Height="25" 
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="0 0 0 0"
+                 Foreground="DarkGray"/>
+                        </Border>
+                    </StackPanel>
 
 
                     <Button x:Name="AddButtonCredit"                          
@@ -377,13 +414,32 @@
 
                     <hc:Pagination x:Name="pagGridInvestment" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGridInvestment_PageUpdated" PageIndex="1"/>
 
-                    <TextBox Width="250"
-                            Height="40"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                            Margin="0 30 50 0"
-                            Grid.Column="1"
-                            Style="{StaticResource ModernTextBox}"/>
+                    <TextBox Width="220"
+                 x:Name="tbFilterInvesment"      
+                 Height="40"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Right"
+                 Margin="0 20 60 0"
+                 Grid.Column="1"
+                 Foreground="White"
+                 Background="#353340"
+                 BorderThickness="0"
+                 FontSize="18"
+                 TextChanged="tbFilterInvesment_TextChanged"
+                 />
+                    <StackPanel Width="40" Height="40" 
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Margin="410 20 0 0" Background="Transparent">
+                        <Border Background="#353340" Height="40" CornerRadius="5">
+                            <fa:IconImage Icon="Search" 
+                 Width="25" Height="25" 
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="0 0 0 0"
+                 Foreground="DarkGray"/>
+                        </Border>
+                    </StackPanel>
 
 
                     <Button x:Name="AddButtonInvestment"                          
@@ -506,13 +562,32 @@
 
                     <hc:Pagination x:Name="pagGridInsurance" Cursor="Hand" Margin="100 0 0 40" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxPageCount="10" PageUpdated="pagGridInsurance_PageUpdated" PageIndex="1"/>
 
-                    <TextBox Width="250"
-                            Height="40"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                            Margin="0 30 50 0"
-                            Grid.Column="1"
-                            Style="{StaticResource ModernTextBox}"/>
+                    <TextBox Width="220"
+                 x:Name="tbFilterInsurance"      
+                 Height="40"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Right"
+                 Margin="0 20 60 0"
+                 Grid.Column="1"
+                 Foreground="White"
+                 Background="#353340"
+                 BorderThickness="0"
+                 FontSize="18"
+                 TextChanged="tbFilterInsurance_TextChanged"
+                 />
+                    <StackPanel Width="40" Height="40" 
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Margin="410 20 0 0" Background="Transparent">
+                        <Border Background="#353340" Height="40" CornerRadius="5">
+                            <fa:IconImage Icon="Search" 
+                 Width="25" Height="25" 
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="0 0 0 0"
+                 Foreground="DarkGray"/>
+                        </Border>
+                    </StackPanel>
 
 
                     <Button x:Name="AddButtonInsurance"                          

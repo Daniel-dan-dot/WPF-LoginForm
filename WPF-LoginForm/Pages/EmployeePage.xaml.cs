@@ -44,7 +44,7 @@ namespace WPF_LoginForm.Pages
 
         private void LoadEmployee()
         {
-           dataGridList = DB_BANK4Entities1.GetContext().Employees.ToList();
+            dataGridList = DB_BANK4Entities1.GetContext().Employees.ToList();
             EmplList = dataGridList.Select(s => new EmployeeShort()
             {
                 id = s.Id,
@@ -77,11 +77,11 @@ namespace WPF_LoginForm.Pages
 
             Employee employee = new Employee();
 
-            
+
             addEmployeeWindow.cbPost.ItemsSource = _db.Posts.ToList();
             addEmployeeWindow.cbPost.SelectedValuePath = "Id";
             addEmployeeWindow.cbPost.DisplayMemberPath = "Name";
-            
+
             if (addEmployeeWindow.ShowDialog() == true)
             {
                 employee.FirstName = addEmployeeWindow.txtFirstName.Text;
@@ -95,18 +95,13 @@ namespace WPF_LoginForm.Pages
                 _db.Employees.Add(employee);
                 _db.SaveChanges();
 
-                Growl.Warning("Новый сотрудник добавлен!");
+                Growl.Success("Новый сотрудник добавлен!");
 
                 LoadEmployee();
             }
 
         }
 
-
-        private void tbFindEmployee_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-
-        }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -130,7 +125,7 @@ namespace WPF_LoginForm.Pages
             var _db = DB_BANK4Entities1.GetContext();
 
             AddEmployeeWindow modifyEmployeeWindow = new AddEmployeeWindow();
-   
+
             Employee employee = new Employee();
 
             int id = (DGemployee.SelectedItem as EmployeeShort).id;
@@ -149,10 +144,10 @@ namespace WPF_LoginForm.Pages
             modifyEmployeeWindow.txtPhone.Text = employee.Telephone;
             modifyEmployeeWindow.cbPost.SelectedItem = employee.Post;
             modifyEmployeeWindow.dpDateOfBirth.SelectedDate = employee.DateOfBirth;
-            
 
 
-            if (modifyEmployeeWindow.ShowDialog() ==true)
+
+            if (modifyEmployeeWindow.ShowDialog() == true)
             {
                 employee.FirstName = modifyEmployeeWindow.txtFirstName.Text;
                 employee.LastName = modifyEmployeeWindow.txtLastName.Text;
@@ -171,7 +166,34 @@ namespace WPF_LoginForm.Pages
             }
 
         }
-    }
 
-    
+        private void tbFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+            if (tbFilter.Text == "" || tbFilter.Text == " ")
+                LoadEmployee();
+            else
+            {
+
+
+                dataGridList = DB_BANK4Entities1.GetContext().Employees.ToList();
+                EmplList = dataGridList.Where(x => x.LastName.ToLower().StartsWith(tbFilter.Text)).Select(s => new EmployeeShort()
+                {
+                    id = s.Id,
+                    FIO = $"{s.LastName} {s.FirstName[0]}.{s.Patronymic[0]}.",
+                    dateOfBirth = s.DateOfBirth.ToString("D"),
+                    telephone = s.Telephone,
+                    address = s.Address,
+                    post = s.Post.Name,
+                }).OrderByDescending(s => s.id).ToList();
+
+                DGemployee.ItemsSource = EmplList.Take(7).ToList();
+                pagGrid.MaxPageCount = (int)Math.Ceiling(EmplList.Count / 7.0);
+
+                txtCount.Text = "Найдено записей: ";
+                txtCount.Text += EmplList.Count().ToString();
+            }
+        }
+
+    }  
 }

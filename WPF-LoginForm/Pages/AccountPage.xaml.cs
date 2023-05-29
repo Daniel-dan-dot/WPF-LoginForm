@@ -82,5 +82,33 @@ namespace WPF_LoginForm.Pages
 
         }
 
+        private void tbFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _db = DB_BANK4Entities1.GetContext();
+            if (tbFilter.Text == "" || tbFilter.Text == " ")
+                LoadAccount();
+            else
+            {
+
+                dataGridList = DB_BANK4Entities1.GetContext().Accounts.ToList();
+                accountList = dataGridList.Where(x => x.Employee.LastName.ToLower().StartsWith(tbFilter.Text)).Select(s => new AccountShort()
+                {
+                    Id = s.Id,
+                    Email = s.Email,
+                    Login = s.Login,
+                    Password = s.Password,
+                    Role = s.Role.Name,
+                    FIOEmployee = $"{s.Employee.LastName} {s.Employee.FirstName[0]}.{s.Employee.Patronymic[0]}.",
+                    Post = s.Employee.Post.Name,
+
+                }).OrderByDescending(s => s.Id).ToList();
+
+                DGaccount.ItemsSource = accountList.Take(7).ToList();
+                pagGrid.MaxPageCount = (int)Math.Ceiling(accountList.Count / 7.0);
+                txtCount.Text = "Найдено записей: ";
+                txtCount.Text += dataGridList.Count().ToString();
+            }
+
+        }
     }
 }
