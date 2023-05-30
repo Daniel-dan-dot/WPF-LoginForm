@@ -25,12 +25,13 @@ namespace WPF_LoginForm.Pages
     {
         List<Credit> CreditList = new List<Credit>();
         List<BetCredit> BetCreditList = new List<BetCredit>();
+
         byte BetCrId;
 
         public CreditPage()
         {
             InitializeComponent();
-
+            AddSave.IsEnabled = true;
             CreditList = DB_BANK4Entities1.GetContext().Credits.ToList();
 
             BetCreditList = DB_BANK4Entities1.GetContext().BetCredits.ToList();
@@ -118,6 +119,8 @@ namespace WPF_LoginForm.Pages
         {
             AddContractWindow contractWindow = new AddContractWindow();
             contractWindow.Show();
+            AddSave.IsEnabled = true;
+
         }
     }
 }

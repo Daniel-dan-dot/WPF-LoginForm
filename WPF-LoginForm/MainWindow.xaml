@@ -167,9 +167,6 @@
                 <Grid x:Name="panelHeader" VerticalAlignment="Top"  Height="100" Background="Transparent">
 
                     <StackPanel Orientation="Horizontal">
-                        <!--<Image Source="/Images/LogoFin.png"
-                           Width="100" Height="100"
-                           Margin="0 0 0 0"/>-->
                         <TextBlock Margin="30 0 0 0" Text="ФИНКОРП" FontWeight="SemiBold" FontSize="28" FontFamily="Arial" Style="{StaticResource logoIcon}" Width="150"/>
 
                     </StackPanel>

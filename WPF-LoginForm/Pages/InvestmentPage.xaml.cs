@@ -30,6 +30,8 @@ namespace WPF_LoginForm.Pages
         public InvestmentPage()
         {
             InitializeComponent();
+            AddSave.IsEnabled = false;
+
             DGinvestment.ItemsSource = DB_BANK4Entities1.GetContext().Investments.ToList();
 
             InvestmentList = DB_BANK4Entities1.GetContext().Investments.ToList();
@@ -61,6 +63,8 @@ namespace WPF_LoginForm.Pages
         {
             AddContractWindow contractWindow = new AddContractWindow();
             contractWindow.Show();
+            AddSave.IsEnabled = true;
+
         }
     }
 }

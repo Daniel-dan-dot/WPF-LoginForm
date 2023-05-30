@@ -200,27 +200,7 @@
 
             </Grid>
         </Button>
-        <!--<hc:StepBar Name="step" Margin="0 20 0 0">
-            <hc:StepBarItem Content="Информация о клиенте" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3">
-            
-            </hc:StepBarItem>
-            
-            <hc:StepBarItem Content="Выбор направление услуги" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
-            <hc:StepBarItem Content="Выбор услуги" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
-            <hc:StepBarItem Content="Выбор условий" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
-            <hc:StepBarItem Content="Оформление" FontSize="14" FontWeight="SemiBold" Foreground="#9890e3"/>
-        </hc:StepBar>
-        <StackPanel Height="50" Width="1000" VerticalAlignment="Top" Margin="0 100 0 0">
-            <Grid>
-                <Button Name="Prev" Style="{StaticResource paggingButton}" Click="Prev_Click" Cursor="Hand" Width="160" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55 0 0 0" Content="Назад"/>
-                <fa:IconImage Name="PrevIcon" Icon="LeftLong" Margin="60 -2 0 0" Cursor="Hand"  Width="35" Height="35" Foreground="#4e4376" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-                <Button Name="Next" Style="{StaticResource paggingButton}" Click="Next_Click"  Cursor="Hand" Width="160" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0 0 50 0" Content="Далее"/>
-                <fa:IconImage Icon="RightLong" Margin="0 -2 60 0"  Cursor="Hand"  Width="40" Height="40" Foreground="#4e4376" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-
-            </Grid>
-
-        </StackPanel>-->
 
         
         

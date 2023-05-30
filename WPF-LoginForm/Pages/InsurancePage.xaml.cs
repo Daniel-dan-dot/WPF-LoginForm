@@ -24,10 +24,13 @@ namespace WPF_LoginForm.Pages
     public partial class InsurancePage : Page
     {
         List<Insurance> insuranceList = new List<Insurance>();
+        
 
         public InsurancePage()
         {
             InitializeComponent();
+            AddSave.IsEnabled = false;
+
             insuranceList = DB_BANK4Entities1.GetContext().Insurances.ToList();
 
             //DGinsurance.ItemsSource = DB_BANK4Entities1.GetContext().Insurances.ToList();
@@ -84,6 +87,8 @@ namespace WPF_LoginForm.Pages
         {
             AddContractWindow contractWindow = new AddContractWindow();
             contractWindow.Show();
+            AddSave.IsEnabled = true;
+
         }
     }
 }

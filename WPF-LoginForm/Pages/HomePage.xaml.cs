@@ -70,8 +70,6 @@ namespace WPF_LoginForm.Pages
             countClients.Text += dataGridListClient.Count().ToString();
             countEmployees.Text += dataGridListEmployee.Count().ToString();
 
-
-
         }
     }
 }

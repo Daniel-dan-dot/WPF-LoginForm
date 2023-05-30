@@ -24,48 +24,13 @@ namespace WPF_LoginForm
         {
             InitializeComponent();
 
-            //DGemployee.ItemsSource = DB_BANK4Entities1.GetContext().Employee.ToList();
             ConfigHelper.Instance.SetLang("ru");
             MainFrame.Content = new HomePage();
 
             NavigationService.GetNavigationService(new HomePage());
 
-            //string db = "SERVER=DESKTOP-IBJCCC1;DATABASE=DB_BANK3;UID=root;PASSWORD=;";
-
-
-
-            /*            var dialog = new LoginView();
-
-                        if (dialog.ShowDialog() == true)
-                        {
-                            MessageBox.Show($"{dialog.txtLogin}/{dialog.txtPassword}");
-
-                        }
-            */
         }
 
-        private void Authorization()
-        {
-            this.Visibility = Visibility.Collapsed;
-            var dialog = new LoginView();
-            this.Visibility = Visibility.Visible;
-            /*if (dialog.ShowDialog() == false)
-            {
-                Close();
-            }
-            else
-            {
-                if (dialog.txtLogin.Text == "admin")
-                {
-                    EmployeeMenu.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    EmployeeMenu.Visibility = Visibility.Collapsed;
-                }
-                this.Visibility = Visibility.Visible;
-            }*/
-        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -76,8 +41,7 @@ namespace WPF_LoginForm
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            //Growl.Success("Запись добавлена");
-            //Growl.SuccessGlobal("Запись добавлена");
+
             MainFrame.Content = new HomePage();
 
             NavigationService.GetNavigationService(new HomePage());
@@ -86,7 +50,6 @@ namespace WPF_LoginForm
 
         private void Empl_Click(object sender, RoutedEventArgs e)
         {
-            /*            NavigationService.Navigate(new EmployeesPage());*/
             MainFrame.Content = new EmployeePage();
 
             NavigationService.GetNavigationService(new EmployeePage());

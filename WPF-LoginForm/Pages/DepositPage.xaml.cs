@@ -33,6 +33,7 @@ namespace WPF_LoginForm.Pages
         public DepositPage()
         {
             InitializeComponent();
+            AddSave.IsEnabled = false;
             DepositList = DB_BANK4Entities1.GetContext().Deposits.ToList();
 
             BetDepositList = DB_BANK4Entities1.GetContext().BetDeposits.ToList();
@@ -168,7 +169,7 @@ namespace WPF_LoginForm.Pages
 
             BetDepId = betTemp[0].Id;
         }
-
+        
         private void AddSave_Click(object sender, RoutedEventArgs e)
         {
             Growl.Success("Договор был успешно оформлен!");
@@ -178,6 +179,7 @@ namespace WPF_LoginForm.Pages
         {
             AddContractWindow contractWindow = new AddContractWindow();
             contractWindow.Show();
+            AddSave.IsEnabled = true;
         }
     }
 }
