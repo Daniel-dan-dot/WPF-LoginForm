@@ -227,7 +227,6 @@
             <fa:IconImage Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 0 5" Height="25" Width="25" Icon="MapLocation"/>
 
             <TextBox x:Name="txtPhone"
-                Style="{StaticResource TelephoneTextBox}"
                 FontSize="20"
                 Background="Transparent"
                 Foreground="#000000"

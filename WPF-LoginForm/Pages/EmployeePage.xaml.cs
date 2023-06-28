@@ -111,7 +111,7 @@ namespace WPF_LoginForm.Pages
             {
                 int id = (DGemployee.SelectedItem as EmployeeShort).id;
                 Employee employee = _db.Employees.Find(id);
-
+                
                 _db.Employees.Remove(employee);
                 _db.SaveChanges();
                 LoadEmployee();

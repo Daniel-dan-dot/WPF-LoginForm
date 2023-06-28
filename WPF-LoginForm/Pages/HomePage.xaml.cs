@@ -57,7 +57,7 @@ namespace WPF_LoginForm.Pages
             contract4.Text += ContractList[ContractList.Count-4].numberContract.ToString();
             FIO5.Text += ContractList[ContractList.Count - 5].FIOClient.ToString();
             contract5.Text += ContractList[ContractList.Count - 5].numberContract.ToString();
-            //DGcontract.ItemsSource = ContractList.Take(4).ToList();
+            //DGcontract.ItemsSource = ContractList.Take(4).ToList();Д
 
             dataGridListClient = DB_BANK4Entities1.GetContext().Clients.ToList();
             dataGridListEmployee = DB_BANK4Entities1.GetContext().Employees.ToList();

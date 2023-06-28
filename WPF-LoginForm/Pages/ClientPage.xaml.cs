@@ -130,15 +130,22 @@ namespace WPF_LoginForm.Pages
 
             AddClientWindow ClientWindow = new AddClientWindow();
             Client client = new Client();
-
+            ClientInfo ciclient = new ClientInfo();
+            ClientWindow.cbTypeClient.ItemsSource = DB_BANK4Entities1.GetContext().TypeClients.ToList();
+            ClientWindow.cbTypeClient.SelectedValuePath = "Id";
+            ClientWindow.cbTypeClient.DisplayMemberPath = "Name";
             if (ClientWindow.ShowDialog() == true)
             {
-                client.ClientInfo.SerialPassport = ClientWindow.txtSerialPassport.Text;
-                client.ClientInfo.NumberPassport = ClientWindow.txtNumberPassport.Text;
-                client.ClientInfo.IssuedBy = ClientWindow.txtIssuedBy.Text;
-                client.ClientInfo.DateOfIssue = (DateTime)ClientWindow.dpDateOfIssued.SelectedDate;
-                client.ClientInfo.INN = ClientWindow.txtINN.Text;
-                client.ClientInfo.SNILS = ClientWindow.txtSNILS.Text;
+                ciclient.SerialPassport = ClientWindow.txtSerialPassport.Text;
+                ciclient.NumberPassport = ClientWindow.txtNumberPassport.Text;
+                ciclient.IssuedBy = ClientWindow.txtIssuedBy.Text;
+                ciclient.DateOfIssue = (DateTime)ClientWindow.dpDateOfIssued.SelectedDate;
+                ciclient.INN = ClientWindow.txtINN.Text;
+                ciclient.SNILS = ClientWindow.txtSNILS.Text;
+                _db.ClientInfoes.Add(ciclient);
+
+                _db.SaveChanges();
+
                 client.FirstName = ClientWindow.txtFirstName.Text;
                 client.LastName = ClientWindow.txtLastName.Text;
                 client.Patronymic = ClientWindow.txtPatronymic.Text;
@@ -146,12 +153,9 @@ namespace WPF_LoginForm.Pages
                 client.Telephone = ClientWindow.txtPhone.Text;
                 client.DateOfBirth = (DateTime)ClientWindow.dpDateOfBirth.SelectedDate;
                 client.TypeClient = (TypeClient)ClientWindow.cbTypeClient.SelectedItem;
-
-
                 _db.Clients.Add(client);
-                _db.SaveChanges();
 
-                Growl.Warning("Клиент успешно добавлен!");
+                Growl.Success("Клиент успешно добавлен!");
 
                 LoadClient();
             }

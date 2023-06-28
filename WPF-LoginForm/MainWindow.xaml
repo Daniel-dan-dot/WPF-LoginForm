@@ -167,7 +167,9 @@
                 <Grid x:Name="panelHeader" VerticalAlignment="Top"  Height="100" Background="Transparent">
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="30 0 0 0" Text="ФИНКОРП" FontWeight="SemiBold" FontSize="28" FontFamily="Arial" Style="{StaticResource logoIcon}" Width="150"/>
+                        <TextBlock Margin="30 0 0 0" Text="ФК |" FontWeight="SemiBold" FontSize="28" FontFamily="Arial" Style="{StaticResource logoIcon}" Width="60"/>
+                        <TextBlock Margin="0 0 0 0" Text="ФИНАНСОВАЯ" FontSize="10" FontFamily="Arial" Foreground="#d3b7ff" Width="100" Height="16"/>
+                        <TextBlock Margin="-100 20 0 0" Text="КОРПОРАЦИЯ" FontSize="10" FontFamily="Arial" Foreground="#d3b7ff" Width="100" Height="16"/>
 
                     </StackPanel>
                 </Grid>

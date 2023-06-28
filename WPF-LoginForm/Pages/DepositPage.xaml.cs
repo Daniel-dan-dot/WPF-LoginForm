@@ -49,13 +49,13 @@ namespace WPF_LoginForm.Pages
             if (DepositList[0].PossibilityOfReplenishment == true)
                 DepPR1.Text += "✓";
             else
-                DepPR1.Text += "—";
+                DepPR1.Text += "✘";
 
             if (DepositList[0].PossibilityOfWithdrawal == true)
 
                 DepPW1.Text += "✓";
             else
-                DepPW1.Text += "—";
+                DepPW1.Text += "✘";
 
 
 
@@ -64,13 +64,13 @@ namespace WPF_LoginForm.Pages
             if (DepositList[1].PossibilityOfReplenishment == true)
                 DepPR2.Text += "✓";
             else
-                DepPR2.Text += "—";
+                DepPR2.Text += "✘";
 
             if (DepositList[1].PossibilityOfWithdrawal == true)
 
                 DepPW2.Text += "✓";
             else
-                DepPW2.Text += "—";
+                DepPW2.Text += "✘";
 
 
             DepName3.Text += DepositList[2].Name.ToString();
@@ -78,13 +78,13 @@ namespace WPF_LoginForm.Pages
             if (DepositList[2].PossibilityOfReplenishment == true)
                 DepPR3.Text += "✓";
             else
-                DepPR3.Text += "—";
+                DepPR3.Text += "✘";
 
             if (DepositList[2].PossibilityOfWithdrawal == true)
 
                 DepPW3.Text += "✓";
             else
-                DepPW3.Text += "—";
+                DepPW3.Text += "✘";
 
 
             DepName4.Text += DepositList[3].Name.ToString();
@@ -92,39 +92,39 @@ namespace WPF_LoginForm.Pages
             if (DepositList[4].PossibilityOfReplenishment == true)
                 DepPR4.Text += "✓";
             else
-                DepPR4.Text += "—";
+                DepPR4.Text += "✘";
 
             if (DepositList[3].PossibilityOfWithdrawal == true)
 
                 DepPW4.Text += "✓";
             else
-                DepPW4.Text += "—";
+                DepPW4.Text += "✘";
 
             DepName5.Text += DepositList[4].Name.ToString();
             DepSumm5.Text += DepositList[4].MinimalSumm.ToString();
             if (DepositList[4].PossibilityOfReplenishment == true)
                 DepPR5.Text += "✓";
             else
-                DepPR5.Text += "—";
+                DepPR5.Text += "✘";
 
             if (DepositList[4].PossibilityOfWithdrawal == true)
 
                 DepPW5.Text += "✓";
             else
-                DepPW5.Text += "—";
+                DepPW5.Text += "✘";
 
             DepName6.Text += DepositList[5].Name.ToString();
             DepSumm6.Text += DepositList[5].MinimalSumm.ToString();
             if (DepositList[5].PossibilityOfReplenishment == true)
                 DepPR6.Text += "✓";
             else
-                DepPR6.Text += "—";
+                DepPR6.Text += "✘";
 
             if (DepositList[5].PossibilityOfWithdrawal == true)
 
                 DepPW6.Text += "✓";
             else
-                DepPW6.Text += "—";
+                DepPW6.Text += "✘";
 
 
         }
@@ -172,7 +172,7 @@ namespace WPF_LoginForm.Pages
         
         private void AddSave_Click(object sender, RoutedEventArgs e)
         {
-            Growl.Success("Договор был успешно оформлен!");
+            Growl.SuccessGlobal("Договор был успешно оформлен!");
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
